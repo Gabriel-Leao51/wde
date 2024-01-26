@@ -21,15 +21,15 @@
 </p>
 
 <p align="center">
-  <img alt="main-page" src="github\main-page.png" width="50%"><img alt="mobile-nav" src="github\mobile-nav.png" height="285.9" width="50%">
+  <img alt="main-page" src="github\main-page.png" width="50%"><img alt="mobile-nav" src="github\mobile-nav.png" width="50%">
 </p>
 
 <p align="center">
-  <img alt="cart" src="github\cart.png" width="50%"><img alt="mobile-nav" src="github\stripe.png" height="289" width="50%">
+  <img alt="cart" src="github\cart.png" width="50%"><img alt="mobile-nav" src="github\stripe.png" width="50%">
 </p>
 
 <p align="center">
-  <img alt="cart" src="github\payment-success.png" width="50%"><img alt="mobile-nav" src="github\orders.png" height="290" width="50%">
+  <img alt="cart" src="github\payment-success.png" width="50%"><img alt="mobile-nav" src="github\orders.png" width="50%">
 </p>
 
 </p>
