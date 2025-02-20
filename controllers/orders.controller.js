@@ -52,8 +52,8 @@ async function addOrder(req, res, next) {
       };
     }),
     mode: "payment",
-    success_url: "http://localhost:3000/orders/success",
-    cancel_url: "http://localhost:3000/orders/failure",
+    success_url: "https://wde-5p3f.onrender.com/orders/success",
+    cancel_url: "https://wde-5p3f.onrender.com/orders/failure",
   });
 
   res.redirect(303, session.url);
