@@ -5,7 +5,7 @@ const stripe = require("stripe")(stripeKey);
 const Order = require("../models/order.model");
 const User = require("../models/user.model");
 
-async function getOrders(req, res) {
+async function getOrders(req, res, next) {
   try {
     const orders = await Order.findAllForUser(res.locals.uid);
     res.render("customer/orders/all-orders", {
@@ -37,24 +37,30 @@ async function addOrder(req, res, next) {
 
   req.session.cart = null;
 
-  const session = await stripe.checkout.sessions.create({
-    payment_method_types: ["card"],
-    line_items: cart.items.map(function (item) {
-      return {
-        price_data: {
-          currency: "usd",
-          product_data: {
-            name: item.product.title,
+  let session;
+  try {
+    session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      line_items: cart.items.map(function (item) {
+        return {
+          price_data: {
+            currency: "usd",
+            product_data: {
+              name: item.product.title,
+            },
+            unit_amount: item.product.price.toFixed(2) * 100,
           },
-          unit_amount: item.product.price.toFixed(2) * 100,
-        },
-        quantity: item.quantity,
-      };
-    }),
-    mode: "payment",
-    success_url: "https://wde-5p3f.onrender.com/orders/success",
-    cancel_url: "https://wde-5p3f.onrender.com/orders/failure",
-  });
+          quantity: item.quantity,
+        };
+      }),
+      mode: "payment",
+      success_url: `${process.env.APP_URL}/orders/success`,
+      cancel_url: `${process.env.APP_URL}/orders/failure`,
+    });
+  } catch (error) {
+    next(error);
+    return;
+  }
 
   res.redirect(303, session.url);
 }

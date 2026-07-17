@@ -61,3 +61,37 @@ Cliente:
 - Realizar pagamento através da API Stripe
 - Observar o andamento dos seus pedidos realizados
 - Design otimizada para mobile
+
+## 🐳 Rodando localmente com Docker
+
+Pré-requisitos: [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+
+1. Copie o arquivo de exemplo de variáveis de ambiente e preencha sua chave de teste do Stripe:
+
+   ```bash
+   cp .env.example .env
+   # edite .env e defina STRIPE_KEY com uma chave de teste (sk_test_...) da sua conta Stripe
+   ```
+
+2. Suba os containers (app + MongoDB). Na primeira execução, um serviço `seed` popula o banco automaticamente:
+
+   ```bash
+   docker compose up --build
+   ```
+
+3. Acesse [http://localhost:3000](http://localhost:3000).
+
+Credenciais já populadas pelo seed:
+
+| Papel      | Email               | Senha      |
+| ---------- | ------------------- | ---------- |
+| Admin      | admin@test.com       | tester     |
+| Cliente    | user2@example.com    | usertest   |
+
+O seed também cria alguns produtos de exemplo (incluindo o "GTRACING - Black Gaming Chair") e um pedido pendente, para que a aplicação já suba pronta para uso e para testes automatizados.
+
+Para resetar completamente os dados (remove os volumes do MongoDB):
+
+```bash
+docker compose down -v
+```
