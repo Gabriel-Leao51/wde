@@ -90,6 +90,8 @@ Credenciais já populadas pelo seed:
 
 O seed também cria alguns produtos de exemplo (incluindo o "GTRACING - Black Gaming Chair") e um pedido pendente, para que a aplicação já suba pronta para uso e para testes automatizados.
 
+O MongoDB fica acessível em `127.0.0.1:27017` (apenas loopback) — usado pela suíte de testes de segurança do [`wde-test-automation`](https://github.com/Gabriel-Leao51/wde-test-automation) para a prova de conceito do `BUG-SEC-005`, e útil para inspecionar o banco localmente com qualquer client MongoDB.
+
 Para resetar completamente os dados (remove os volumes do MongoDB):
 
 ```bash
