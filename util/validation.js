@@ -1,10 +1,13 @@
 function isEmpty(value) {
-  return !value || value.trim() === '';
+  return typeof value !== 'string' || value.trim() === '';
 }
 
 function userCredentialsAreValid(email, password) {
   return (
-    email && email.includes('@') && password && password.trim().length >= 6
+    typeof email === 'string' &&
+    typeof password === 'string' &&
+    email.includes('@') &&
+    password.trim().length >= 6
   );
 }
 

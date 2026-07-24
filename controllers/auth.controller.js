@@ -106,6 +106,23 @@ function getLogin(req, res) {
 }
 
 async function login(req, res, next) {
+  const sessionErrorData = {
+    errorMessage:
+      'Invalid credentials - please double-check your email and password!',
+    email: typeof req.body.email === 'string' ? req.body.email : '',
+    password: typeof req.body.password === 'string' ? req.body.password : '',
+  };
+
+  if (
+    typeof req.body.email !== 'string' ||
+    typeof req.body.password !== 'string'
+  ) {
+    sessionFlash.flashDataToSession(req, sessionErrorData, function () {
+      res.redirect('/login');
+    });
+    return;
+  }
+
   const user = new User(req.body.email, req.body.password);
   let existingUser;
   try {
@@ -114,13 +131,6 @@ async function login(req, res, next) {
     next(error);
     return;
   }
-
-  const sessionErrorData = {
-    errorMessage:
-      'Invalid credentials - please double-check your email and password!',
-    email: user.email,
-    password: user.password,
-  };
 
   if (!existingUser) {
     sessionFlash.flashDataToSession(req, sessionErrorData, function () {
