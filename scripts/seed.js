@@ -28,31 +28,55 @@ const PRODUCTS = [
   {
     _id: new mongodb.ObjectId("000000000000000000000001"),
     title: "GTRACING - Black Gaming Chair",
-    summary: "Cadeira gamer confortável para longas sessões de jogo.",
+    summary: "Comfortable gaming chair for long gaming sessions.",
     price: 249.99,
     description:
-      "Cadeira gamer GTRACING na cor preta, com apoio lombar ajustável, encosto reclinável e braços ajustáveis. Ideal para longas sessões de jogo ou trabalho.",
+      "Black GTRACING gaming chair with adjustable lumbar support, reclining backrest, and adjustable armrests. Ideal for long gaming or work sessions.",
     image:
       "9b147a0d-d2ee-450a-b188-4b6ee7eb777d-c9a8f77d-39ac-4050-b1d5-a527ecb3b8ea-gaming-chair.webp",
+    translations: {
+      pt: {
+        title: "GTRACING - Cadeira Gamer Preta",
+        summary: "Cadeira gamer confortável para longas sessões de jogo.",
+        description:
+          "Cadeira gamer GTRACING na cor preta, com apoio lombar ajustável, encosto reclinável e braços ajustáveis. Ideal para longas sessões de jogo ou trabalho.",
+      },
+    },
   },
   {
     _id: new mongodb.ObjectId("000000000000000000000002"),
-    title: "Fone de Ouvido JBL",
-    summary: "Fone de ouvido JBL com áudio potente e confortável.",
+    title: "JBL Headphones",
+    summary: "JBL headphones with powerful, comfortable audio.",
     price: 89.9,
     description:
-      "Fone de ouvido JBL over-ear, com drivers potentes e almofadas confortáveis para uso prolongado.",
+      "Over-ear JBL headphones, with powerful drivers and comfortable cushions for extended use.",
     image: "45478fcc-4482-4067-af2c-08448e93e6c5-61KmVBD4ZfL._AC_SX522_.jpg",
+    translations: {
+      pt: {
+        title: "Fone de Ouvido JBL",
+        summary: "Fone de ouvido JBL com áudio potente e confortável.",
+        description:
+          "Fone de ouvido JBL over-ear, com drivers potentes e almofadas confortáveis para uso prolongado.",
+      },
+    },
   },
   {
     _id: new mongodb.ObjectId("000000000000000000000003"),
-    title: "Kit Teclado e Mouse sem Fio",
-    summary: "Kit teclado e mouse sem fio, prático para o dia a dia.",
+    title: "Wireless Keyboard and Mouse Kit",
+    summary: "Wireless keyboard and mouse kit, practical for everyday use.",
     price: 129.9,
     description:
-      "Kit com teclado e mouse sem fio, conexão via USB, ideal para uso doméstico ou no escritório.",
+      "Wireless keyboard and mouse kit with USB connection, ideal for home or office use.",
     image:
       "c998c0d4-afc2-45e0-9911-9f70420813f0-c6e1f239-0471-4e63-94aa-c359f126cb52-51IPtedWrsL.__AC_SX300_SY300_QL70_ML2_.jpg",
+    translations: {
+      pt: {
+        title: "Kit Teclado e Mouse sem Fio",
+        summary: "Kit teclado e mouse sem fio, prático para o dia a dia.",
+        description:
+          "Kit com teclado e mouse sem fio, conexão via USB, ideal para uso doméstico ou no escritório.",
+      },
+    },
   },
 ];
 

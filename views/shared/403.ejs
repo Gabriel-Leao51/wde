@@ -1,10 +1,10 @@
-<%- include('includes/head', { pageTitle: 'An error occurred' }) %>
+<%- include('includes/head', { pageTitle: t('errors.errorPageTitle') }) %>
 </head>
 <body>
   <%- include('includes/header') %>
   <main>
-    <h1>Not authorized!</h1>
-    <p>You are not authorized!</p>
-    <p><a class="btn" href="/">Back to safety!</a></p>
+    <h1><%= t('errors.notAuthorizedHeading') %></h1>
+    <p><%= t('errors.notAuthorizedBody') %></p>
+    <p><a class="btn" href="/"><%= t('errors.backToSafety') %></a></p>
   </main>
 <%- include('includes/footer') %>

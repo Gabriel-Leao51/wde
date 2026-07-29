@@ -1,11 +1,11 @@
-<%- include('../../shared/includes/head', { pageTitle: 'Add new product' }) %>
+<%- include('../../shared/includes/head', { pageTitle: t('products.addNewProductTitle') }) %>
 <link rel="stylesheet" href="/styles/forms.css">
 <script src="/scripts/image-preview.js" defer></script>
 </head>
 <body>
   <%- include('../../shared/includes/header') %>
   <main>
-    <h1>Add new Product</h1>
+    <h1><%= t('products.addNewProductHeading') %></h1>
     <%- include('includes/product-form', { submitPath: '/admin/products', product: {
       title: '',
       summary: '',

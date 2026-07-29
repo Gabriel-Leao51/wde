@@ -8,6 +8,7 @@ const expressSession = require("express-session");
 
 const createSessionConfig = require("./config/session");
 const db = require("./data/database");
+const localeMiddleware = require("./middlewares/locale");
 const addCsrfTokenMiddleware = require("./middlewares/csrf-token");
 const errorHandlerMiddleware = require("./middlewares/error-handler");
 const checkAuthStatusMiddleware = require("./middlewares/check-auth");
@@ -36,6 +37,8 @@ const sessionConfig = createSessionConfig();
 
 app.use(expressSession(sessionConfig));
 app.use(csrf());
+
+app.use(localeMiddleware);
 
 app.use(cartMiddleware);
 app.use(updateCartPricesMiddleware);

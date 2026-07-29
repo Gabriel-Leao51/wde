@@ -46,8 +46,7 @@ async function signup(req, res, next) {
     sessionFlash.flashDataToSession(
       req,
       {
-        errorMessage:
-          'Please check your input. Password must be at least 6 character slong, postal code must be 5 characters long.',
+        errorMessage: res.locals.t('auth.invalidSignupMessage'),
         ...enteredData,
       },
       function () {
@@ -73,7 +72,7 @@ async function signup(req, res, next) {
       sessionFlash.flashDataToSession(
         req,
         {
-          errorMessage: 'User exists already! Try logging in instead!',
+          errorMessage: res.locals.t('auth.userExistsMessage'),
           ...enteredData,
         },
         function () {
@@ -107,8 +106,7 @@ function getLogin(req, res) {
 
 async function login(req, res, next) {
   const sessionErrorData = {
-    errorMessage:
-      'Invalid credentials - please double-check your email and password!',
+    errorMessage: res.locals.t('auth.invalidCredentialsMessage'),
     email: typeof req.body.email === 'string' ? req.body.email : '',
     password: typeof req.body.password === 'string' ? req.body.password : '',
   };

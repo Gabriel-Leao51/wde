@@ -1,9 +1,9 @@
-<%- include('../../shared/includes/head', { pageTitle: 'Success!' }) %>
+<%- include('../../shared/includes/head', { pageTitle: t('orders.successTitle') }) %>
 </head>
 <body>
   <%- include('../../shared/includes/header') %>
   <main>
-    <h1>Your order was successful!</h1>
-    <p>You can visit <a href="/orders">the orders page</a> for more details!</p>
+    <h1><%= t('orders.successHeading') %></h1>
+    <p><%= t('orders.successBodyPrefix') %> <a href="/orders"><%= t('orders.successBodyLinkText') %></a> <%= t('orders.successBodySuffix') %></p>
   </main>
 <%- include('../../shared/includes/footer') %>

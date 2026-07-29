@@ -1,11 +1,11 @@
-<%- include('../../shared/includes/head', { pageTitle: 'Your Cart' }) %>
+<%- include('../../shared/includes/head', { pageTitle: t('cart.yourCartTitle') }) %>
 <link rel="stylesheet" href="/styles/cart.css">
 <script src="/scripts/cart-item-management.js" defer></script>
 </head>
 <body>
   <%- include('../../shared/includes/header') %>
   <main>
-    <h1>Your Cart</h1>
+    <h1><%= t('cart.yourCartHeading') %></h1>
     <ul id="cart-items">
       <% for (const cartItem of locals.cart.items) { %>
         <li>
@@ -14,15 +14,15 @@
       <% } %>
     </ul>
     <div id="cart-total">
-      <p>Total: $<span id="cart-total-price"><%= locals.cart.totalPrice.toFixed(2) %></span></p>
+      <p><%= t('cart.total') %>: $<span id="cart-total-price"><%= locals.cart.totalPrice.toFixed(2) %></span></p>
 
       <% if (locals.isAuth && locals.cart.totalQuantity > 0) { %>
         <form action="/orders" method="POST">
           <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
-          <button class="btn">Buy Products</button>
+          <button class="btn"><%= t('cart.buyProducts') %></button>
         </form>
       <% } else { %>
-        <p id="cart-total-fallback">Log in and add items to proceed.</p>
+        <p id="cart-total-fallback"><%= t('cart.loginToProceed') %></p>
       <% } %>
     </div>
   </main>

@@ -1,9 +1,9 @@
-<%- include('../../shared/includes/head', { pageTitle: 'Failure!' }) %>
+<%- include('../../shared/includes/head', { pageTitle: t('orders.failureTitle') }) %>
 </head>
 <body>
   <%- include('../../shared/includes/header') %>
   <main>
-    <h1>Order placement failed</h1>
-    <p>Please get in contact with our support for more details!</p>
+    <h1><%= t('orders.failureHeading') %></h1>
+    <p><%= t('orders.failureBody') %></p>
   </main>
 <%- include('../../shared/includes/footer') %>

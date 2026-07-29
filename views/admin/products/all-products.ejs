@@ -1,15 +1,15 @@
-<%- include('../../shared/includes/head', { pageTitle: 'All Products' }) %>
+<%- include('../../shared/includes/head', { pageTitle: t('products.allProductsTitle') }) %>
 <link rel="stylesheet" href="/styles/products.css">
 <script src="/scripts/product-management.js" defer></script>
 </head>
 <body>
   <%- include('../../shared/includes/header') %>
   <main>
-    <h1>Product Administration</h1>
+    <h1><%= t('products.productAdministrationTitle') %></h1>
     <section>
-      <h2>Manage Products</h2>
+      <h2><%= t('products.manageProductsHeading') %></h2>
       <p>
-        <a href="/admin/products/new" class="btn">Add Product</a>
+        <a href="/admin/products/new" class="btn"><%= t('products.addProduct') %></a>
       </p>
     </section>
     <section>

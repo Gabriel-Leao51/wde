@@ -41,10 +41,21 @@ async function getUpdateProduct(req, res, next) {
 }
 
 async function updateProduct(req, res, next) {
-  const product = new Product({
-    ...req.body,
-    _id: req.params.id,
-  });
+  let product;
+  try {
+    const existingProduct = await Product.findById(req.params.id);
+    product = new Product({
+      ...req.body,
+      _id: req.params.id,
+      // The edit form has no translation fields, so req.body never carries
+      // `translations` - without this, every edit would silently wipe out
+      // any localized copy already stored for the product.
+      translations: existingProduct.translations,
+    });
+  } catch (error) {
+    next(error);
+    return;
+  }
 
   if (req.file) {
     product.replaceImage(req.file.filename);

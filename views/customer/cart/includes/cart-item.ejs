@@ -6,6 +6,6 @@
 
   <form class="cart-item-management" data-productid="<%= item.product.id %>" data-csrf="<%= locals.csrfToken %>">
     <input type="number" value="<%= item.quantity %>" required>
-    <button class="btn btn-alt">Update</button>
+    <button class="btn btn-alt"><%= t('cart.update') %></button>
   </form>
 </article>

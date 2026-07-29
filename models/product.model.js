@@ -9,6 +9,7 @@ class Product {
     this.price = +productData.price;
     this.description = productData.description;
     this.image = productData.image; // the name of the image file
+    this.translations = productData.translations || {};
     this.updateImageData();
     if (productData._id) {
       this.id = productData._id.toString();
@@ -73,6 +74,7 @@ class Product {
       price: this.price,
       description: this.description,
       image: this.image,
+      translations: this.translations,
     };
 
     if (this.id) {

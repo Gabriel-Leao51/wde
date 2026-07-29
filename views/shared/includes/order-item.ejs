@@ -1,7 +1,8 @@
 <article class="order-item">
+  <% const statusKey = 'orders.status' + order.status.charAt(0).toUpperCase() + order.status.slice(1); %>
   <header class="order-summary">
     <h2><span class="order-item-price">$<%= order.productData.totalPrice.toFixed(2) %></span> - <%= order.formattedDate %></h2>
-    <p><span class="badge"><%= order.status.toUpperCase() %></span></p>
+    <p><span class="badge"><%= t(statusKey).toUpperCase() %></span></p>
   </header>
 
   <section class="order-details">
@@ -24,11 +25,11 @@
         <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
         <input type="hidden" name="orderid" value="<%= order.id %>">
         <select name="status">
-          <option value="pending" <% if (order.status === 'pending') { %>selected<% } %>>Pending</option>
-          <option value="fulfilled" <% if (order.status === 'fulfilled') { %>selected<% } %>>Fulfilled</option>
-          <option value="cancelled" <% if (order.status === 'cancelled') { %>selected<% } %>>Cancelled</option>
+          <option value="pending" <% if (order.status === 'pending') { %>selected<% } %>><%= t('orders.statusPending') %></option>
+          <option value="fulfilled" <% if (order.status === 'fulfilled') { %>selected<% } %>><%= t('orders.statusFulfilled') %></option>
+          <option value="cancelled" <% if (order.status === 'cancelled') { %>selected<% } %>><%= t('orders.statusCancelled') %></option>
         </select>
-        <button class="btn btn-alt">Update</button>
+        <button class="btn btn-alt"><%= t('orders.update') %></button>
       </form>
     </section>
   <% } %>

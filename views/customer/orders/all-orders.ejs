@@ -1,10 +1,10 @@
-<%- include('../../shared/includes/head', { pageTitle: 'All Your Orders' }) %>
+<%- include('../../shared/includes/head', { pageTitle: t('orders.allYourOrdersTitle') }) %>
 <link rel="stylesheet" href="/styles/orders.css">
 </head>
 <body>
   <%- include('../../shared/includes/header') %>
   <main>
-    <h1>All Your Orders</h1>
+    <h1><%= t('orders.allYourOrdersHeading') %></h1>
     <%- include('../../shared/includes/order-list') %>
   </main>
 <%- include('../../shared/includes/footer') %>

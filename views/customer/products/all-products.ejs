@@ -1,10 +1,10 @@
-<%- include('../../shared/includes/head', { pageTitle: 'All Products' }) %>
+<%- include('../../shared/includes/head', { pageTitle: t('products.allProductsTitle') }) %>
 <link rel="stylesheet" href="/styles/products.css">
 </head>
 <body>
   <%- include('../../shared/includes/header') %>
   <main>
-    <h1>All Products</h1>
+    <h1><%= t('products.allProductsTitle') %></h1>
     <ul id="products-grid">
       <% for (const product of products) { %>
         <li>
