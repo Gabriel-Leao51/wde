@@ -6,6 +6,6 @@
   <%- include('../../shared/includes/header') %>
   <main>
     <h1><%= t('products.updateProductHeading') %></h1>
-    <%- include('includes/product-form', { submitPath: '/admin/products/' + product.id, product: product, imageRequired: false }) %>
+    <%- include('includes/product-form', { submitPath: '/admin/products/' + product.id, product: product, imageRequired: false, departments: departments }) %>
   </main>
 <%- include('../../shared/includes/footer') %>

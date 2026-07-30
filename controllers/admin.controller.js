@@ -1,5 +1,6 @@
 const Product = require('../models/product.model');
 const Order = require('../models/order.model');
+const DEPARTMENTS = require('../utils/departments');
 
 async function getProducts(req, res, next) {
   try {
@@ -12,7 +13,7 @@ async function getProducts(req, res, next) {
 }
 
 function getNewProduct(req, res) {
-  res.render('admin/products/new-product');
+  res.render('admin/products/new-product', { departments: DEPARTMENTS });
 }
 
 async function createNewProduct(req, res, next) {
@@ -34,7 +35,7 @@ async function createNewProduct(req, res, next) {
 async function getUpdateProduct(req, res, next) {
   try {
     const product = await Product.findById(req.params.id);
-    res.render('admin/products/update-product', { product: product });
+    res.render('admin/products/update-product', { product: product, departments: DEPARTMENTS });
   } catch (error) {
     next(error);
   }

@@ -16,6 +16,8 @@ services:
     command: node scripts/seed.js
     env_file:
       - .env
+    volumes:
+      - ./product-data/images:/usr/src/app/product-data/images
     depends_on:
       mongo:
         condition: service_healthy

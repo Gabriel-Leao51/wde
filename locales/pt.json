@@ -47,9 +47,18 @@
     "imageLabel": "Imagem",
     "summaryLabel": "Resumo",
     "priceLabel": "Preço",
+    "departmentLabel": "Departamento",
     "descriptionLabel": "Descrição",
     "reset": "Limpar",
     "save": "Salvar"
+  },
+  "departments": {
+    "Electronics": "Eletrônicos",
+    "Gaming": "Games",
+    "Furniture": "Móveis",
+    "Office": "Escritório",
+    "Home": "Casa",
+    "Sports": "Esportes"
   },
   "cart": {
     "yourCartTitle": "Seu Carrinho",
