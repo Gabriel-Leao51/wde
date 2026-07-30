@@ -3,11 +3,21 @@ const { localizeProduct } = require('../utils/localize');
 
 async function getAllProducts(req, res, next) {
   try {
-    const products = await Product.findAll();
+    // req.query values can be arrays/objects (e.g. ?department[$ne]=null), not just
+    // strings - only pass plain strings into the Mongo query, same discipline as the
+    // login/signup NoSQL injection fix.
+    const department = typeof req.query.department === 'string' ? req.query.department : undefined;
+    const sort = typeof req.query.sort === 'string' ? req.query.sort : undefined;
+
+    const products = await Product.findAll({ department, sort });
     const localizedProducts = products.map(function (product) {
       return localizeProduct(product, res.locals.lang);
     });
-    res.render('customer/products/all-products', { products: localizedProducts });
+    res.render('customer/products/all-products', {
+      products: localizedProducts,
+      selectedDepartment: department || '',
+      selectedSort: sort || '',
+    });
   } catch (error) {
     next(error);
   }

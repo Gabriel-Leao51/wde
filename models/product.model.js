@@ -39,8 +39,27 @@ class Product {
     return new Product(product);
   }
 
-  static async findAll() {
-    const products = await db.getDb().collection('products').find().toArray();
+  static async findAll(options = {}) {
+    const { department, sort } = options;
+
+    const SORT_OPTIONS = {
+      name_asc: { title: 1 },
+      name_desc: { title: -1 },
+      price_asc: { price: 1 },
+      price_desc: { price: -1 },
+    };
+
+    const query = {};
+    if (department) {
+      query.department = department;
+    }
+
+    let cursor = db.getDb().collection('products').find(query);
+    if (SORT_OPTIONS[sort]) {
+      cursor = cursor.sort(SORT_OPTIONS[sort]);
+    }
+
+    const products = await cursor.toArray();
 
     return products.map(function (productDocument) {
       return new Product(productDocument);
