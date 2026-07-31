@@ -66,6 +66,24 @@ class Product {
     });
   }
 
+  // Matches against the canonical (English) title and every stored
+  // translation's title, so search works regardless of which language the
+  // shopper types in. `titleRegex` must already be a safe, escaped RegExp -
+  // callers are responsible for not passing raw user input as a pattern.
+  static async search(titleRegex) {
+    const products = await db
+      .getDb()
+      .collection('products')
+      .find({
+        $or: [{ title: titleRegex }, { 'translations.pt.title': titleRegex }],
+      })
+      .toArray();
+
+    return products.map(function (productDocument) {
+      return new Product(productDocument);
+    });
+  }
+
   static async findMultiple(ids) {
     const productIds = ids.map(function(id) {
       return new mongodb.ObjectId(id);

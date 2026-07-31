@@ -59,7 +59,9 @@
     "sortNameDesc": "Nome (Z-A)",
     "sortPriceAsc": "Preço: Menor para Maior",
     "sortPriceDesc": "Preço: Maior para Menor",
-    "applyFilters": "Filtrar"
+    "applyFilters": "Filtrar",
+    "searchLabel": "Buscar",
+    "searchPlaceholder": "Buscar produtos..."
   },
   "departments": {
     "Electronics": "Eletrônicos",

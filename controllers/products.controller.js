@@ -2,6 +2,12 @@ const Product = require('../models/product.model');
 const { localizeProduct } = require('../utils/localize');
 const DEPARTMENTS = require('../utils/departments');
 
+const MIN_SEARCH_QUERY_LENGTH = 2;
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 async function getAllProducts(req, res, next) {
   try {
     // req.query values can be arrays/objects (e.g. ?department[$ne]=null), not just
@@ -36,7 +42,38 @@ async function getProductDetails(req, res, next) {
   }
 }
 
+async function searchProducts(req, res, next) {
+  try {
+    const q = typeof req.query.q === 'string' ? req.query.q.trim() : '';
+
+    if (q.length < MIN_SEARCH_QUERY_LENGTH) {
+      res.json({ results: [] });
+      return;
+    }
+
+    const titleRegex = new RegExp(escapeRegExp(q), 'i');
+    const products = await Product.search(titleRegex);
+    const localizedProducts = products.map(function (product) {
+      return localizeProduct(product, res.locals.lang);
+    });
+
+    res.json({
+      results: localizedProducts.map(function (product) {
+        return {
+          id: product.id,
+          title: product.title,
+          price: product.price,
+          imageUrl: product.imageUrl,
+        };
+      }),
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   getAllProducts: getAllProducts,
-  getProductDetails: getProductDetails
+  getProductDetails: getProductDetails,
+  searchProducts: searchProducts,
 };

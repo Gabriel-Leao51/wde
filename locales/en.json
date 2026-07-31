@@ -59,7 +59,9 @@
     "sortNameDesc": "Name (Z-A)",
     "sortPriceAsc": "Price: Low to High",
     "sortPriceDesc": "Price: High to Low",
-    "applyFilters": "Filter"
+    "applyFilters": "Filter",
+    "searchLabel": "Search",
+    "searchPlaceholder": "Search products..."
   },
   "departments": {
     "Electronics": "Electronics",

@@ -1,10 +1,25 @@
 <%- include('../../shared/includes/head', { pageTitle: t('products.allProductsTitle') }) %>
 <link rel="stylesheet" href="/styles/products.css">
+<script src="/scripts/product-search.js" defer></script>
 </head>
 <body>
   <%- include('../../shared/includes/header') %>
   <main>
     <h1><%= t('products.allProductsTitle') %></h1>
+    <div id="product-search-container" role="search">
+      <label for="product-search"><%= t('products.searchLabel') %></label>
+      <input
+        type="text"
+        id="product-search"
+        role="combobox"
+        aria-expanded="false"
+        aria-controls="product-search-results"
+        aria-autocomplete="list"
+        autocomplete="off"
+        placeholder="<%= t('products.searchPlaceholder') %>"
+      >
+      <ul id="product-search-results" role="listbox" hidden></ul>
+    </div>
     <form id="catalog-filters" method="GET" action="/products">
       <label for="department-filter">
         <%= t('products.filterByDepartment') %>
