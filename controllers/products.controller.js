@@ -1,5 +1,6 @@
 const Product = require('../models/product.model');
 const { localizeProduct } = require('../utils/localize');
+const DEPARTMENTS = require('../utils/departments');
 
 async function getAllProducts(req, res, next) {
   try {
@@ -15,6 +16,7 @@ async function getAllProducts(req, res, next) {
     });
     res.render('customer/products/all-products', {
       products: localizedProducts,
+      departments: DEPARTMENTS,
       selectedDepartment: department || '',
       selectedSort: sort || '',
     });

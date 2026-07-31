@@ -5,6 +5,28 @@
   <%- include('../../shared/includes/header') %>
   <main>
     <h1><%= t('products.allProductsTitle') %></h1>
+    <form id="catalog-filters" method="GET" action="/products">
+      <label for="department-filter">
+        <%= t('products.filterByDepartment') %>
+        <select id="department-filter" name="department">
+          <option value="" <% if (!selectedDepartment) { %>selected<% } %>><%= t('products.allDepartments') %></option>
+          <% for (const department of departments) { %>
+            <option value="<%= department %>" <% if (selectedDepartment === department) { %>selected<% } %>><%= t('departments.' + department) %></option>
+          <% } %>
+        </select>
+      </label>
+      <label for="sort-select">
+        <%= t('products.sortBy') %>
+        <select id="sort-select" name="sort">
+          <option value="" <% if (!selectedSort) { %>selected<% } %>><%= t('products.sortDefault') %></option>
+          <option value="name_asc" <% if (selectedSort === 'name_asc') { %>selected<% } %>><%= t('products.sortNameAsc') %></option>
+          <option value="name_desc" <% if (selectedSort === 'name_desc') { %>selected<% } %>><%= t('products.sortNameDesc') %></option>
+          <option value="price_asc" <% if (selectedSort === 'price_asc') { %>selected<% } %>><%= t('products.sortPriceAsc') %></option>
+          <option value="price_desc" <% if (selectedSort === 'price_desc') { %>selected<% } %>><%= t('products.sortPriceDesc') %></option>
+        </select>
+      </label>
+      <button type="submit" class="btn"><%= t('products.applyFilters') %></button>
+    </form>
     <ul id="products-grid">
       <% for (const product of products) { %>
         <li>

@@ -50,7 +50,16 @@
     "departmentLabel": "Department",
     "descriptionLabel": "Description",
     "reset": "Reset",
-    "save": "Save"
+    "save": "Save",
+    "filterByDepartment": "Department",
+    "allDepartments": "All Departments",
+    "sortBy": "Sort by",
+    "sortDefault": "Featured",
+    "sortNameAsc": "Name (A-Z)",
+    "sortNameDesc": "Name (Z-A)",
+    "sortPriceAsc": "Price: Low to High",
+    "sortPriceDesc": "Price: High to Low",
+    "applyFilters": "Filter"
   },
   "departments": {
     "Electronics": "Electronics",
