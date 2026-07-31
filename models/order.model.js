@@ -59,10 +59,21 @@ class Order {
   }
 
   static async findById(orderId) {
-    const order = await db
-      .getDb()
-      .collection('orders')
-      .findOne({ _id: new mongodb.ObjectId(orderId) });
+    let oid;
+    try {
+      oid = new mongodb.ObjectId(orderId);
+    } catch (error) {
+      error.code = 404;
+      throw error;
+    }
+
+    const order = await db.getDb().collection('orders').findOne({ _id: oid });
+
+    if (!order) {
+      const error = new Error('Could not find order with provided id.');
+      error.code = 404;
+      throw error;
+    }
 
     return this.transformOrderDocument(order);
   }

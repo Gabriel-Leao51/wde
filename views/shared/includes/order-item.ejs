@@ -17,6 +17,9 @@
         <li><%= item.product.title %> - $<%= item.totalPrice.toFixed(2) %> ($<%= item.product.price.toFixed(2) %> x <%= item.quantity %>)</li>
       <% } %>
     </ul>
+    <% if (!locals.isAdmin) { %>
+      <a class="btn btn-alt" href="/orders/<%= order.id %>/invoice.pdf"><%= t('orders.downloadInvoice') %></a>
+    <% } %>
   </section>
 
   <% if (locals.isAdmin) { %>

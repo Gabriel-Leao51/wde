@@ -4,6 +4,8 @@ const stripe = require("stripe")(stripeKey);
 
 const Order = require("../models/order.model");
 const User = require("../models/user.model");
+const buildOrderSummary = require("../utils/orderSummary");
+const streamInvoicePdf = require("../utils/invoicePdf");
 
 async function getOrders(req, res, next) {
   try {
@@ -73,9 +75,30 @@ function getFailure(req, res) {
   res.render("customer/orders/failure");
 }
 
+async function getInvoice(req, res, next) {
+  let order;
+  try {
+    order = await Order.findById(req.params.id);
+  } catch (error) {
+    next(error);
+    return;
+  }
+
+  if (order.userData._id.toString() !== res.locals.uid) {
+    const error = new Error("Could not find order with provided id.");
+    error.code = 404;
+    next(error);
+    return;
+  }
+
+  const summary = buildOrderSummary(order);
+  streamInvoicePdf(summary, res);
+}
+
 module.exports = {
   addOrder: addOrder,
   getOrders: getOrders,
   getSuccess: getSuccess,
   getFailure: getFailure,
+  getInvoice: getInvoice,
 };

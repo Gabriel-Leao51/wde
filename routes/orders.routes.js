@@ -12,4 +12,6 @@ router.get("/success", ordersController.getSuccess);
 
 router.get("/failure", ordersController.getFailure);
 
+router.get("/:id/invoice.pdf", ordersController.getInvoice);
+
 module.exports = router;

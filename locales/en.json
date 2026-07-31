@@ -105,7 +105,8 @@
     "itemsColumn": "Items",
     "totalColumn": "Total",
     "statusColumn": "Status",
-    "actionsColumn": "Actions"
+    "actionsColumn": "Actions",
+    "downloadInvoice": "Download Invoice"
   },
   "errors": {
     "errorPageTitle": "An error occurred",

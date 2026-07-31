@@ -105,7 +105,8 @@
     "itemsColumn": "Itens",
     "totalColumn": "Total",
     "statusColumn": "Status",
-    "actionsColumn": "Ações"
+    "actionsColumn": "Ações",
+    "downloadInvoice": "Baixar Fatura"
   },
   "errors": {
     "errorPageTitle": "Ocorreu um erro",
