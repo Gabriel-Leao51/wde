@@ -1,6 +1,7 @@
 const Product = require('../models/product.model');
 const Order = require('../models/order.model');
 const DEPARTMENTS = require('../utils/departments');
+const sanitizeDescription = require('../utils/sanitizeDescription');
 
 async function getProducts(req, res, next) {
   try {
@@ -19,6 +20,7 @@ function getNewProduct(req, res) {
 async function createNewProduct(req, res, next) {
   const product = new Product({
     ...req.body,
+    description: sanitizeDescription(req.body.description),
     image: req.file.filename,
   });
 
@@ -48,6 +50,7 @@ async function updateProduct(req, res, next) {
     product = new Product({
       ...req.body,
       _id: req.params.id,
+      description: sanitizeDescription(req.body.description),
       // The edit form has no translation fields, so req.body never carries
       // `translations` - without this, every edit would silently wipe out
       // any localized copy already stored for the product.

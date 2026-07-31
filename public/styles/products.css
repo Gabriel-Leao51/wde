@@ -149,7 +149,26 @@
 #product-description {
   background-color: var(--color-primary-500-bg);
   padding: var(--space-8);
-  white-space: pre-wrap;
+  text-align: left;
+}
+
+#product-description > *:first-child {
+  margin-top: 0;
+}
+
+#product-description > *:last-child {
+  margin-bottom: 0;
+}
+
+#product-description blockquote {
+  border-left: 3px solid var(--color-primary-400);
+  margin-left: 0;
+  padding-left: var(--space-4);
+}
+
+#product-description ul,
+#product-description ol {
+  padding-left: var(--space-8);
 }
 
 @media (min-width: 48rem) {

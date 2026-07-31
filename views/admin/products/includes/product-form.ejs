@@ -49,8 +49,9 @@
   </p>
 
   <p>
-    <label for="description"><%= t('products.descriptionLabel') %></label>
-    <textarea id="description" name="description" rows="7" required><%= product.description %></textarea>
+    <label for="description-editor"><%= t('products.descriptionLabel') %></label>
+    <div id="description-editor"><%- product.description %></div>
+    <textarea id="description" name="description" hidden><%= product.description %></textarea>
   </p>
 
   <p>
