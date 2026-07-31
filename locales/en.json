@@ -45,6 +45,7 @@
     "updateProductHeading": "Update Product",
     "titleLabel": "Title",
     "imageLabel": "Image",
+    "dropzoneHint": "Drag and drop an image here, or click to browse",
     "summaryLabel": "Summary",
     "priceLabel": "Price",
     "departmentLabel": "Department",

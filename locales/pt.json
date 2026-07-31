@@ -45,6 +45,7 @@
     "updateProductHeading": "Atualizar Produto",
     "titleLabel": "Título",
     "imageLabel": "Imagem",
+    "dropzoneHint": "Arraste e solte uma imagem aqui, ou clique para escolher",
     "summaryLabel": "Resumo",
     "priceLabel": "Preço",
     "departmentLabel": "Departamento",
