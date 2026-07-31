@@ -10,6 +10,7 @@ class Product {
     this.description = productData.description;
     this.image = productData.image; // the name of the image file
     this.department = productData.department;
+    this.launchDate = productData.launchDate ? new Date(productData.launchDate) : null;
     this.translations = productData.translations || {};
     this.updateImageData();
     if (productData._id) {
@@ -113,6 +114,7 @@ class Product {
       description: this.description,
       image: this.image,
       department: this.department,
+      launchDate: this.launchDate,
       translations: this.translations,
     };
 

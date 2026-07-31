@@ -48,6 +48,8 @@
     "summaryLabel": "Resumo",
     "priceLabel": "Preço",
     "departmentLabel": "Departamento",
+    "launchDateLabel": "Data de Lançamento",
+    "availableSince": "Disponível desde",
     "descriptionLabel": "Descrição",
     "reset": "Limpar",
     "save": "Salvar",

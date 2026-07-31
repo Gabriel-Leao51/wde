@@ -35,6 +35,18 @@
   </p>
 
   <p>
+    <label for="launchDate"><%= t('products.launchDateLabel') %></label>
+    <input
+      type="text"
+      id="launchDate"
+      name="launchDate"
+      value="<%= product.launchDate ? product.launchDate.toISOString().slice(0, 10) : '' %>"
+      placeholder="YYYY-MM-DD"
+      autocomplete="off"
+    >
+  </p>
+
+  <p>
     <label for="description"><%= t('products.descriptionLabel') %></label>
     <textarea id="description" name="description" rows="7" required><%= product.description %></textarea>
   </p>

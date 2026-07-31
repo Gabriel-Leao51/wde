@@ -139,6 +139,7 @@ const PRODUCTS = [
     department: "Gaming",
     summary: "Comfortable gaming chair for long gaming sessions.",
     price: 249.99,
+    launchDate: new Date("2025-01-15"),
     description:
       "Black GTRACING gaming chair with adjustable lumbar support, reclining backrest, and adjustable armrests. Ideal for long gaming or work sessions.",
     image:

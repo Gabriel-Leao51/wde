@@ -1,6 +1,9 @@
 <%- include('../../shared/includes/head', { pageTitle: t('products.addNewProductTitle') }) %>
 <link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/vendor/flatpickr.min.css">
 <script src="/scripts/image-preview.js" defer></script>
+<script src="/scripts/vendor/flatpickr.min.js" defer></script>
+<script src="/scripts/product-date-picker.js" defer></script>
 </head>
 <body>
   <%- include('../../shared/includes/header') %>
@@ -11,7 +14,8 @@
       summary: '',
       price: '',
       description: '',
-      department: ''
+      department: '',
+      launchDate: null
     },
     imageRequired: true, departments: departments }) %>
   </main>
