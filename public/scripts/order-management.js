@@ -25,12 +25,12 @@ async function updateOrder(event) {
       },
     });
   } catch (error) {
-    alert('Something went wrong - could not update order status.');
+    showToast('Something went wrong - could not update order status.', 'error');
     return;
   }
 
   if (!response.ok) {
-    alert('Something went wrong - could not update order status.');
+    showToast('Something went wrong - could not update order status.', 'error');
     return;
   }
 
@@ -38,6 +38,8 @@ async function updateOrder(event) {
 
   form.parentElement.parentElement.querySelector('.badge').textContent =
     responseData.newStatus.toUpperCase();
+
+  showToast('Order status updated!', 'success');
 }
 
 for (const updateOrderFormElement of updateOrderFormElements) {

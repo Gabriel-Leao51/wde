@@ -27,12 +27,12 @@ async function updateCartItem(event) {
       },
     });
   } catch (error) {
-    alert('Something went wrong!');
+    showToast('Something went wrong!', 'error');
     return;
   }
 
   if (!response.ok) {
-    alert('Something went wrong!');
+    showToast('Something went wrong!', 'error');
     return;
   }
 
@@ -54,6 +54,8 @@ async function updateCartItem(event) {
     cartBadgeElement.textContent =
       responseData.updatedCartData.newTotalQuantity;
   }
+
+  showToast('Cart updated!', 'success');
 }
 
 for (const formElement of cartItemUpdateFormElements) {

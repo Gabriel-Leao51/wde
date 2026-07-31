@@ -44,11 +44,12 @@ async function confirmDelete() {
   deleteDialog.close();
 
   if (!response.ok) {
-    alert('Something went wrong!');
+    showToast('Something went wrong!', 'error');
     return;
   }
 
   buttonElement.closest('li').remove();
+  showToast('Product deleted!', 'success');
 }
 
 for (const deleteProductButtonElement of deleteProductButtonElements) {

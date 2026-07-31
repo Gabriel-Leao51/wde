@@ -19,12 +19,12 @@ async function addToCart() {
     });
   
   } catch (error) {
-    alert('Something went wrong!');
+    showToast('Something went wrong!', 'error');
     return;
   }
-  
+
   if (!response.ok) {
-    alert('Something went wrong!');
+    showToast('Something went wrong!', 'error');
     return;
   }
 
@@ -35,6 +35,8 @@ async function addToCart() {
   for (const cartBadgeElement of cartBadgeElements) {
     cartBadgeElement.textContent = newTotalQuantity;
   }
+
+  showToast('Added to cart!', 'success');
 }
 
 addToCartButtonElement.addEventListener('click', addToCart);
