@@ -55,3 +55,54 @@
     flex-direction: row;
   }
 }
+
+#orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-4);
+}
+
+#orders-table th,
+#orders-table td {
+  padding: var(--space-2) var(--space-4);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-gray-400);
+}
+
+#orders-table th[data-sort] {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+#orders-table th[data-sort]:hover {
+  color: var(--color-primary-500);
+}
+
+#orders-table th.sort-asc::after {
+  content: ' \25B2';
+}
+
+#orders-table th.sort-desc::after {
+  content: ' \25BC';
+}
+
+.order-row-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#orders-table .order-actions form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: flex-start;
+}
+
+#orders-table select {
+  font: inherit;
+  padding: var(--space-2);
+  border-radius: var(--border-radius-small);
+}

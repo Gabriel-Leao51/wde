@@ -1,10 +1,12 @@
 <%- include('../../shared/includes/head', { pageTitle: t('orders.allOrdersTitle') }) %>
 <link rel="stylesheet" href="/styles/orders.css">
 <script src="/scripts/order-management.js" defer></script>
+<script src="/scripts/order-table-sort.js" defer></script>
 </head>
 <body>
   <%- include('../../shared/includes/header') %>
   <main>
-    <%- include('../../shared/includes/order-list') %>
+    <h1><%= t('orders.allOrdersTitle') %></h1>
+    <%- include('includes/order-table') %>
   </main>
 <%- include('../../shared/includes/footer') %>

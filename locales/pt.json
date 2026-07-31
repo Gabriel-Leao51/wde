@@ -96,7 +96,13 @@
     "statusPending": "Pendente",
     "statusFulfilled": "Concluído",
     "statusCancelled": "Cancelado",
-    "update": "Atualizar"
+    "update": "Atualizar",
+    "dateColumn": "Data",
+    "customerColumn": "Cliente",
+    "itemsColumn": "Itens",
+    "totalColumn": "Total",
+    "statusColumn": "Status",
+    "actionsColumn": "Ações"
   },
   "errors": {
     "errorPageTitle": "Ocorreu um erro",

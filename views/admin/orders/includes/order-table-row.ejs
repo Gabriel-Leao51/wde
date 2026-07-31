@@ -1,0 +1,33 @@
+<% const statusKey = 'orders.status' + order.status.charAt(0).toUpperCase() + order.status.slice(1); %>
+<tr
+  class="order-row"
+  data-order-id="<%= order.id %>"
+  data-date="<%= order.date.toISOString() %>"
+  data-customer="<%= order.userData.name %>"
+  data-total="<%= order.productData.totalPrice %>"
+  data-status="<%= order.status %>"
+>
+  <td><%= order.formattedDate %></td>
+  <td><a href="mailto:<%= order.userData.email %>"><%= order.userData.name %></a></td>
+  <td>
+    <ul class="order-row-items">
+      <% for (const item of order.productData.items) { %>
+        <li><%= item.product.title %> (x<%= item.quantity %>)</li>
+      <% } %>
+    </ul>
+  </td>
+  <td>$<%= order.productData.totalPrice.toFixed(2) %></td>
+  <td><span class="badge"><%= t(statusKey).toUpperCase() %></span></td>
+  <td class="order-actions">
+    <form>
+      <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+      <input type="hidden" name="orderid" value="<%= order.id %>">
+      <select name="status">
+        <option value="pending" <% if (order.status === 'pending') { %>selected<% } %>><%= t('orders.statusPending') %></option>
+        <option value="fulfilled" <% if (order.status === 'fulfilled') { %>selected<% } %>><%= t('orders.statusFulfilled') %></option>
+        <option value="cancelled" <% if (order.status === 'cancelled') { %>selected<% } %>><%= t('orders.statusCancelled') %></option>
+      </select>
+      <button class="btn btn-alt"><%= t('orders.update') %></button>
+    </form>
+  </td>
+</tr>
