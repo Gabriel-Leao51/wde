@@ -21,5 +21,12 @@
         <% } %>
       </ul>
     </section>
+    <dialog id="delete-confirm-dialog">
+      <p><%= t('products.deleteConfirmMessage') %> "<span id="delete-confirm-product-name"></span>"?</p>
+      <div class="dialog-actions">
+        <button type="button" id="delete-cancel-button" class="btn btn-alt"><%= t('products.cancel') %></button>
+        <button type="button" id="delete-confirm-button" class="btn"><%= t('products.delete') %></button>
+      </div>
+    </dialog>
   </main>
 <%- include('../../shared/includes/footer') %>

@@ -61,7 +61,9 @@
     "sortPriceDesc": "Price: High to Low",
     "applyFilters": "Filter",
     "searchLabel": "Search",
-    "searchPlaceholder": "Search products..."
+    "searchPlaceholder": "Search products...",
+    "deleteConfirmMessage": "Are you sure you want to delete",
+    "cancel": "Cancel"
   },
   "departments": {
     "Electronics": "Electronics",

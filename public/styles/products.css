@@ -42,6 +42,26 @@
   background-color: var(--color-primary-500-bg);
 }
 
+#delete-confirm-dialog {
+  padding: var(--space-8);
+  border: 1px solid var(--color-primary-100);
+  border-radius: var(--border-radius-medium);
+  background-color: var(--color-gray-600);
+  color: inherit;
+  max-width: 24rem;
+}
+
+#delete-confirm-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#delete-confirm-dialog .dialog-actions {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: flex-end;
+  margin-top: var(--space-4);
+}
+
 #catalog-filters {
   display: flex;
   flex-wrap: wrap;
