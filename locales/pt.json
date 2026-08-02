@@ -28,7 +28,21 @@
     "createAccountButton": "Criar Conta",
     "invalidCredentialsMessage": "Credenciais inválidas - confira seu e-mail e senha!",
     "invalidSignupMessage": "Confira os dados informados. A senha deve ter pelo menos 6 caracteres, e o CEP deve ter 5 caracteres.",
-    "userExistsMessage": "Este usuário já existe! Tente entrar em vez de se cadastrar!"
+    "userExistsMessage": "Este usuário já existe! Tente entrar em vez de se cadastrar!",
+    "otpLoginLink": "Entrar com um código por e-mail",
+    "otpBackToPasswordLogin": "Entrar com uma senha",
+    "otpRequestTitle": "Entrar com um código",
+    "otpRequestHeading": "Entrar com um código",
+    "otpRequestInstructions": "Informe seu e-mail e enviaremos um código de acesso único.",
+    "otpSendCodeButton": "Enviar Código",
+    "otpInvalidEmailMessage": "Informe um e-mail válido.",
+    "otpVerifyTitle": "Digite seu código",
+    "otpVerifyHeading": "Digite seu código",
+    "otpVerifyInstructions": "Digite o código de 6 dígitos que enviamos por e-mail. Ele expira em 10 minutos.",
+    "otpCodeLabel": "Código de Acesso",
+    "otpVerifyButton": "Verificar",
+    "otpRequestNewCode": "Solicitar um novo código",
+    "otpInvalidCodeMessage": "Este código é inválido ou expirou. Solicite um novo."
   },
   "products": {
     "allProductsTitle": "Todos os Produtos",

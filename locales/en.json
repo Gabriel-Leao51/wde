@@ -28,7 +28,21 @@
     "createAccountButton": "Create Account",
     "invalidCredentialsMessage": "Invalid credentials - please double-check your email and password!",
     "invalidSignupMessage": "Please check your input. Password must be at least 6 characters long, postal code must be 5 characters long.",
-    "userExistsMessage": "User exists already! Try logging in instead!"
+    "userExistsMessage": "User exists already! Try logging in instead!",
+    "otpLoginLink": "Login with an email code instead",
+    "otpBackToPasswordLogin": "Login with a password instead",
+    "otpRequestTitle": "Login with a code",
+    "otpRequestHeading": "Login with a code",
+    "otpRequestInstructions": "Enter your email and we'll send you a one-time login code.",
+    "otpSendCodeButton": "Send Code",
+    "otpInvalidEmailMessage": "Please enter a valid email address.",
+    "otpVerifyTitle": "Enter your code",
+    "otpVerifyHeading": "Enter your code",
+    "otpVerifyInstructions": "Enter the 6-digit code we emailed you. It expires in 10 minutes.",
+    "otpCodeLabel": "Login Code",
+    "otpVerifyButton": "Verify",
+    "otpRequestNewCode": "Request a new code",
+    "otpInvalidCodeMessage": "That code is invalid or has expired. Please request a new one."
   },
   "products": {
     "allProductsTitle": "All Products",
