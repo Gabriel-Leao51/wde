@@ -6,6 +6,7 @@ const Order = require("../models/order.model");
 const User = require("../models/user.model");
 const buildOrderSummary = require("../utils/orderSummary");
 const streamInvoicePdf = require("../utils/invoicePdf");
+const sendOrderConfirmationEmail = require("../utils/orderConfirmationEmail");
 
 async function getOrders(req, res, next) {
   try {
@@ -30,12 +31,15 @@ async function addOrder(req, res, next) {
 
   const order = new Order(cart, userDocument);
 
+  let saveResult;
   try {
-    await order.save();
+    saveResult = await order.save();
   } catch (error) {
     next(error);
     return;
   }
+
+  order.id = saveResult.insertedId.toString();
 
   req.session.cart = null;
 
@@ -56,7 +60,7 @@ async function addOrder(req, res, next) {
         };
       }),
       mode: "payment",
-      success_url: `${process.env.APP_URL}/orders/success`,
+      success_url: `${process.env.APP_URL}/orders/success?orderId=${order.id}`,
       cancel_url: `${process.env.APP_URL}/orders/failure`,
     });
   } catch (error) {
@@ -67,7 +71,23 @@ async function addOrder(req, res, next) {
   res.redirect(303, session.url);
 }
 
-function getSuccess(req, res) {
+async function getSuccess(req, res) {
+  const orderId = req.query.orderId;
+
+  if (typeof orderId === "string") {
+    try {
+      const order = await Order.findById(orderId);
+      if (order.userData._id.toString() === res.locals.uid) {
+        await sendOrderConfirmationEmail(order);
+      }
+    } catch (error) {
+      // The confirmation email is a best-effort convenience, not part of the
+      // critical checkout path - a bad/missing order id or a transient SMTP
+      // failure should never block the success page from rendering.
+      console.error("Failed to send order confirmation email:", error);
+    }
+  }
+
   res.render("customer/orders/success");
 }
 
