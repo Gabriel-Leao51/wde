@@ -7,7 +7,8 @@
     "manageOrders": "Gerenciar Pedidos",
     "signup": "Cadastrar",
     "login": "Entrar",
-    "logout": "Sair"
+    "logout": "Sair",
+    "languageLabel": "Idioma"
   },
   "auth": {
     "loginTitle": "Entrar",
@@ -96,7 +97,10 @@
     "total": "Total",
     "buyProducts": "Comprar Produtos",
     "loginToProceed": "Entre e adicione itens para continuar.",
-    "update": "Atualizar"
+    "update": "Atualizar",
+    "increaseQuantity": "Aumentar quantidade",
+    "decreaseQuantity": "Diminuir quantidade",
+    "removeItem": "Remover item"
   },
   "orders": {
     "allOrdersTitle": "Todos os Pedidos",

@@ -28,7 +28,9 @@
   <% } %>
 
   <li id="lang-switcher">
-    <a href="/lang/en" class="<%= locals.lang === 'en' ? 'active' : '' %>">EN</a>
-    <a href="/lang/pt" class="<%= locals.lang === 'pt' ? 'active' : '' %>">PT</a>
+    <select class="lang-select" aria-label="<%= t('nav.languageLabel') %>">
+      <option value="en" <% if (locals.lang === 'en') { %>selected<% } %>>🇺🇸 English</option>
+      <option value="pt" <% if (locals.lang === 'pt') { %>selected<% } %>>🇧🇷 Portuguese</option>
+    </select>
   </li>
 </ul>

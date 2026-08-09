@@ -7,7 +7,8 @@
     "manageOrders": "Manage Orders",
     "signup": "Signup",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "languageLabel": "Language"
   },
   "auth": {
     "loginTitle": "Login",
@@ -96,7 +97,10 @@
     "total": "Total",
     "buyProducts": "Buy Products",
     "loginToProceed": "Log in and add items to proceed.",
-    "update": "Update"
+    "update": "Update",
+    "increaseQuantity": "Increase quantity",
+    "decreaseQuantity": "Decrease quantity",
+    "removeItem": "Remove item"
   },
   "orders": {
     "allOrdersTitle": "All Orders",

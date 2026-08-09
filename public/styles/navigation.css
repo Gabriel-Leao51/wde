@@ -41,18 +41,23 @@ main {
 
 #lang-switcher {
   display: flex;
-  gap: var(--space-2);
+  align-items: center;
 }
 
-#lang-switcher a {
-  font-size: 0.85em;
-  opacity: 0.6;
+#lang-switcher select {
+  font: inherit;
+  font-size: 0.9em;
+  color: var(--color-gray-100);
+  background-color: transparent;
+  border: 1px solid var(--color-primary-100);
+  border-radius: var(--border-radius-small);
+  padding: var(--space-1) var(--space-2);
+  cursor: pointer;
 }
 
-#lang-switcher a.active {
-  opacity: 1;
-  font-weight: bold;
-  text-decoration: underline;
+#lang-switcher select option {
+  color: initial;
+  background-color: var(--color-gray-500);
 }
 
 .nav-items button {
@@ -108,6 +113,10 @@ main {
 #mobile-menu .nav-items button {
   font-size: 1.75rem;
   color: var(--color-primary-100);
+}
+
+#mobile-menu .nav-items select {
+  font-size: 1.25rem;
 }
 
 @media (min-width: 48rem) {
