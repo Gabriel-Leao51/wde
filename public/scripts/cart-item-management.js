@@ -1,17 +1,17 @@
-const cartItemUpdateFormElements = document.querySelectorAll(
+const cartItemManagementElements = document.querySelectorAll(
   '.cart-item-management'
 );
 const cartTotalPriceElement = document.getElementById('cart-total-price');
 const cartBadgeElements = document.querySelectorAll('.nav-items .badge');
 
-async function updateCartItem(event) {
-  event.preventDefault();
+async function changeQuantity(managementElement, newQuantity) {
+  const productId = managementElement.dataset.productid;
+  const csrfToken = managementElement.dataset.csrf;
 
-  const form = event.target;
-
-  const productId = form.dataset.productid;
-  const csrfToken = form.dataset.csrf;
-  const quantity = form.firstElementChild.value;
+  const decreaseButton = managementElement.querySelector('.quantity-decrease');
+  const increaseButton = managementElement.querySelector('.quantity-increase');
+  decreaseButton.disabled = true;
+  increaseButton.disabled = true;
 
   let response;
   try {
@@ -19,7 +19,7 @@ async function updateCartItem(event) {
       method: 'PATCH',
       body: JSON.stringify({
         productId: productId,
-        quantity: quantity,
+        quantity: newQuantity,
         _csrf: csrfToken,
       }),
       headers: {
@@ -28,23 +28,43 @@ async function updateCartItem(event) {
     });
   } catch (error) {
     showToast('Something went wrong!', 'error');
+    decreaseButton.disabled = false;
+    increaseButton.disabled = false;
     return;
   }
 
   if (!response.ok) {
     showToast('Something went wrong!', 'error');
+    decreaseButton.disabled = false;
+    increaseButton.disabled = false;
     return;
   }
 
   const responseData = await response.json();
 
   if (responseData.updatedCartData.updatedItemPrice === 0) {
-    form.parentElement.parentElement.remove();
+    managementElement.closest('li').remove();
   } else {
-    const cartItemTotalPriceElement =
-      form.parentElement.querySelector('.cart-item-price');
-    cartItemTotalPriceElement.textContent =
+    const cartItem = managementElement.closest('.cart-item');
+    cartItem.querySelector('.cart-item-price').textContent =
       responseData.updatedCartData.updatedItemPrice.toFixed(2);
+
+    const quantityLabel = managementElement.querySelector('.quantity-label');
+    quantityLabel.textContent = newQuantity;
+    quantityLabel.dataset.quantity = newQuantity;
+
+    const isNowSingle = newQuantity === 1;
+    decreaseButton.classList.toggle('quantity-remove', isNowSingle);
+    decreaseButton.setAttribute(
+      'aria-label',
+      isNowSingle ? decreaseButton.dataset.removeLabel : decreaseButton.dataset.decreaseLabel
+    );
+    decreaseButton.innerHTML = isNowSingle ? '&#128465;' : '&minus;';
+    // innerHTML replaces the element's text, but not the dataset attributes
+    // read above - they stay intact on the same <button> element.
+
+    decreaseButton.disabled = false;
+    increaseButton.disabled = false;
   }
 
   cartTotalPriceElement.textContent =
@@ -58,6 +78,21 @@ async function updateCartItem(event) {
   showToast('Cart updated!', 'success');
 }
 
-for (const formElement of cartItemUpdateFormElements) {
-  formElement.addEventListener('submit', updateCartItem);
+for (const managementElement of cartItemManagementElements) {
+  const decreaseButton = managementElement.querySelector('.quantity-decrease');
+  const increaseButton = managementElement.querySelector('.quantity-increase');
+
+  decreaseButton.addEventListener('click', function () {
+    const currentQuantity = Number(
+      managementElement.querySelector('.quantity-label').dataset.quantity
+    );
+    changeQuantity(managementElement, currentQuantity - 1);
+  });
+
+  increaseButton.addEventListener('click', function () {
+    const currentQuantity = Number(
+      managementElement.querySelector('.quantity-label').dataset.quantity
+    );
+    changeQuantity(managementElement, currentQuantity + 1);
+  });
 }
