@@ -1,4 +1,11 @@
 <article class="cart-item">
+  <button
+    type="button"
+    class="remove-item-btn"
+    data-productid="<%= item.product.id %>"
+    data-csrf="<%= locals.csrfToken %>"
+  ><%= t('cart.removeItem') %></button>
+
   <div class="cart-item-info">
     <h2><%= item.product.title %></h2>
     <p>$<span class="cart-item-price"><%= item.totalPrice.toFixed(2) %></span> <span class="cart-product-price">($<%= item.product.price.toFixed(2) %>)</span></p>
@@ -7,22 +14,15 @@
   <div class="cart-item-management" data-productid="<%= item.product.id %>" data-csrf="<%= locals.csrfToken %>">
     <button
       type="button"
-      class="quantity-btn quantity-decrease<%= item.quantity === 1 ? ' quantity-remove' : '' %>"
-      aria-label="<%= item.quantity === 1 ? t('cart.removeItem') : t('cart.decreaseQuantity') %>"
-      data-remove-label="<%= t('cart.removeItem') %>"
-      data-decrease-label="<%= t('cart.decreaseQuantity') %>"
-    ><%- item.quantity === 1 ? '&#128465;' : '&minus;' %></button>
+      class="quantity-btn quantity-decrease"
+      aria-label="<%= t('cart.decreaseQuantity') %>"
+      <% if (item.quantity === 1) { %>disabled<% } %>
+    >&minus;</button>
     <span class="quantity-label" data-quantity="<%= item.quantity %>"><%= item.quantity %></span>
     <button
       type="button"
       class="quantity-btn quantity-increase"
       aria-label="<%= t('cart.increaseQuantity') %>"
     >&plus;</button>
-    <button
-      type="button"
-      class="quantity-btn remove-item-btn"
-      aria-label="<%= t('cart.removeItem') %>"
-      <% if (item.quantity === 1) { %>hidden<% } %>
-    >&#128465;</button>
   </div>
 </article>
