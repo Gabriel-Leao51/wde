@@ -27,10 +27,30 @@
     </li>
   <% } %>
 
-  <li id="lang-switcher">
-    <select class="lang-select" aria-label="<%= t('nav.languageLabel') %>">
-      <option value="en" <% if (locals.lang === 'en') { %>selected<% } %>>🇺🇸 English</option>
-      <option value="pt" <% if (locals.lang === 'pt') { %>selected<% } %>>🇧🇷 Portuguese</option>
-    </select>
+  <li class="lang-switcher">
+    <button
+      type="button"
+      class="lang-trigger"
+      aria-haspopup="true"
+      aria-expanded="false"
+      aria-label="<%= t('nav.languageLabel') %>"
+    >
+      <%- include('flag-' + locals.lang) %>
+      <span class="lang-code"><%= locals.lang.toUpperCase() %></span>
+    </button>
+    <ul class="lang-menu" hidden>
+      <li>
+        <a href="/lang/en" class="lang-option<%= locals.lang === 'en' ? ' active' : '' %>">
+          <%- include('flag-en') %>
+          <span>EN</span>
+        </a>
+      </li>
+      <li>
+        <a href="/lang/pt" class="lang-option<%= locals.lang === 'pt' ? ' active' : '' %>">
+          <%- include('flag-pt') %>
+          <span>PT</span>
+        </a>
+      </li>
+    </ul>
   </li>
 </ul>

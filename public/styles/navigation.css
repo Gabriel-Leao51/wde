@@ -39,14 +39,23 @@ main {
   margin: 0 var(--space-2);
 }
 
-#lang-switcher {
-  display: flex;
-  align-items: center;
+.lang-switcher {
+  position: relative;
 }
 
-#lang-switcher select {
+.flag-icon {
+  width: 1.25rem;
+  height: 0.875rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.lang-trigger {
   font: inherit;
   font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   color: var(--color-gray-100);
   background-color: transparent;
   border: 1px solid var(--color-primary-100);
@@ -55,9 +64,43 @@ main {
   cursor: pointer;
 }
 
-#lang-switcher select option {
-  color: initial;
+.lang-trigger::after {
+  content: '';
+  border: 0.3em solid transparent;
+  border-top-color: currentColor;
+  margin-top: 0.2em;
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  z-index: 10;
+  min-width: 8rem;
+  margin: 0;
+  padding: var(--space-2) 0;
+  list-style: none;
   background-color: var(--color-gray-500);
+  border: 1px solid var(--color-primary-100);
+  border-radius: var(--border-radius-small);
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  color: var(--color-gray-100);
+}
+
+.lang-option:hover,
+.lang-option:active {
+  background-color: var(--color-primary-500-bg);
+}
+
+.lang-option.active {
+  font-weight: bold;
+  color: var(--color-primary-400);
 }
 
 .nav-items button {
@@ -115,7 +158,8 @@ main {
   color: var(--color-primary-100);
 }
 
-#mobile-menu .nav-items select {
+#mobile-menu .nav-items .lang-trigger,
+#mobile-menu .nav-items .lang-option {
   font-size: 1.25rem;
 }
 
