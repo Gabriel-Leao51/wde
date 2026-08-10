@@ -5,6 +5,8 @@ const removeButtons = document.querySelectorAll('.remove-item-btn');
 const cartTotalPriceElement = document.getElementById('cart-total-price');
 const cartBadgeElements = document.querySelectorAll('.nav-items .badge');
 
+const REMOVED_MESSAGE_DURATION_MS = 2000;
+
 async function changeQuantity(cartItem, productId, csrfToken, newQuantity) {
   const managementElement = cartItem.querySelector('.cart-item-management');
   const decreaseButton = managementElement.querySelector('.quantity-decrease');
@@ -47,7 +49,16 @@ async function changeQuantity(cartItem, productId, csrfToken, newQuantity) {
   const responseData = await response.json();
 
   if (responseData.updatedCartData.updatedItemPrice === 0) {
-    cartItem.closest('li').remove();
+    const listItem = cartItem.closest('li');
+    const removedMessage = removeButton.dataset.removedMessage;
+
+    cartItem.classList.add('removed');
+    cartItem.innerHTML =
+      '<p class="cart-item-removed-message">' + removedMessage + '</p>';
+
+    setTimeout(function () {
+      listItem.remove();
+    }, REMOVED_MESSAGE_DURATION_MS);
   } else {
     cartItem.querySelector('.cart-item-price').textContent =
       responseData.updatedCartData.updatedItemPrice.toFixed(2);

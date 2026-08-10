@@ -14,6 +14,20 @@
   margin: 0;
 }
 
+.cart-item.removed {
+  padding-right: var(--space-4);
+  justify-content: center;
+  align-items: center;
+  min-height: 4rem;
+}
+
+.cart-item-removed-message {
+  margin: 0;
+  color: var(--color-gray-300);
+  font-style: italic;
+  text-align: center;
+}
+
 .cart-item-management {
   display: flex;
   align-items: center;

@@ -100,7 +100,8 @@
     "update": "Atualizar",
     "increaseQuantity": "Aumentar quantidade",
     "decreaseQuantity": "Diminuir quantidade",
-    "removeItem": "Remover item"
+    "removeItem": "Remover item",
+    "itemRemoved": "Item removido"
   },
   "orders": {
     "allOrdersTitle": "Todos os Pedidos",

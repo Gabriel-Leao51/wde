@@ -4,6 +4,7 @@
     class="remove-item-btn"
     data-productid="<%= item.product.id %>"
     data-csrf="<%= locals.csrfToken %>"
+    data-removed-message="<%= t('cart.itemRemoved') %>"
   ><%= t('cart.removeItem') %></button>
 
   <div class="cart-item-info">
