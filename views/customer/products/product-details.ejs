@@ -9,7 +9,7 @@
       <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
       <div id="product-info">
         <h1><%= product.title %></h1>
-        <p>$<%= product.price %></p>
+        <p>$<%= product.price.toFixed(2) %></p>
         <% if (product.launchDate) { %>
           <p id="product-launch-date"><%= t('products.availableSince') %> <%= product.launchDate.toLocaleDateString('en-US', { dateStyle: 'long' }) %></p>
         <% } %>
