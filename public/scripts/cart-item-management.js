@@ -10,8 +10,10 @@ async function changeQuantity(managementElement, newQuantity) {
 
   const decreaseButton = managementElement.querySelector('.quantity-decrease');
   const increaseButton = managementElement.querySelector('.quantity-increase');
+  const removeButton = managementElement.querySelector('.remove-item-btn');
   decreaseButton.disabled = true;
   increaseButton.disabled = true;
+  removeButton.disabled = true;
 
   let response;
   try {
@@ -30,6 +32,7 @@ async function changeQuantity(managementElement, newQuantity) {
     showToast('Something went wrong!', 'error');
     decreaseButton.disabled = false;
     increaseButton.disabled = false;
+    removeButton.disabled = false;
     return;
   }
 
@@ -37,6 +40,7 @@ async function changeQuantity(managementElement, newQuantity) {
     showToast('Something went wrong!', 'error');
     decreaseButton.disabled = false;
     increaseButton.disabled = false;
+    removeButton.disabled = false;
     return;
   }
 
@@ -63,8 +67,15 @@ async function changeQuantity(managementElement, newQuantity) {
     // innerHTML replaces the element's text, but not the dataset attributes
     // read above - they stay intact on the same <button> element.
 
+    // At quantity 1 the decrease button already doubles as remove, so the
+    // standalone remove button only needs to show once there's more than
+    // one to save a click on (otherwise there'd be two ways to remove the
+    // same item at once, which reads as redundant rather than helpful).
+    removeButton.hidden = isNowSingle;
+
     decreaseButton.disabled = false;
     increaseButton.disabled = false;
+    removeButton.disabled = false;
   }
 
   cartTotalPriceElement.textContent =
@@ -74,13 +85,12 @@ async function changeQuantity(managementElement, newQuantity) {
     cartBadgeElement.textContent =
       responseData.updatedCartData.newTotalQuantity;
   }
-
-  showToast('Cart updated!', 'success');
 }
 
 for (const managementElement of cartItemManagementElements) {
   const decreaseButton = managementElement.querySelector('.quantity-decrease');
   const increaseButton = managementElement.querySelector('.quantity-increase');
+  const removeButton = managementElement.querySelector('.remove-item-btn');
 
   decreaseButton.addEventListener('click', function () {
     const currentQuantity = Number(
@@ -94,5 +104,9 @@ for (const managementElement of cartItemManagementElements) {
       managementElement.querySelector('.quantity-label').dataset.quantity
     );
     changeQuantity(managementElement, currentQuantity + 1);
+  });
+
+  removeButton.addEventListener('click', function () {
+    changeQuantity(managementElement, 0);
   });
 }
