@@ -1,2 +1,4 @@
 node_modules
 .env
+# Uploads left behind by the test suite's product-crud spec (multer saves each as <uuid>-mousepad.jpg)
+product-data/images/*-mousepad.jpg
