@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WDE tokens specimen</title>
+    <!-- Open straight from disk (file://). Reads the real tokens file, so it can't drift from it. -->
+    <link rel="stylesheet" href="../../public/styles/tokens.css" />
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-normal);
+        color: var(--color-text);
+        background: var(--color-bg);
+      }
+      .wrap { max-width: var(--container-max); margin: 0 auto; padding: var(--space-12) var(--container-gutter); }
+      h1 { font-size: var(--font-size-4xl); line-height: var(--line-height-tight); letter-spacing: var(--letter-spacing-tight); margin: 0 0 var(--space-2); }
+      h2 { font-size: var(--font-size-2xl); letter-spacing: var(--letter-spacing-tight); margin: var(--space-16) 0 var(--space-6); padding-top: var(--space-6); border-top: 1px solid var(--color-border); }
+      .eyebrow { font-size: var(--font-size-xs); font-weight: var(--font-weight-semibold); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; color: var(--color-text-muted); }
+      .muted { color: var(--color-text-muted); }
+      .grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); }
+      .swatch { border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; font-size: var(--font-size-xs); }
+      .swatch div:first-child { height: 3.5rem; }
+      .swatch div:last-child { padding: var(--space-2); }
+      code { font-size: var(--font-size-xs); }
+      .row { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+      .type-row { display: grid; grid-template-columns: 7rem 1fr; gap: var(--space-4); align-items: baseline; padding: var(--space-2) 0; border-bottom: 1px solid var(--color-border); }
+      .bar { height: var(--space-4); background: var(--color-brand-300); border-radius: var(--radius-sm); }
+      .box { width: 6rem; height: 6rem; background: var(--color-surface); border: 1px solid var(--color-border); display: grid; place-items: center; font-size: var(--font-size-xs); }
+
+      /* Sample components — a sketch of where sessions 16–22 are headed, not the final CSS. */
+      .btn { font: inherit; font-weight: var(--font-weight-semibold); min-height: var(--control-height); padding: 0 var(--space-6); border-radius: var(--radius-md); border: 1px solid transparent; cursor: pointer; transition: background var(--duration-fast) var(--ease-out); }
+      .btn-primary { background: var(--color-action); color: var(--color-action-text); }
+      .btn-primary:hover { background: var(--color-action-hover); }
+      .btn-secondary { background: var(--color-action-secondary); color: var(--color-text-inverse); }
+      .btn-secondary:hover { background: var(--color-action-secondary-hover); }
+      .btn-ghost { background: transparent; color: var(--color-text); border-color: var(--color-border-strong); }
+      .btn:focus-visible, .input:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; box-shadow: var(--shadow-focus); }
+      .input { font: inherit; min-height: var(--control-height); padding: 0 var(--space-3); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); color: var(--color-text); width: 16rem; }
+      .input::placeholder { color: var(--color-text-subtle); }
+      label { display: grid; gap: var(--space-1); font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); }
+      .badge { display: inline-block; font-size: var(--font-size-xs); font-weight: var(--font-weight-semibold); padding: var(--space-0-5) var(--space-2); border-radius: var(--radius-full); }
+      .b-success { color: var(--color-success-text); background: var(--color-success-bg); }
+      .b-warning { color: var(--color-warning-text); background: var(--color-warning-bg); }
+      .b-danger { color: var(--color-danger-text); background: var(--color-danger-bg); }
+      .b-info { color: var(--color-info-text); background: var(--color-info-bg); }
+      .b-neutral { color: var(--color-text-muted); background: var(--color-surface-muted); }
+      .card { width: 16rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; transition: box-shadow var(--duration-base) var(--ease-out); }
+      .card:hover { box-shadow: var(--shadow-md); }
+      .card-img { aspect-ratio: 1; background: var(--color-surface-muted); display: grid; place-items: center; color: var(--color-text-subtle); font-size: var(--font-size-sm); }
+      .card-body { padding: var(--space-4); display: grid; gap: var(--space-1); }
+      .card-title { font-weight: var(--font-weight-medium); line-height: var(--line-height-snug); }
+      .price { font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--color-price); font-variant-numeric: tabular-nums; }
+      .header { display: flex; align-items: center; gap: var(--space-6); height: var(--header-height); padding: 0 var(--space-6); border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
+      .logo { font-weight: var(--font-weight-bold); font-size: var(--font-size-xl); letter-spacing: var(--letter-spacing-tight); }
+      .logo span { color: var(--color-action); }
+      .search { flex: 1; background: var(--color-bg-subtle); border-color: var(--color-border); border-radius: var(--radius-full); width: auto; }
+      .count { background: var(--color-action); color: var(--color-action-text); font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); border-radius: var(--radius-full); padding: 0 var(--space-2); margin-left: var(--space-1); }
+      .toast { background: var(--color-neutral-900); color: var(--color-text-inverse); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); font-size: var(--font-size-sm); }
+      .band { background: var(--color-accent-subtle); border-radius: var(--radius-xl); padding: var(--space-12) var(--space-8); }
+      .band h3 { font-size: var(--font-size-5xl); line-height: var(--line-height-tight); letter-spacing: var(--letter-spacing-tight); margin: var(--space-2) 0 var(--space-4); max-width: 18ch; }
+      a { color: var(--color-link); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <p class="eyebrow">Phase C · session 14</p>
+      <h1>WDE Shop design tokens</h1>
+      <p class="muted">Every value on this page comes from <code>public/styles/tokens.css</code>. See <code>docs/design-direction.md</code> for the reasoning.</p>
+
+      <h2>Sample components</h2>
+      <div class="header">
+        <div class="logo">WDE<span>.</span></div>
+        <input class="input search" placeholder="Search products" aria-label="Search products" />
+        <a href="#">Orders</a>
+        <a href="#">Cart<span class="count">3</span></a>
+      </div>
+      <div class="row" style="margin-top: var(--space-8); align-items: flex-start">
+        <div class="card">
+          <div class="card-img">1:1 product photo</div>
+          <div class="card-body">
+            <span class="eyebrow">Office</span>
+            <span class="card-title">Oak standing desk, 140 cm</span>
+            <span class="price">$489.00</span>
+          </div>
+        </div>
+        <div style="display: grid; gap: var(--space-4)">
+          <div class="row">
+            <button class="btn btn-primary">Add to cart</button>
+            <button class="btn btn-secondary">Checkout</button>
+            <button class="btn btn-ghost">Cancel</button>
+          </div>
+          <label>Email <input class="input" placeholder="you@example.com" /></label>
+          <div class="row">
+            <span class="badge b-warning">Pending</span>
+            <span class="badge b-info">Fulfilled</span>
+            <span class="badge b-success">Delivered</span>
+            <span class="badge b-danger">Cancelled</span>
+            <span class="badge b-neutral">Out of stock</span>
+          </div>
+          <div class="toast">Added to cart!</div>
+        </div>
+      </div>
+      <div class="band" style="margin-top: var(--space-8)">
+        <span class="eyebrow">New in Home</span>
+        <h3>Everything for the desk, the den and the weekend.</h3>
+        <button class="btn btn-primary">Shop all products</button>
+      </div>
+
+      <h2>Color: primitives</h2>
+      <div id="primitives"></div>
+
+      <h2>Color: semantic</h2>
+      <div class="grid" id="semantic"></div>
+
+      <h2>Type scale — Inter Variable</h2>
+      <div id="type"></div>
+
+      <h2>Spacing</h2>
+      <div id="space"></div>
+
+      <h2>Radii and shadows</h2>
+      <div class="row" id="radii"></div>
+      <div class="row" id="shadows" style="margin-top: var(--space-8)"></div>
+    </div>
+    <script>
+      const css = getComputedStyle(document.documentElement);
+      const v = (name) => css.getPropertyValue(name).trim();
+      const swatch = (name) =>
+        `<div class="swatch"><div style="background:var(${name})"></div><div><code>${name.replace('--color-', '')}</code><br>${v(name)}</div></div>`;
+
+      const ramps = {
+        neutral: [0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900],
+        brand: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900],
+        success: [50, 600, 700], warning: [50, 600, 800], danger: [50, 600, 700], info: [50, 600, 700],
+      };
+      document.getElementById('primitives').innerHTML = Object.entries(ramps)
+        .map(([k, steps]) => `<p class="eyebrow">${k}</p><div class="grid">${steps.map((s) => swatch(`--color-${k}-${s}`)).join('')}</div>`)
+        .join('');
+
+      document.getElementById('semantic').innerHTML = [
+        'bg', 'bg-subtle', 'surface', 'surface-muted', 'text', 'text-muted', 'text-subtle', 'border', 'border-strong',
+        'action', 'action-hover', 'action-secondary', 'link', 'accent-subtle', 'focus-ring',
+      ].map((n) => swatch(`--color-${n}`)).join('');
+
+      document.getElementById('type').innerHTML = ['5xl', '4xl', '3xl', '2xl', 'xl', 'lg', 'base', 'sm', 'xs']
+        .map((s) => `<div class="type-row"><code>${s} · ${v('--font-size-' + s).replace(/clamp.*/, 'fluid')}</code><span style="font-size:var(--font-size-${s});line-height:var(--line-height-snug);font-weight:${['5xl', '4xl', '3xl', '2xl'].includes(s) ? 700 : 400}">Oak standing desk — $489.00</span></div>`)
+        .join('') +
+        `<div class="type-row"><code>weights</code><span>${[400, 500, 600, 700].map((w) => `<span style="font-weight:${w};margin-right:1rem">${w} Ágil ção</span>`).join('')}</span></div>`;
+
+      document.getElementById('space').innerHTML = ['0-5', 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24]
+        .map((s) => `<div class="type-row"><code>space-${s} · ${v('--space-' + s)}</code><div class="bar" style="width:var(--space-${s})"></div></div>`)
+        .join('');
+
+      document.getElementById('radii').innerHTML = ['sm', 'md', 'lg', 'xl', 'full']
+        .map((r) => `<div class="box" style="border-radius:var(--radius-${r})">radius-${r}</div>`).join('');
+      document.getElementById('shadows').innerHTML = ['xs', 'sm', 'md', 'lg']
+        .map((s) => `<div class="box" style="border:0;border-radius:var(--radius-lg);box-shadow:var(--shadow-${s})">shadow-${s}</div>`).join('');
+    </script>
+  </body>
+</html>
