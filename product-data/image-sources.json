@@ -1,0 +1,246 @@
+[
+  {
+    "slug": "wireless-over-ear-headphones",
+    "file": "wireless-over-ear-headphones.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/black-wireless-headphones-on-white-table-lUMj2Zv5HUE",
+    "downloadUrl": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Luke Peterson",
+    "photographerUrl": "https://unsplash.com/@ldpeterson11",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "wireless-keyboard-and-mouse",
+    "file": "wireless-keyboard-and-mouse.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/apple-magic-mouse-and-magic-keyboard-TnG2q8FtXsg",
+    "downloadUrl": "https://images.unsplash.com/photo-1510674485131-dc88d96369b4?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Hugo Barbosa",
+    "photographerUrl": "https://unsplash.com/@hugobarbosa",
+    "license": "Unsplash License",
+    "crop": {
+      "left": 0,
+      "top": 0.4
+    }
+  },
+  {
+    "slug": "compact-bluetooth-speaker",
+    "file": "compact-bluetooth-speaker.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/white-and-silver-portable-speaker-on-brown-wooden-table-gbG65gRAGx4",
+    "downloadUrl": "https://images.unsplash.com/photo-1582978571763-2d039e56f0c3?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Nicolas J Leclercq",
+    "photographerUrl": "https://unsplash.com/@nicolasjleclercq",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "desktop-monitor",
+    "file": "desktop-monitor.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/flat-screen-computer-monitor-turned-on-beside-black-keyboard-8GDCzWrcE3M",
+    "downloadUrl": "https://images.unsplash.com/photo-1547658718-1cdaa0852790?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Daniel Korpai",
+    "photographerUrl": "https://unsplash.com/@danielkorpai",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "usb-c-multiport-hub",
+    "file": "usb-c-multiport-hub.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/white-printer-paper-beside-green-plant-lCq0Tfl9-nI",
+    "downloadUrl": "https://images.unsplash.com/photo-1616578781650-cd818fa41e57?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Lasse Jensen",
+    "photographerUrl": "https://unsplash.com/@maybejensen",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "red-and-black-gaming-chair",
+    "file": "red-and-black-gaming-chair.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/a-red-and-black-gaming-chair-with-blue-lights-CIs7k5TlOic",
+    "downloadUrl": "https://images.unsplash.com/photo-1770195483917-b3bb444b7a29?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "fadoul m",
+    "photographerUrl": "https://unsplash.com/@fadoulmhtnr08",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "mechanical-keyboard",
+    "file": "mechanical-keyboard.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/a-computer-keyboard-sitting-on-top-of-a-wooden-table-4GzqVNX0TCQ",
+    "downloadUrl": "https://images.unsplash.com/photo-1632079003110-d694908500da?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "JL Cabrera",
+    "photographerUrl": "https://unsplash.com/@thekidph",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "wireless-gaming-mouse",
+    "file": "wireless-gaming-mouse.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/a-black-computer-mouse-Q-jxVqz0wVQ",
+    "downloadUrl": "https://images.unsplash.com/photo-1658070429465-848c0796abf3?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "JL Cabrera",
+    "photographerUrl": "https://unsplash.com/@thekidph",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "gaming-headset",
+    "file": "gaming-headset.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/black-and-red-corded-headphones-on-white-table-w5m3PIGvkqI",
+    "downloadUrl": "https://images.unsplash.com/photo-1610041321327-b794c052db27?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Fausto Sandoval",
+    "photographerUrl": "https://unsplash.com/@uusaez",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "standing-desk",
+    "file": "standing-desk.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/wooden-standing-desk-in-home-office-tdnYk4qOGhc",
+    "downloadUrl": "https://images.unsplash.com/photo-1623177623442-979c1e42c255?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "ergonofis",
+    "photographerUrl": "https://unsplash.com/@ergonofis",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "ergonomic-mesh-office-chair",
+    "file": "ergonomic-mesh-office-chair.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/a-gray-office-chair-sitting-next-to-a-wooden-table-7mfNpV5eJH0",
+    "downloadUrl": "https://images.unsplash.com/photo-1688578735352-9a6f2ac3b70a?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "EFFYDESK",
+    "photographerUrl": "https://unsplash.com/@effydesk",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "floating-wall-shelf-set",
+    "file": "floating-wall-shelf-set.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/empty-shelves-in-a-white-room-with-a-tile-floor-vv0OomxL4gA",
+    "downloadUrl": "https://images.unsplash.com/photo-1650315532817-02e0e9245e74?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Celso A. Torres Pirron",
+    "photographerUrl": "https://unsplash.com/@celsoramone",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "live-edge-coffee-table",
+    "file": "live-edge-coffee-table.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/brown-wooden-table-beside-white-couch-8NxTrV6i4WQ",
+    "downloadUrl": "https://images.unsplash.com/photo-1581428982868-e410dd047a90?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Lui Peng",
+    "photographerUrl": "https://unsplash.com/@luipeng",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "wooden-monitor-stand",
+    "file": "wooden-monitor-stand.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/a-computer-desk-with-a-keyboard-mouse-and-cell-phone-mJaLWCgI1KY",
+    "downloadUrl": "https://images.unsplash.com/photo-1700451761309-656bd9439443?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Oakywood",
+    "photographerUrl": "https://unsplash.com/@oakywood",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "compact-photo-printer",
+    "file": "compact-photo-printer.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/a-printer-sitting-on-top-of-a-wooden-floor-next-to-a-potted-plant-QbOnQQebbjU",
+    "downloadUrl": "https://images.unsplash.com/photo-1708793699492-5fa208f52dcb?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Joonas Sild",
+    "photographerUrl": "https://unsplash.com/@joonas1233",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "copper-desk-lamp",
+    "file": "copper-desk-lamp.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/gold-table-almp-VDPauwJ_sHo",
+    "downloadUrl": "https://images.unsplash.com/photo-1542728928-1413d1894ed1?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Sincerely Media",
+    "photographerUrl": "https://unsplash.com/@sincerelymedia",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "whiteboard-easel",
+    "file": "whiteboard-easel.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/a-white-board-sitting-on-top-of-a-wooden-floor-FYFKBiWLq88",
+    "downloadUrl": "https://images.unsplash.com/photo-1638189906269-c37fdb5a9351?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Studio VIX",
+    "photographerUrl": "https://unsplash.com/@studiovix_nl",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "robot-vacuum-cleaner",
+    "file": "robot-vacuum-cleaner.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/white-round-ceiling-light-turned-off-DeGvnKKETFM",
+    "downloadUrl": "https://images.unsplash.com/photo-1590164409291-450e859ccb87?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Jan Antonin Kolar",
+    "photographerUrl": "https://unsplash.com/@jankolar",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "gooseneck-kettle",
+    "file": "gooseneck-kettle.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/a-coffee-maker-on-a-table-tVeVHHWCfHM",
+    "downloadUrl": "https://images.unsplash.com/photo-1650940925927-f4a30c930a4d?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Paul Esch-Laurent",
+    "photographerUrl": "https://unsplash.com/@pinjasaur",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "air-purifier",
+    "file": "air-purifier.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/a-white-air-conditioner-sitting-on-top-of-a-bed-Yslpbknkg6Y",
+    "downloadUrl": "https://images.unsplash.com/photo-1709745634912-2a79b938f3c2?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Nicholas Ng",
+    "photographerUrl": "https://unsplash.com/@nicsandman20",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "vintage-filament-bulb",
+    "file": "vintage-filament-bulb.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/close-up-photography-of-light-bulb-voQ97kezCx0",
+    "downloadUrl": "https://images.unsplash.com/photo-1552862750-746b8f6f7f25?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Johannes Plenio",
+    "photographerUrl": "https://unsplash.com/@jplenio",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "yoga-mat-and-cork-blocks",
+    "file": "yoga-mat-and-cork-blocks.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/a-yoga-mat-with-two-blocks-on-top-of-it-b8Q5fHBsyik",
+    "downloadUrl": "https://images.unsplash.com/photo-1646239646963-b0b9be56d6b5?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Samantha Sheppard",
+    "photographerUrl": "https://unsplash.com/@samsheppardphoto",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "rubber-hex-dumbbell",
+    "file": "rubber-hex-dumbbell.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/a-set-of-keys-E3F5VL5EGWg",
+    "downloadUrl": "https://images.unsplash.com/photo-1648659487787-79db84e9b2e2?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "VD Photography",
+    "photographerUrl": "https://unsplash.com/@vdphotography",
+    "license": "Unsplash License"
+  },
+  {
+    "slug": "insulated-water-bottle",
+    "file": "insulated-water-bottle.webp",
+    "source": "unsplash",
+    "pageUrl": "https://unsplash.com/photos/green-bottle-on-white-table-reEySFadyJQ",
+    "downloadUrl": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "Joan Tran",
+    "photographerUrl": "https://unsplash.com/@joanofarts",
+    "license": "Unsplash License"
+  }
+]

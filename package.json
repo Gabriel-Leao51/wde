@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "seed": "node scripts/seed.js"
+    "seed": "node scripts/seed.js",
+    "images:fetch": "node scripts/fetch-product-images.js"
   },
   "keywords": [],
   "author": "Maximilian Schwarzmüller",
@@ -28,6 +29,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "sharp": "^0.35.5"
   }
 }

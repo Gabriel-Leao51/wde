@@ -63,9 +63,9 @@ All in `public/styles/tokens.css`, in two layers. **Primitives** (`--color-neutr
 
 ## Product images
 
-Decided in session 14. Session 15 implements it.
+Decided in session 14, implemented in session 15.
 
-**Where things stand.** Of the 24 seed products, 21 use SVG placeholders that `scripts/seed.js` generates. The other 3 are JPG/WebP files whose names look like Amazon listing images (`61KmVBD4ZfL._AC_SX522_…`), so their licence is unknown. All 24 get replaced, and the placeholder generator and the 3 files are deleted.
+**Where things stand.** All 24 seed products use Unsplash photos, fetched into `product-data/images/` as square WebP. The old SVG placeholder generator and the 3 unknown-provenance files are gone. The catalogue lives in `scripts/seed-products.js` (names, prices, PT translations, image file); `scripts/seed.js` only inserts it.
 
 **Licence.**
 

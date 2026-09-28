@@ -92,7 +92,7 @@ Credentials already seeded:
 | Admin    | admin@test.com      | tester   |
 | Customer | user2@example.com   | usertest |
 
-The seed script also creates a full sample catalog (24 products across 6 departments, including the "GTRACING - Black Gaming Chair") and a pending order, so the application comes up ready to use and ready for automated testing.
+The seed script also creates a full sample catalog (24 products across 6 departments, including the "Red and Black Gaming Chair") and a pending order, so the application comes up ready to use and ready for automated testing.
 
 MongoDB is reachable at `127.0.0.1:27017` (loopback only) — used by the [`wde-test-automation`](https://github.com/Gabriel-Leao51/wde-test-automation) suite's security proof-of-concept for `BUG-SEC-005`, and handy for inspecting the database locally with any MongoDB client.
 
@@ -107,3 +107,34 @@ docker compose down -v
 ## 🧪 Automated Testing
 
 This application is the target under test for a companion end-to-end test suite, [`wde-test-automation`](https://github.com/Gabriel-Leao51/wde-test-automation) (Playwright + pytest-bdd), covering functional, security, visual regression, and E2E scenarios across the full feature set described above.
+
+## 📷 Photo credits
+
+Product photos are from [Unsplash](https://unsplash.com) under the [Unsplash License](https://unsplash.com/license), cropped to squares and converted to WebP. The full record (source page, download URL, photographer) is in [`product-data/image-sources.json`](product-data/image-sources.json); `npm run images:fetch` rebuilds the files from it.
+
+| Product | Photo by |
+| --- | --- |
+| Wireless Over-Ear Headphones | [Photo](https://unsplash.com/photos/black-wireless-headphones-on-white-table-lUMj2Zv5HUE) by [Luke Peterson](https://unsplash.com/@ldpeterson11) |
+| Wireless Keyboard and Mouse | [Photo](https://unsplash.com/photos/apple-magic-mouse-and-magic-keyboard-TnG2q8FtXsg) by [Hugo Barbosa](https://unsplash.com/@hugobarbosa) |
+| Compact Bluetooth Speaker | [Photo](https://unsplash.com/photos/white-and-silver-portable-speaker-on-brown-wooden-table-gbG65gRAGx4) by [Nicolas J Leclercq](https://unsplash.com/@nicolasjleclercq) |
+| Desktop Monitor | [Photo](https://unsplash.com/photos/flat-screen-computer-monitor-turned-on-beside-black-keyboard-8GDCzWrcE3M) by [Daniel Korpai](https://unsplash.com/@danielkorpai) |
+| USB-C Multiport Hub | [Photo](https://unsplash.com/photos/white-printer-paper-beside-green-plant-lCq0Tfl9-nI) by [Lasse Jensen](https://unsplash.com/@maybejensen) |
+| Red and Black Gaming Chair | [Photo](https://unsplash.com/photos/a-red-and-black-gaming-chair-with-blue-lights-CIs7k5TlOic) by [fadoul m](https://unsplash.com/@fadoulmhtnr08) |
+| Mechanical Keyboard | [Photo](https://unsplash.com/photos/a-computer-keyboard-sitting-on-top-of-a-wooden-table-4GzqVNX0TCQ) by [JL Cabrera](https://unsplash.com/@thekidph) |
+| Wireless Gaming Mouse | [Photo](https://unsplash.com/photos/a-black-computer-mouse-Q-jxVqz0wVQ) by [JL Cabrera](https://unsplash.com/@thekidph) |
+| Gaming Headset | [Photo](https://unsplash.com/photos/black-and-red-corded-headphones-on-white-table-w5m3PIGvkqI) by [Fausto Sandoval](https://unsplash.com/@uusaez) |
+| Standing Desk | [Photo](https://unsplash.com/photos/wooden-standing-desk-in-home-office-tdnYk4qOGhc) by [ergonofis](https://unsplash.com/@ergonofis) |
+| Ergonomic Mesh Office Chair | [Photo](https://unsplash.com/photos/a-gray-office-chair-sitting-next-to-a-wooden-table-7mfNpV5eJH0) by [EFFYDESK](https://unsplash.com/@effydesk) |
+| Floating Wall Shelf Set | [Photo](https://unsplash.com/photos/empty-shelves-in-a-white-room-with-a-tile-floor-vv0OomxL4gA) by [Celso A. Torres Pirron](https://unsplash.com/@celsoramone) |
+| Live-Edge Coffee Table | [Photo](https://unsplash.com/photos/brown-wooden-table-beside-white-couch-8NxTrV6i4WQ) by [Lui Peng](https://unsplash.com/@luipeng) |
+| Wooden Monitor Stand | [Photo](https://unsplash.com/photos/a-computer-desk-with-a-keyboard-mouse-and-cell-phone-mJaLWCgI1KY) by [Oakywood](https://unsplash.com/@oakywood) |
+| Compact Photo Printer | [Photo](https://unsplash.com/photos/a-printer-sitting-on-top-of-a-wooden-floor-next-to-a-potted-plant-QbOnQQebbjU) by [Joonas Sild](https://unsplash.com/@joonas1233) |
+| Copper Desk Lamp | [Photo](https://unsplash.com/photos/gold-table-almp-VDPauwJ_sHo) by [Sincerely Media](https://unsplash.com/@sincerelymedia) |
+| Whiteboard Easel | [Photo](https://unsplash.com/photos/a-white-board-sitting-on-top-of-a-wooden-floor-FYFKBiWLq88) by [Studio VIX](https://unsplash.com/@studiovix_nl) |
+| Robot Vacuum Cleaner | [Photo](https://unsplash.com/photos/white-round-ceiling-light-turned-off-DeGvnKKETFM) by [Jan Antonin Kolar](https://unsplash.com/@jankolar) |
+| Gooseneck Kettle | [Photo](https://unsplash.com/photos/a-coffee-maker-on-a-table-tVeVHHWCfHM) by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) |
+| Air Purifier | [Photo](https://unsplash.com/photos/a-white-air-conditioner-sitting-on-top-of-a-bed-Yslpbknkg6Y) by [Nicholas Ng](https://unsplash.com/@nicsandman20) |
+| Vintage Filament Bulb | [Photo](https://unsplash.com/photos/close-up-photography-of-light-bulb-voQ97kezCx0) by [Johannes Plenio](https://unsplash.com/@jplenio) |
+| Yoga Mat and Cork Blocks | [Photo](https://unsplash.com/photos/a-yoga-mat-with-two-blocks-on-top-of-it-b8Q5fHBsyik) by [Samantha Sheppard](https://unsplash.com/@samsheppardphoto) |
+| Rubber Hex Dumbbell | [Photo](https://unsplash.com/photos/a-set-of-keys-E3F5VL5EGWg) by [VD Photography](https://unsplash.com/@vdphotography) |
+| Insulated Water Bottle | [Photo](https://unsplash.com/photos/green-bottle-on-white-table-reEySFadyJQ) by [Joan Tran](https://unsplash.com/@joanofarts) |
