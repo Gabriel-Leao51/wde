@@ -8,6 +8,29 @@ function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+async function getHome(req, res, next) {
+  try {
+    const [products, featured] = await Promise.all([Product.findAll(), Product.findFeatured()]);
+
+    // One tile per department, pictured with its first product.
+    const departmentTiles = DEPARTMENTS.map(function (department) {
+      const first = products.find(function (product) {
+        return product.department === department;
+      });
+      return { department: department, imageUrl: first ? first.imageUrl : null };
+    });
+
+    res.render('customer/home', {
+      departmentTiles: departmentTiles,
+      featuredProducts: featured.map(function (product) {
+        return localizeProduct(product, res.locals.lang);
+      }),
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+
 async function getAllProducts(req, res, next) {
   try {
     // req.query values can be arrays/objects (e.g. ?department[$ne]=null), not just
@@ -73,6 +96,7 @@ async function searchProducts(req, res, next) {
 }
 
 module.exports = {
+  getHome: getHome,
   getAllProducts: getAllProducts,
   getProductDetails: getProductDetails,
   searchProducts: searchProducts,

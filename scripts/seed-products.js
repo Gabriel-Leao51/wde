@@ -4,6 +4,8 @@ const mongodb = require("mongodb");
 // file is `<slug>.webp` and its licence and credit are recorded under the same
 // slug in product-data/image-sources.json (see docs/design-direction.md).
 //
+// `featured: true` marks the products shown on the home page.
+//
 // Department names are the canonical (English) filter/query value - display
 // labels are translated separately (see locales/*.json's "departments" key),
 // same split as product title/summary/description vs. their translations.
@@ -12,6 +14,7 @@ module.exports = [
   {
     _id: new mongodb.ObjectId("000000000000000000000002"),
     title: "Wireless Over-Ear Headphones",
+    featured: true,
     department: "Electronics",
     summary: "Over-ear wireless headphones with rich sound and all-day comfort.",
     price: 99.99,
@@ -101,6 +104,7 @@ module.exports = [
   {
     _id: new mongodb.ObjectId("000000000000000000000001"),
     title: "Red and Black Gaming Chair",
+    featured: true,
     department: "Gaming",
     summary: "Comfortable racing-style gaming chair for long gaming sessions.",
     price: 249.99,
@@ -172,6 +176,7 @@ module.exports = [
   // --- Furniture ---
   {
     title: "Standing Desk",
+    featured: true,
     department: "Furniture",
     summary: "Height-adjustable desk with a solid wood top.",
     price: 429.0,
@@ -312,6 +317,7 @@ module.exports = [
   // --- Home ---
   {
     title: "Robot Vacuum Cleaner",
+    featured: true,
     department: "Home",
     summary: "Self-driving vacuum that keeps floors clean on its own.",
     price: 199.0,

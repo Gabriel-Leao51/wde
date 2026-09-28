@@ -1,3 +1,26 @@
+  <footer id="site-footer">
+    <div class="footer-inner">
+      <% if (!locals.isAdmin) { %>
+        <div class="footer-brand">
+          <p class="footer-logo">WDE</p>
+          <p class="footer-tagline"><%= t('footer.tagline') %></p>
+        </div>
+        <nav class="footer-nav" aria-labelledby="footer-departments-heading">
+          <h2 id="footer-departments-heading"><%= t('footer.shopHeading') %></h2>
+          <ul>
+            <li><a href="/products"><%= t('footer.allProducts') %></a></li>
+            <% for (const department of ['Electronics', 'Gaming', 'Furniture', 'Office', 'Home', 'Sports']) { %>
+              <li><a href="/products?department=<%= department %>"><%= t('departments.' + department) %></a></li>
+            <% } %>
+          </ul>
+        </nav>
+      <% } %>
+      <p class="footer-legal">
+        <span><%= t('footer.legal') %></span>
+        <a href="/credits"><%= t('footer.photoCredits') %></a>
+      </p>
+    </div>
+  </footer>
   <div id="toast-container" aria-live="polite"></div>
 </body>
 </html>

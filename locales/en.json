@@ -134,6 +134,30 @@
     "actionsColumn": "Actions",
     "downloadInvoice": "Download Invoice"
   },
+  "home": {
+    "title": "WDE Shop",
+    "heroEyebrow": "The general store",
+    "heroHeading": "Everything for your home, desk and game night",
+    "heroLead": "Electronics, furniture, office and sports gear, all in one store.",
+    "heroCta": "Shop all products",
+    "departmentsHeading": "Shop by department",
+    "featuredHeading": "Featured products",
+    "viewAll": "View all products"
+  },
+  "footer": {
+    "navLabel": "Footer",
+    "tagline": "A general store for your home, desk and game night.",
+    "shopHeading": "Shop by department",
+    "allProducts": "All products",
+    "legal": "WDE Shop is a demo store.",
+    "photoCredits": "Photo credits"
+  },
+  "credits": {
+    "title": "Photo credits",
+    "heading": "Photo credits",
+    "intro": "Product photos come from Unsplash and are used under the Unsplash License. Thank you to the photographers.",
+    "photoBy": "Photo by"
+  },
   "errors": {
     "errorPageTitle": "An error occurred",
     "notAuthenticatedHeading": "Not authenticated!",

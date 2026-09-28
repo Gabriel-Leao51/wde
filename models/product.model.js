@@ -67,6 +67,21 @@ class Product {
     });
   }
 
+  // Products flagged `featured` in the seed data, for the home page. The flag is not part of the
+  // admin form and `save()` never writes it, so editing a product keeps its featured state.
+  static async findFeatured() {
+    const products = await db
+      .getDb()
+      .collection('products')
+      .find({ featured: true })
+      .sort({ _id: 1 })
+      .toArray();
+
+    return products.map(function (productDocument) {
+      return new Product(productDocument);
+    });
+  }
+
   // Matches against the canonical (English) title and every stored
   // translation's title, so search works regardless of which language the
   // shopper types in. `titleRegex` must already be a safe, escaped RegExp -

@@ -1,0 +1,45 @@
+<%- include('../shared/includes/head', { pageTitle: t('home.title') }) %>
+<link rel="stylesheet" href="/styles/products.css">
+<link rel="stylesheet" href="/styles/home.css">
+</head>
+<body>
+  <%- include('../shared/includes/header') %>
+  <main class="home">
+    <section class="hero">
+      <div class="home-inner">
+        <p class="eyebrow"><%= t('home.heroEyebrow') %></p>
+        <h1><%= t('home.heroHeading') %></h1>
+        <p class="hero-lead"><%= t('home.heroLead') %></p>
+        <a class="btn btn-buy" href="/products"><%= t('home.heroCta') %></a>
+      </div>
+    </section>
+
+    <section class="home-inner home-section" aria-labelledby="departments-heading">
+      <h2 id="departments-heading"><%= t('home.departmentsHeading') %></h2>
+      <ul class="department-tiles">
+        <% for (const tile of departmentTiles) { %>
+          <li>
+            <a class="department-tile" href="/products?department=<%= tile.department %>">
+              <% if (tile.imageUrl) { %><img src="<%= tile.imageUrl %>" alt="" loading="lazy" /><% } %>
+              <span><%= t('departments.' + tile.department) %></span>
+            </a>
+          </li>
+        <% } %>
+      </ul>
+    </section>
+
+    <section class="home-inner home-section" aria-labelledby="featured-heading">
+      <div class="section-heading">
+        <h2 id="featured-heading"><%= t('home.featuredHeading') %></h2>
+        <a href="/products"><%= t('home.viewAll') %></a>
+      </div>
+      <ul class="featured-grid">
+        <% for (const product of featuredProducts) { %>
+          <li>
+            <%- include('../shared/includes/product-item', { product: product }) %>
+          </li>
+        <% } %>
+      </ul>
+    </section>
+  </main>
+<%- include('../shared/includes/footer') %>

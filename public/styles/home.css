@@ -1,0 +1,109 @@
+/*
+ * Home page: hero band, department tiles, featured products. Sections use --container-max like the
+ * header and footer, so the page is wider than the 50rem <main> used by the other templates.
+ */
+
+main.home {
+  width: 100%;
+  max-width: none;
+}
+
+.home-inner {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-inline: var(--container-gutter);
+  box-sizing: border-box;
+}
+
+.hero {
+  background-color: var(--color-accent-subtle);
+  border-bottom: 1px solid var(--color-border);
+  padding-block: var(--space-16);
+}
+
+.hero .home-inner > * {
+  max-width: 40rem;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-3);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: var(--font-size-5xl);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.hero-lead {
+  margin: 0 0 var(--space-6);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-lg);
+}
+
+.hero .btn {
+  display: inline-block;
+}
+
+.home-section {
+  padding-block: var(--space-12) 0;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.department-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: var(--space-4);
+}
+
+.department-tile {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  text-decoration: none;
+}
+
+.department-tile:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.department-tile img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background-color: var(--color-surface-muted);
+}
+
+.department-tile span {
+  display: block;
+  padding: var(--space-3);
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: var(--space-4);
+}
+
+.credits-list li {
+  padding-block: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}

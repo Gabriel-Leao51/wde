@@ -34,7 +34,7 @@
   <nav id="site-nav" aria-label="<%= t('nav.mainNavigation') %>">
     <ul class="nav-items">
       <% if (!locals.isAdmin) { %>
-        <li><a href="/"><%= t('nav.shop') %></a></li>
+        <li><a href="/products"><%= t('nav.shop') %></a></li>
       <% } else { %>
         <li><a href="/admin/products"><%= t('nav.manageProducts') %></a></li>
         <li><a href="/admin/orders"><%= t('nav.manageOrders') %></a></li>

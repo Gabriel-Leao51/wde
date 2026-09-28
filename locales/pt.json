@@ -134,6 +134,30 @@
     "actionsColumn": "Ações",
     "downloadInvoice": "Baixar Fatura"
   },
+  "home": {
+    "title": "WDE Shop",
+    "heroEyebrow": "A loja de tudo um pouco",
+    "heroHeading": "Tudo para sua casa, sua mesa e sua noite de jogos",
+    "heroLead": "Eletrônicos, móveis, escritório e esportes, tudo em uma só loja.",
+    "heroCta": "Explorar a loja",
+    "departmentsHeading": "Compre por departamento",
+    "featuredHeading": "Produtos em destaque",
+    "viewAll": "Ver todos os produtos"
+  },
+  "footer": {
+    "navLabel": "Rodapé",
+    "tagline": "Uma loja de tudo um pouco para sua casa, sua mesa e sua noite de jogos.",
+    "shopHeading": "Compre por departamento",
+    "allProducts": "Todos os produtos",
+    "legal": "A WDE Shop é uma loja de demonstração.",
+    "photoCredits": "Créditos das fotos"
+  },
+  "credits": {
+    "title": "Créditos das fotos",
+    "heading": "Créditos das fotos",
+    "intro": "As fotos dos produtos vêm do Unsplash e são usadas sob a Licença Unsplash. Obrigado aos fotógrafos.",
+    "photoBy": "Foto de"
+  },
   "errors": {
     "errorPageTitle": "Ocorreu um erro",
     "notAuthenticatedHeading": "Não autenticado!",

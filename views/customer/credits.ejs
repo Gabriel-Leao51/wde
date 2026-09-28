@@ -1,0 +1,19 @@
+<%- include('../shared/includes/head', { pageTitle: t('credits.title') }) %>
+<link rel="stylesheet" href="/styles/home.css">
+</head>
+<body>
+  <%- include('../shared/includes/header') %>
+  <main>
+    <h1><%= t('credits.heading') %></h1>
+    <p><%= t('credits.intro') %></p>
+    <ul class="credits-list">
+      <% for (const credit of credits) { %>
+        <li>
+          <a href="<%= credit.pageUrl %>" rel="noopener"><%= credit.title %></a>
+          &mdash; <%= t('credits.photoBy') %> <a href="<%= credit.photographerUrl %>" rel="noopener"><%= credit.photographer %></a>
+          (<%= credit.license %>)
+        </li>
+      <% } %>
+    </ul>
+  </main>
+<%- include('../shared/includes/footer') %>
