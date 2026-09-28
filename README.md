@@ -114,7 +114,7 @@ Product photos are from [Unsplash](https://unsplash.com) under the [Unsplash Lic
 
 | Product | Photo by |
 | --- | --- |
-| Wireless Over-Ear Headphones | [Photo](https://unsplash.com/photos/black-wireless-headphones-on-white-table-lUMj2Zv5HUE) by [Luke Peterson](https://unsplash.com/@ldpeterson11) |
+| Wireless Over-Ear Headphones | [Photo](https://unsplash.com/photos/flatlay-photography-of-wireless-headphones-PDX_a_82obo) by [C D-X](https://unsplash.com/@cdx2) |
 | Wireless Keyboard and Mouse | [Photo](https://unsplash.com/photos/apple-magic-mouse-and-magic-keyboard-TnG2q8FtXsg) by [Hugo Barbosa](https://unsplash.com/@hugobarbosa) |
 | Compact Bluetooth Speaker | [Photo](https://unsplash.com/photos/white-and-silver-portable-speaker-on-brown-wooden-table-gbG65gRAGx4) by [Nicolas J Leclercq](https://unsplash.com/@nicolasjleclercq) |
 | Desktop Monitor | [Photo](https://unsplash.com/photos/flat-screen-computer-monitor-turned-on-beside-black-keyboard-8GDCzWrcE3M) by [Daniel Korpai](https://unsplash.com/@danielkorpai) |

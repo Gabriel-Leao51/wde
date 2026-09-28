@@ -3,11 +3,15 @@
     "slug": "wireless-over-ear-headphones",
     "file": "wireless-over-ear-headphones.webp",
     "source": "unsplash",
-    "pageUrl": "https://unsplash.com/photos/black-wireless-headphones-on-white-table-lUMj2Zv5HUE",
-    "downloadUrl": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=2000&fit=max&q=85&fm=jpg",
-    "photographer": "Luke Peterson",
-    "photographerUrl": "https://unsplash.com/@ldpeterson11",
-    "license": "Unsplash License"
+    "pageUrl": "https://unsplash.com/photos/flatlay-photography-of-wireless-headphones-PDX_a_82obo",
+    "downloadUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=2000&fit=max&q=85&fm=jpg",
+    "photographer": "C D-X",
+    "photographerUrl": "https://unsplash.com/@cdx2",
+    "license": "Unsplash License",
+    "crop": {
+      "left": 0.85,
+      "top": 0.5
+    }
   },
   {
     "slug": "wireless-keyboard-and-mouse",
