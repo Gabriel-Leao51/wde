@@ -3,7 +3,7 @@ const cartItemManagementElements = document.querySelectorAll(
 );
 const removeButtons = document.querySelectorAll('.remove-item-btn');
 const cartTotalPriceElement = document.getElementById('cart-total-price');
-const cartBadgeElements = document.querySelectorAll('.nav-items .badge');
+const cartBadgeElements = document.querySelectorAll('.cart-count');
 
 const REMOVED_MESSAGE_DURATION_MS = 2000;
 

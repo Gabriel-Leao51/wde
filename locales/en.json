@@ -8,7 +8,14 @@
     "signup": "Signup",
     "login": "Login",
     "logout": "Logout",
-    "languageLabel": "Language"
+    "languageLabel": "Language",
+    "menu": "Menu",
+    "account": "Account",
+    "mainNavigation": "Main",
+    "theme": "Theme",
+    "themeSystem": "System",
+    "themeLight": "Light",
+    "themeDark": "Dark"
   },
   "auth": {
     "loginTitle": "Login",

@@ -1,10 +1,7 @@
-// nav-items.ejs is rendered twice (desktop nav + mobile menu), so every
-// instance gets its own independent open/close state.
-const langSwitchers = document.querySelectorAll('.lang-switcher');
-
-langSwitchers.forEach(function (switcher) {
-  const trigger = switcher.querySelector('.lang-trigger');
-  const menu = switcher.querySelector('.lang-menu');
+// Every `.dropdown` in the header (language, account, theme) gets its own open/close state.
+document.querySelectorAll('.dropdown').forEach(function (dropdown) {
+  const trigger = dropdown.querySelector('.dropdown-trigger');
+  const menu = dropdown.querySelector('.dropdown-menu');
 
   function closeMenu() {
     menu.hidden = true;
@@ -26,12 +23,12 @@ langSwitchers.forEach(function (switcher) {
   });
 
   document.addEventListener('click', function (event) {
-    if (!switcher.contains(event.target)) {
+    if (!dropdown.contains(event.target)) {
       closeMenu();
     }
   });
 
-  switcher.addEventListener('keydown', function (event) {
+  dropdown.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
       closeMenu();
       trigger.focus();

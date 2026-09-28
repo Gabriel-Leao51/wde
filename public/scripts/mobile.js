@@ -1,8 +1,9 @@
 const mobileMenuBtnElement = document.getElementById('mobile-menu-btn');
-const mobileMenuElement = document.getElementById('mobile-menu');
+const siteNavElement = document.getElementById('site-nav');
 
 function toggleMobileMenu() {
-  mobileMenuElement.classList.toggle('open');
+  const isOpen = siteNavElement.classList.toggle('open');
+  mobileMenuBtnElement.setAttribute('aria-expanded', String(isOpen));
 }
 
 mobileMenuBtnElement.addEventListener('click', toggleMobileMenu);

@@ -1,47 +1,240 @@
-main {
-  margin-top: 6rem;
-}
+/*
+ * Site header. One <nav> serves every width: from md up it sits inline in the header row, below md
+ * it becomes a panel under the header that the hamburger button opens. Search and the cart stay
+ * outside the nav so they are always visible.
+ */
 
 #main-header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  max-width: 60rem;
-  height: 5rem;
-  margin: 0 auto;
-  padding: 0 var(--space-6);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--color-border);
-  background-color: var(--color-bg);
   z-index: var(--z-header);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    'menu logo cart'
+    'search search search';
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  padding: var(--space-3) var(--container-gutter);
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+#main-header.is-admin {
+  grid-template-areas: 'menu logo logo';
+}
+
+#mobile-menu-btn {
+  grid-area: menu;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: var(--control-height);
+  height: var(--control-height);
+  padding: var(--space-3);
+  border: none;
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#mobile-menu-btn:hover {
+  background-color: var(--color-surface-muted);
+}
+
+#mobile-menu-btn span {
+  display: block;
+  height: 2px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-text);
+}
+
+#logo {
+  grid-area: logo;
 }
 
 #logo a {
-  font-weight: bold;
-  font-size: 2rem;
+  color: var(--color-text);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
 }
 
-#main-header nav {
+#logo a:hover {
+  text-decoration: none;
+}
+
+/* ---------- Search ---------- */
+
+#product-search-container {
+  grid-area: search;
+  position: relative;
+}
+
+#product-search-container .icon {
+  position: absolute;
+  top: 50%;
+  left: var(--space-3);
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+#product-search {
+  width: 100%;
+  min-height: var(--control-height);
+  padding-left: var(--space-10);
+  border-radius: var(--radius-full);
+}
+
+#product-search-results {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  left: 0;
+  right: 0;
+  z-index: var(--z-dropdown);
+  max-height: 20rem;
+  overflow-y: auto;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+#product-search-results li a {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  color: var(--color-text);
+}
+
+#product-search-results li a:hover,
+#product-search-results li a:focus {
+  background-color: var(--color-surface-muted);
+  text-decoration: none;
+}
+
+/* ---------- Cart ---------- */
+
+#cart-link {
+  grid-area: cart;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--control-height);
+  height: var(--control-height);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+}
+
+#cart-link:hover {
+  background-color: var(--color-surface-muted);
+  text-decoration: none;
+}
+
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 1.25rem;
+  padding: 0 var(--space-1);
+  border-radius: var(--radius-full);
+  background-color: var(--color-action);
+  color: var(--color-action-text);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.25rem;
+  text-align: center;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+#cart-link .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* ---------- Nav panel (below md) ---------- */
+
+#site-nav {
   display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: calc(100dvh - 8rem);
+  overflow-y: auto;
+  padding: var(--space-4) var(--container-gutter);
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+#site-nav.open {
+  display: block;
 }
 
 .nav-items {
-  height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-2);
+}
+
+.nav-items > li > a:not(.btn),
+.dropdown-trigger {
+  display: flex;
   align-items: center;
-  justify-content: space-around;
+  gap: var(--space-2);
+  width: 100%;
+  min-height: var(--control-height);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font: inherit;
+  font-weight: var(--font-weight-medium);
 }
 
-.nav-items li {
-  margin: 0 var(--space-2);
+.nav-items > li > a:not(.btn):hover,
+.nav-items > li > a:not(.btn):active {
+  background-color: var(--color-surface-muted);
+  text-decoration: none;
 }
 
-.lang-switcher {
+.nav-items form {
+  display: contents;
+}
+
+.nav-items .btn {
+  width: 100%;
+}
+
+/* ---------- Dropdowns (language, account, theme) ---------- */
+
+.dropdown {
   position: relative;
+}
+
+.dropdown-trigger {
+  background-color: transparent;
+  border: 1px solid var(--color-border-strong);
+  cursor: pointer;
+}
+
+.dropdown-trigger:hover {
+  background-color: var(--color-surface-muted);
+}
+
+.dropdown-trigger::after {
+  content: '';
+  margin-left: auto;
+  border: 0.3em solid transparent;
+  border-top-color: currentColor;
+  margin-top: 0.2em;
 }
 
 .flag-icon {
@@ -51,157 +244,111 @@ main {
   flex-shrink: 0;
 }
 
-.lang-trigger {
-  font: inherit;
-  font-size: 0.9em;
+/* Icon-only triggers get a text label inside the mobile panel. */
+.dropdown-label {
+  display: inline;
+}
+
+/* Below md the menus open inline inside the panel; from md up they float. */
+.dropdown-menu {
+  margin: var(--space-1) 0 0 var(--space-4);
+}
+
+.dropdown-item {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  color: var(--color-text);
-  background-color: transparent;
-  border: 1px solid var(--color-border-strong);
+  width: 100%;
+  min-height: var(--control-height);
+  padding: var(--space-2) var(--space-4);
+  border: none;
   border-radius: var(--radius-md);
-  padding: var(--space-1) var(--space-2);
+  background-color: transparent;
+  color: var(--color-text);
+  font: inherit;
+  text-align: left;
   cursor: pointer;
 }
 
-.lang-trigger::after {
-  content: '';
-  border: 0.3em solid transparent;
-  border-top-color: currentColor;
-  margin-top: 0.2em;
-}
-
-.lang-menu {
-  position: absolute;
-  top: calc(100% + var(--space-2));
-  right: 0;
-  z-index: var(--z-dropdown);
-  min-width: 8rem;
-  margin: 0;
-  padding: var(--space-2) 0;
-  list-style: none;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-}
-
-.lang-option {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  color: var(--color-text);
-}
-
-.lang-option:hover,
-.lang-option:active {
+.dropdown-item:hover,
+.dropdown-item:active {
   background-color: var(--color-surface-muted);
   text-decoration: none;
 }
 
-.lang-option.active {
-  font-weight: bold;
+.dropdown-item.active,
+.dropdown-item[aria-pressed='true'] {
+  font-weight: var(--font-weight-bold);
   color: var(--color-link);
 }
 
-.nav-items button {
-  cursor: pointer;
-  font: inherit;
-  color: var(--color-text);
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-md);
-  background-color: transparent;
-  padding: var(--space-2) var(--space-4);
-}
-
-#mobile-menu-btn {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  border: none;
-  cursor: pointer;
-  width: 2.25rem;
-  height: 2.25rem;
-  background-color: transparent;
-  padding: 0;
-}
-
-#mobile-menu-btn span {
-  width: 2.25rem;
-  height: 0.2rem;
-  background-color: var(--color-text);
-}
-
-#mobile-menu {
-  position: fixed;
-  top: 5rem;
-  left: 0;
-  height: calc(100vh - 5rem);
-  width: 100%;
-  background-color: var(--color-bg);
-  z-index: var(--z-overlay);
-  display: none;
-  flex-direction: column;
-  align-items: center;
-}
-
-#mobile-menu.open {
-  display: flex;
-}
-
-#mobile-menu nav {
-  height: 20rem;
-  width: 90%;
-  margin: var(--space-4) auto;
-}
-
-#mobile-menu .nav-items a,
-#mobile-menu .nav-items button {
-  font-size: 1.75rem;
-  color: var(--color-text);
-}
-
-#mobile-menu .nav-items .lang-trigger,
-#mobile-menu .nav-items .lang-option {
-  font-size: 1.25rem;
-}
-
 @media (min-width: 48rem) {
-  main {
-    margin-top: 0;
-  }
-
   #main-header {
-    position: static;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    grid-template-areas: 'logo search nav cart';
+    gap: var(--space-4) var(--space-6);
   }
 
-  #main-header nav {
-    display: block;
+  #main-header.is-admin {
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 'logo nav';
   }
-
 
   #mobile-menu-btn {
     display: none;
   }
 
-  #mobile-menu {
-    display: none;
+  #site-nav {
+    display: block;
+    grid-area: nav;
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+    border-bottom: none;
+    box-shadow: none;
+    background-color: transparent;
   }
 
   .nav-items {
     flex-direction: row;
+    align-items: center;
+    gap: var(--space-1);
   }
 
-  .nav-items a {
-    padding: var(--space-2) var(--space-4);
+  .nav-items > li > a:not(.btn),
+  .dropdown-trigger {
+    width: auto;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .nav-items .btn {
+    width: auto;
+  }
+
+  .dropdown-label {
+    display: none;
+  }
+
+  .dropdown-trigger {
+    border-color: transparent;
+  }
+
+  .dropdown-trigger::after {
+    margin-left: 0;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + var(--space-2));
+    right: 0;
+    z-index: var(--z-dropdown);
+    min-width: 9rem;
+    margin: 0;
+    padding: var(--space-2);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-  }
-
-  .nav-items a:hover,
-  .nav-items a:active {
-    background-color: var(--color-surface-muted);
-    text-decoration: none;
+    box-shadow: var(--shadow-md);
   }
 }

@@ -8,7 +8,14 @@
     "signup": "Cadastrar",
     "login": "Entrar",
     "logout": "Sair",
-    "languageLabel": "Idioma"
+    "languageLabel": "Idioma",
+    "menu": "Menu",
+    "account": "Conta",
+    "mainNavigation": "Principal",
+    "theme": "Tema",
+    "themeSystem": "Sistema",
+    "themeLight": "Claro",
+    "themeDark": "Escuro"
   },
   "auth": {
     "loginTitle": "Entrar",
