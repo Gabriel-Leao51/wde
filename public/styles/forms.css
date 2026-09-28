@@ -1,19 +1,10 @@
 form hr {
-  border-color: var(--color-primary-200);
+  border-color: var(--color-border);
   margin: var(--space-4);
 }
 
-label {
-  color: var(--color-gray-100);
-  display: block;
-  margin-bottom: var(--space-2);
-}
-
-input, textarea {
-  font: inherit;
-  padding: var(--space-2);
-  border-radius: var(--border-radius-small);
-  border: none;
+input,
+textarea {
   width: 90%;
 }
 
@@ -23,14 +14,14 @@ input, textarea {
   flex-wrap: wrap;
   gap: var(--space-2);
   border: 2px dashed transparent;
-  border-radius: var(--border-radius-small);
+  border-radius: var(--radius-md);
   padding: var(--space-2);
   transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
 #image-upload-control.dragover {
-  border-color: var(--color-primary-400);
-  background-color: var(--color-primary-500-bg);
+  border-color: var(--color-border-strong);
+  background-color: var(--color-surface-muted);
 }
 
 #image-upload-control input {
@@ -42,12 +33,46 @@ input, textarea {
   width: 4rem;
   height: 4rem;
   object-fit: cover;
-  border-radius: var(--border-radius-small);
+  border-radius: var(--radius-md);
 }
 
 #image-dropzone-hint {
   width: 100%;
   margin: 0;
-  color: var(--color-gray-300);
+  color: var(--color-text-muted);
   font-size: 0.85rem;
+}
+
+/* Quill's snow theme assumes a light page; follow the theme instead. */
+.ql-toolbar.ql-snow,
+.ql-container.ql-snow {
+  border-color: var(--color-border-strong);
+}
+
+.ql-toolbar.ql-snow {
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  background-color: var(--color-surface);
+}
+
+.ql-container.ql-snow {
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+.ql-toolbar.ql-snow .ql-stroke {
+  stroke: var(--color-text);
+}
+
+.ql-toolbar.ql-snow .ql-fill {
+  fill: var(--color-text);
+}
+
+.ql-toolbar.ql-snow .ql-picker,
+.ql-toolbar.ql-snow button {
+  color: var(--color-text);
+}
+
+.ql-editor.ql-blank::before {
+  color: var(--color-text-subtle);
 }

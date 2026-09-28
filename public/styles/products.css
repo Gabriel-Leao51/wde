@@ -9,11 +9,6 @@
 
 #product-search {
   padding: var(--space-2);
-  border-radius: var(--border-radius-small);
-  border: 1px solid var(--color-primary-100);
-  background-color: var(--color-gray-600);
-  color: inherit;
-  font: inherit;
 }
 
 #product-search-results {
@@ -21,13 +16,14 @@
   top: 100%;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: var(--z-dropdown);
   margin: 0;
   padding: 0;
   list-style: none;
-  background-color: var(--color-gray-600);
-  border: 1px solid var(--color-primary-100);
-  border-radius: var(--border-radius-small);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
   max-height: 20rem;
   overflow-y: auto;
 }
@@ -39,14 +35,16 @@
 
 #product-search-results li a:hover,
 #product-search-results li a:focus {
-  background-color: var(--color-primary-500-bg);
+  background-color: var(--color-surface-muted);
+  text-decoration: none;
 }
 
 #delete-confirm-dialog {
   padding: var(--space-8);
-  border: 1px solid var(--color-primary-100);
-  border-radius: var(--border-radius-medium);
-  background-color: var(--color-gray-600);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-lg);
   color: inherit;
   max-width: 24rem;
 }
@@ -79,11 +77,6 @@
 
 #catalog-filters select {
   padding: var(--space-2);
-  border-radius: var(--border-radius-small);
-  border: 1px solid var(--color-primary-100);
-  background-color: var(--color-gray-600);
-  color: inherit;
-  font: inherit;
 }
 
 #products-grid {
@@ -94,9 +87,9 @@
 }
 
 .product-item {
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--radius-lg);
   text-align: center;
-  background-color: var(--color-gray-600);
+  background-color: var(--color-bg-subtle);
   overflow: hidden;
 }
 
@@ -116,7 +109,7 @@
 }
 
 .product-item-price {
-  color: var(--color-primary-500);
+  color: var(--color-price);
   font-weight: bold;
 }
 
@@ -130,7 +123,7 @@
 #product-details header {
   margin-top: var(--space-8);
   padding: var(--space-8);
-  background-color: var(--color-gray-600);
+  background-color: var(--color-bg-subtle);
   gap: var(--space-8);
 }
 
@@ -138,8 +131,8 @@
   width: 100%;
   height: 6rem;
   object-fit: cover;
-  border-radius: var(--border-radius-medium);
-  border: 1px solid var(--color-gray-100);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
 }
 
 #product-info {
@@ -147,7 +140,7 @@
 }
 
 #product-description {
-  background-color: var(--color-primary-500-bg);
+  background-color: var(--color-surface-muted);
   padding: var(--space-8);
   text-align: left;
 }
@@ -161,7 +154,7 @@
 }
 
 #product-description blockquote {
-  border-left: 3px solid var(--color-primary-400);
+  border-left: 3px solid var(--color-border-strong);
   margin-left: 0;
   padding-left: var(--space-4);
 }

@@ -184,9 +184,16 @@ Decided in session 14. Built in from session 16, not retrofitted.
 
 ## Rollout
 
-`tokens.css` is **not linked from any page yet**, which is deliberate: session 14 changes nothing that renders, so every Playwright visual baseline stays valid.
+Session 16 linked `tokens.css` from `head.ejs`, so every page now renders with the new tokens; the sections below say what each session did or will do.
 
 - **Session 15** swaps in the product photos, as described above.
-- **Session 16** links `tokens.css` from `views/shared/includes/head.ejs` and drops the Google Fonts `<link>`. It converts the aliases to `light-dark()` with the dark values above, adds the `theme` cookie middleware and the `data-theme` attribute, and rewrites `base.css` on top of the semantic aliases.
+- **Session 16** (done) linked `tokens.css` from `views/shared/includes/head.ejs` and drops the Google Fonts `<link>`. It converts the aliases to `light-dark()` with the dark values above, adds the `theme` cookie middleware and the `data-theme` attribute, and rewrites `base.css` on top of the semantic aliases.
 - **Session 17** adds the theme menu to the new header.
 - **From then on**, each page moves over in its own session (17–27), following the roadmap's redesign loop: change the page, **check it in both themes**, run the suite, fix locators, then regenerate that page's baseline(s) in the Linux Playwright image. Commit and check CI.
+
+### Session 16 notes
+
+- `base.css` is rewritten on the semantic aliases only: reset, Inter type scale, links, focus ring, inputs/selects, badges, alerts, and three buttons: `.btn` (near-black, inverts in dark), `.btn-alt` (ghost) and `.btn-buy` (orange, only on Add to cart and Checkout).
+- The other stylesheets were moved off the old `--color-gray-*`/`--color-primary-*` names mechanically (no layout changes), so no legacy alias layer exists. Each page's own redesign session replaces its temporary `bg-subtle` panels.
+- `middlewares/theme.js` reads the `theme` cookie (`light` | `dark`, anything else ignored) into `res.locals.theme`. It runs before the session and CSRF middleware, so even error pages get `data-theme`.
+- Quill's snow theme gets overrides in `forms.css` so the admin product editor follows the theme.

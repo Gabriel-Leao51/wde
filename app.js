@@ -9,6 +9,7 @@ const expressSession = require("express-session");
 const createSessionConfig = require("./config/session");
 const db = require("./data/database");
 const localeMiddleware = require("./middlewares/locale");
+const themeMiddleware = require("./middlewares/theme");
 const addCsrfTokenMiddleware = require("./middlewares/csrf-token");
 const errorHandlerMiddleware = require("./middlewares/error-handler");
 const checkAuthStatusMiddleware = require("./middlewares/check-auth");
@@ -32,6 +33,7 @@ app.use(express.static("public"));
 app.use("/products/assets", express.static("product-data"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(themeMiddleware);
 
 const sessionConfig = createSessionConfig();
 

@@ -1,48 +1,28 @@
-* {
+/*
+ * Base styles: reset, typography, links, focus, form controls, buttons, alerts, badges.
+ * Uses only the semantic aliases from tokens.css (loaded first), never a primitive.
+ */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
-  font-family: "Montserrat", "sans-serif";
-
-  --color-gray-50: rgb(243, 236, 230);
-  --color-gray-100: rgb(207, 201, 195);
-  --color-gray-300: rgb(99, 92, 86);
-  --color-gray-400: rgb(70, 65, 60);
-  --color-gray-500: rgb(37, 34, 31);
-  --color-gray-600: rgb(32, 29, 26);
-  --color-gray-700: rgb(31, 26, 22);
-
-  --color-primary-50: rgb(253, 224, 200);
-  --color-primary-100: rgb(253, 214, 183);
-  --color-primary-200: rgb(250, 191, 143);
-  --color-primary-400: rgb(223, 159, 41);
-  --color-primary-500: rgb(212, 136, 14);
-  --color-primary-700: rgb(212, 120, 14);
-  --color-primary-200-contrast: rgb(100, 46, 2);
-  --color-primary-500-contrast: white;
-
-  --color-error-100: rgb(255, 192, 180);
-  --color-error-500: rgb(199, 51, 15);
-
-  --color-primary-500-bg: rgb(63, 60, 58);
-
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-4: 1rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-
-  --border-radius-small: 4px;
-  --border-radius-medium: 6px;
-
-  --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-sans);
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
-  background-color: var(--color-gray-500);
-  color: var(--color-gray-100);
   margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  -webkit-font-smoothing: antialiased;
 }
 
 main {
@@ -51,53 +31,208 @@ main {
   margin: 0 auto;
 }
 
-ul, 
+ul,
 ol {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-a {
-  text-decoration: none;
-  color: var(--color-primary-400);
+/* ---------- Typography ---------- */
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 var(--space-4);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
 }
 
-.btn {
-  cursor: pointer;
+h1 {
+  font-size: var(--font-size-3xl);
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: var(--line-height-tight);
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+}
+
+h4 {
+  font-size: var(--font-size-lg);
+}
+
+p {
+  margin: 0 0 var(--space-4);
+}
+
+small {
+  font-size: var(--font-size-sm);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-4) 0;
+}
+
+/* Prices line up in columns and totals. */
+.product-item-price,
+.order-item-price,
+.cart-product-price,
+#cart-total {
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+/* ---------- Focus ---------- */
+
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+  box-shadow: var(--shadow-focus);
+}
+
+/* ---------- Form controls ---------- */
+
+label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+input,
+select,
+textarea {
   font: inherit;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+}
+
+input:not([type="checkbox"], [type="radio"], [type="file"], [type="hidden"]),
+select {
+  min-height: var(--control-height);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--color-action-secondary);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text-subtle);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------- Buttons ---------- */
+/*
+ * .btn       secondary solid (near-black; inverts in dark) - the default action
+ * .btn-alt   ghost - Cancel, Back, row actions
+ * .btn-buy   orange - reserved for moving toward a purchase (Add to cart, Checkout)
+ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--control-height);
   padding: var(--space-2) var(--space-6);
-  background-color: var(--color-primary-500);
-  color: var(--color-primary-500-contrast);
-  border: 1px solid var(--color-primary-500);
-  border-radius: var(--border-radius-small);
+  font: inherit;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  color: var(--color-action-secondary-text);
+  background-color: var(--color-action-secondary);
+  border: 1px solid var(--color-action-secondary);
+  border-radius: var(--radius-md);
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
 }
 
 .btn:hover,
 .btn:active {
-  background-color: var(--color-primary-700);
-  border-color: var(--color-primary-700);
+  color: var(--color-action-secondary-text);
+  background-color: var(--color-action-secondary-hover);
+  border-color: var(--color-action-secondary-hover);
+  text-decoration: none;
 }
 
 .btn-alt {
+  color: var(--color-text);
   background-color: transparent;
-  color: var(--color-primary-500);
+  border-color: var(--color-border-strong);
 }
 
 .btn-alt:hover,
 .btn-alt:active {
-  background-color: var(--color-primary-500-bg);
+  color: var(--color-text);
+  background-color: var(--color-surface-muted);
+  border-color: var(--color-border-strong);
 }
 
+.btn-buy {
+  color: var(--color-action-text);
+  background-color: var(--color-action);
+  border-color: var(--color-action);
+}
+
+.btn-buy:hover,
+.btn-buy:active {
+  color: var(--color-action-text);
+  background-color: var(--color-action-hover);
+  border-color: var(--color-action-hover);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Alerts and badges ---------- */
+
 .alert {
-  border-radius: var(--border-radius-small);
-  background-color: var(--color-error-100);
-  color: var(--color-error-500);
+  border: 1px solid var(--color-danger-text);
+  border-radius: var(--radius-md);
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger-text);
   padding: var(--space-4);
+  text-align: left;
 }
 
 .alert h2 {
-  font-size: 1rem;
+  font-size: var(--font-size-sm);
+  letter-spacing: var(--letter-spacing-wide);
   margin: var(--space-2) 0;
   text-transform: uppercase;
 }
@@ -107,9 +242,14 @@ a {
 }
 
 .badge {
+  display: inline-block;
   margin-left: var(--space-2);
-  padding: 0.15rem var(--space-4);
-  border-radius: 10rem;
-  background-color: var(--color-primary-500);
-  color: var(--color-primary-500-contrast);
+  padding: var(--space-0-5) var(--space-3);
+  border-radius: var(--radius-full);
+  background-color: var(--color-action-secondary);
+  color: var(--color-action-secondary-text);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-wide);
 }

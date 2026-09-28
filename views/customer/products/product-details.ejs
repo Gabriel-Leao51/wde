@@ -13,7 +13,7 @@
         <% if (product.launchDate) { %>
           <p id="product-launch-date"><%= t('products.availableSince') %> <%= product.launchDate.toLocaleDateString('en-US', { dateStyle: 'long' }) %></p>
         <% } %>
-        <button class="btn" data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>"><%= t('products.addToCart') %></button>
+        <button class="btn btn-buy" data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>"><%= t('products.addToCart') %></button>
       </div>
     </header>
     

@@ -19,7 +19,7 @@
       <% if (locals.isAuth && locals.cart.totalQuantity > 0) { %>
         <form action="/orders" method="POST">
           <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
-          <button class="btn"><%= t('cart.buyProducts') %></button>
+          <button class="btn btn-buy"><%= t('cart.buyProducts') %></button>
         </form>
       <% } else { %>
         <p id="cart-total-fallback"><%= t('cart.loginToProceed') %></p>
