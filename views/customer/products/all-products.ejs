@@ -5,6 +5,9 @@
   <%- include('../../shared/includes/header') %>
   <main>
     <h1><%= t('products.allProductsTitle') %></h1>
+    <div id="catalog-layout">
+    <aside id="catalog-sidebar" aria-labelledby="filters-heading">
+    <h2 id="filters-heading"><%= t('products.filtersHeading') %></h2>
     <form id="catalog-filters" method="GET" action="/products">
       <label for="department-filter">
         <%= t('products.filterByDepartment') %>
@@ -26,13 +29,29 @@
         </select>
       </label>
       <button type="submit" class="btn"><%= t('products.applyFilters') %></button>
-    </form>
-    <ul id="products-grid">
-      <% for (const product of products) { %>
-        <li>
-          <%- include('../../shared/includes/product-item', { product: product }) %>
-        </li>
+      <% if (selectedDepartment || selectedSort) { %>
+        <a href="/products" class="clear-filters"><%= t('products.clearFilters') %></a>
       <% } %>
-    </ul>
+    </form>
+    </aside>
+    <section id="catalog-results">
+      <p id="result-count" role="status"><%= products.length %> <%= t(products.length === 1 ? 'products.resultOne' : 'products.resultMany') %></p>
+      <% if (products.length === 0) { %>
+        <div id="catalog-empty">
+          <h2><%= t('products.noResultsHeading') %></h2>
+          <p><%= t('products.noResultsHint') %></p>
+          <a href="/products" class="btn"><%= t('products.browseAll') %></a>
+        </div>
+      <% } else { %>
+        <ul id="products-grid">
+          <% for (const product of products) { %>
+            <li>
+              <%- include('../../shared/includes/product-item', { product: product }) %>
+            </li>
+          <% } %>
+        </ul>
+      <% } %>
+    </section>
+    </div>
   </main>
 <%- include('../../shared/includes/footer') %>
