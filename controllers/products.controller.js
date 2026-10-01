@@ -3,6 +3,7 @@ const { localizeProduct } = require('../utils/localize');
 const DEPARTMENTS = require('../utils/departments');
 
 const MIN_SEARCH_QUERY_LENGTH = 2;
+const MAX_RELATED_PRODUCTS = 4;
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -57,8 +58,24 @@ async function getAllProducts(req, res, next) {
 async function getProductDetails(req, res, next) {
   try {
     const product = await Product.findById(req.params.id);
+
+    // Up to four other products from the same department.
+    let related = [];
+    if (product.department) {
+      const sameDepartment = await Product.findAll({ department: product.department });
+      related = sameDepartment
+        .filter(function (candidate) {
+          return candidate.id !== product.id;
+        })
+        .slice(0, MAX_RELATED_PRODUCTS)
+        .map(function (candidate) {
+          return localizeProduct(candidate, res.locals.lang);
+        });
+    }
+
     res.render('customer/products/product-details', {
       product: localizeProduct(product, res.locals.lang),
+      relatedProducts: related,
     });
   } catch (error) {
     next(error);
