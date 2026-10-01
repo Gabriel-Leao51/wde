@@ -40,43 +40,96 @@
 
 #products-grid {
   margin: var(--space-8) auto;
+  padding: 0;
+  list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: var(--space-4);
+  gap: var(--space-6);
 }
 
+#products-grid > li,
+.featured-grid > li {
+  display: flex;
+}
+
+/* Product card: square photo on a soft well, price first, one quiet action. */
 .product-item {
-  border-radius: var(--radius-lg);
-  text-align: center;
-  background-color: var(--color-bg-subtle);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  transition:
+    box-shadow var(--duration-fast) ease,
+    border-color var(--duration-fast) ease;
+}
+
+.product-item:hover,
+.product-item:focus-within {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-md);
 }
 
 .product-item img {
+  display: block;
   width: 100%;
-  height: 10rem;
+  aspect-ratio: 1;
   object-fit: cover;
+  background-color: var(--color-surface-muted);
 }
 
 .product-item-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-2);
   padding: var(--space-4);
 }
 
 .product-item-content h2 {
-  font-size: 1.15rem;
-  margin: var(--space-2) 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-snug);
 }
 
 .product-item-price {
+  margin: 0;
   color: var(--color-price);
-  font-weight: bold;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
 }
 
 .product-item-actions {
   display: flex;
   gap: var(--space-2);
-  margin-top: var(--space-4);
-  justify-content: center;
+  margin-top: auto;
+  padding-top: var(--space-3);
+}
+
+.product-item-actions .btn {
+  flex: 1;
+  text-align: center;
+}
+
+/* Customers: the whole card opens the product through the "View Details" link. */
+.product-item-actions a.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+/* Admins: keep the Delete button clickable above the stretched link. */
+.product-item-actions button {
+  position: relative;
+  z-index: 1;
 }
 
 #product-details header {
