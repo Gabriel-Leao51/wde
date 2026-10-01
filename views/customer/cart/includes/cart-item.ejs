@@ -1,29 +1,36 @@
 <article class="cart-item">
-  <button
-    type="button"
-    class="remove-item-btn"
-    data-productid="<%= item.product.id %>"
-    data-csrf="<%= locals.csrfToken %>"
-    data-removed-message="<%= t('cart.itemRemoved') %>"
-  ><%= t('cart.removeItem') %></button>
-
-  <div class="cart-item-info">
-    <h2><%= item.product.title %></h2>
-    <p>$<span class="cart-item-price"><%= item.totalPrice.toFixed(2) %></span> <span class="cart-product-price">($<%= item.product.price.toFixed(2) %>)</span></p>
+  <div class="cart-item-thumb">
+    <img src="<%= item.product.imageUrl %>" alt="<%= item.product.title %>">
   </div>
 
-  <div class="cart-item-management" data-productid="<%= item.product.id %>" data-csrf="<%= locals.csrfToken %>">
+  <div class="cart-item-info">
+    <h2><a href="/products/<%= item.product.id %>"><%= item.product.title %></a></h2>
+    <p class="cart-product-price">$<%= item.product.price.toFixed(2) %> <%= t('cart.each') %></p>
+
+    <div class="cart-item-management" data-productid="<%= item.product.id %>" data-csrf="<%= locals.csrfToken %>">
+      <button
+        type="button"
+        class="quantity-btn quantity-decrease"
+        aria-label="<%= t('cart.decreaseQuantity') %>"
+        <% if (item.quantity === 1) { %>disabled<% } %>
+      >&minus;</button>
+      <span class="quantity-label" data-quantity="<%= item.quantity %>"><%= item.quantity %></span>
+      <button
+        type="button"
+        class="quantity-btn quantity-increase"
+        aria-label="<%= t('cart.increaseQuantity') %>"
+      >&plus;</button>
+    </div>
+  </div>
+
+  <div class="cart-item-side">
+    <p class="cart-item-total">$<span class="cart-item-price"><%= item.totalPrice.toFixed(2) %></span></p>
     <button
       type="button"
-      class="quantity-btn quantity-decrease"
-      aria-label="<%= t('cart.decreaseQuantity') %>"
-      <% if (item.quantity === 1) { %>disabled<% } %>
-    >&minus;</button>
-    <span class="quantity-label" data-quantity="<%= item.quantity %>"><%= item.quantity %></span>
-    <button
-      type="button"
-      class="quantity-btn quantity-increase"
-      aria-label="<%= t('cart.increaseQuantity') %>"
-    >&plus;</button>
+      class="remove-item-btn"
+      data-productid="<%= item.product.id %>"
+      data-csrf="<%= locals.csrfToken %>"
+      data-removed-message="<%= t('cart.itemRemoved') %>"
+    ><%= t('cart.removeItem') %></button>
   </div>
 </article>

@@ -118,7 +118,13 @@
     "increaseQuantity": "Increase quantity",
     "decreaseQuantity": "Decrease quantity",
     "removeItem": "Remove item",
-    "itemRemoved": "Item removed"
+    "itemRemoved": "Item removed",
+    "emptyHeading": "Your cart is empty",
+    "emptyHint": "Add something you like and it will show up here.",
+    "continueShopping": "Continue shopping",
+    "orderSummary": "Order summary",
+    "items": "Items",
+    "each": "each"
   },
   "orders": {
     "allOrdersTitle": "All Orders",

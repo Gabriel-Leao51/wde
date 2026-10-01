@@ -3,6 +3,7 @@ const cartItemManagementElements = document.querySelectorAll(
 );
 const removeButtons = document.querySelectorAll('.remove-item-btn');
 const cartTotalPriceElement = document.getElementById('cart-total-price');
+const cartTotalQuantityElement = document.getElementById('cart-total-quantity');
 const cartBadgeElements = document.querySelectorAll('.cart-count');
 
 const REMOVED_MESSAGE_DURATION_MS = 2000;
@@ -58,6 +59,11 @@ async function changeQuantity(cartItem, productId, csrfToken, newQuantity) {
 
     setTimeout(function () {
       listItem.remove();
+
+      if (document.querySelectorAll('#cart-items li').length === 0) {
+        document.getElementById('cart-content').hidden = true;
+        document.getElementById('cart-empty').hidden = false;
+      }
     }, REMOVED_MESSAGE_DURATION_MS);
   } else {
     cartItem.querySelector('.cart-item-price').textContent =
@@ -77,6 +83,9 @@ async function changeQuantity(cartItem, productId, csrfToken, newQuantity) {
 
   cartTotalPriceElement.textContent =
     responseData.updatedCartData.newTotalPrice.toFixed(2);
+
+  cartTotalQuantityElement.textContent =
+    responseData.updatedCartData.newTotalQuantity;
 
   for (const cartBadgeElement of cartBadgeElements) {
     cartBadgeElement.textContent =

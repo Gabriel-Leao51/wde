@@ -118,7 +118,13 @@
     "increaseQuantity": "Aumentar quantidade",
     "decreaseQuantity": "Diminuir quantidade",
     "removeItem": "Remover item",
-    "itemRemoved": "Item removido"
+    "itemRemoved": "Item removido",
+    "emptyHeading": "Seu carrinho está vazio",
+    "emptyHint": "Adicione algo de que goste e ele aparecerá aqui.",
+    "continueShopping": "Continuar comprando",
+    "orderSummary": "Resumo do pedido",
+    "items": "Itens",
+    "each": "cada"
   },
   "orders": {
     "allOrdersTitle": "Todos os Pedidos",

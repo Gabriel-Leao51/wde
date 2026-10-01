@@ -4,26 +4,38 @@
 </head>
 <body>
   <%- include('../../shared/includes/header') %>
-  <main>
+  <main id="cart-page">
     <h1><%= t('cart.yourCartHeading') %></h1>
-    <ul id="cart-items">
-      <% for (const cartItem of locals.cart.items) { %>
-        <li>
-          <%- include('includes/cart-item', { item: cartItem }) %>
-        </li>
-      <% } %>
-    </ul>
-    <div id="cart-total">
-      <p><%= t('cart.total') %>: $<span id="cart-total-price"><%= locals.cart.totalPrice.toFixed(2) %></span></p>
 
-      <% if (locals.isAuth && locals.cart.totalQuantity > 0) { %>
-        <form action="/orders" method="POST">
-          <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
-          <button class="btn btn-buy"><%= t('cart.buyProducts') %></button>
-        </form>
-      <% } else { %>
-        <p id="cart-total-fallback"><%= t('cart.loginToProceed') %></p>
-      <% } %>
+    <div id="cart-empty"<% if (locals.cart.items.length > 0) { %> hidden<% } %>>
+      <h2><%= t('cart.emptyHeading') %></h2>
+      <p><%= t('cart.emptyHint') %></p>
+      <a href="/products" class="btn"><%= t('cart.continueShopping') %></a>
+    </div>
+
+    <div id="cart-content"<% if (locals.cart.items.length === 0) { %> hidden<% } %>>
+      <ul id="cart-items">
+        <% for (const cartItem of locals.cart.items) { %>
+          <li>
+            <%- include('includes/cart-item', { item: cartItem }) %>
+          </li>
+        <% } %>
+      </ul>
+
+      <aside id="cart-total" aria-labelledby="cart-summary-heading">
+        <h2 id="cart-summary-heading"><%= t('cart.orderSummary') %></h2>
+        <p id="cart-summary-items"><%= t('cart.items') %>: <span id="cart-total-quantity"><%= locals.cart.totalQuantity %></span></p>
+        <p id="cart-summary-total"><%= t('cart.total') %>: $<span id="cart-total-price"><%= locals.cart.totalPrice.toFixed(2) %></span></p>
+
+        <% if (locals.isAuth && locals.cart.totalQuantity > 0) { %>
+          <form action="/orders" method="POST">
+            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+            <button class="btn btn-buy"><%= t('cart.buyProducts') %></button>
+          </form>
+        <% } else { %>
+          <p id="cart-total-fallback"><%= t('cart.loginToProceed') %></p>
+        <% } %>
+      </aside>
     </div>
   </main>
 <%- include('../../shared/includes/footer') %>
