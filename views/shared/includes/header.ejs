@@ -36,8 +36,7 @@
       <% if (!locals.isAdmin) { %>
         <li><a href="/products"><%= t('nav.shop') %></a></li>
       <% } else { %>
-        <li><a href="/admin/products"><%= t('nav.manageProducts') %></a></li>
-        <li><a href="/admin/orders"><%= t('nav.manageOrders') %></a></li>
+        <li><a href="/admin/products"><%= t('nav.adminMenu') %></a></li>
         <li>
           <form action="/logout" method="POST">
             <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">

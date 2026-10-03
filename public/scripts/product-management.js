@@ -1,4 +1,4 @@
-const deleteProductButtonElements = document.querySelectorAll('.product-item button');
+const deleteProductButtonElements = document.querySelectorAll('#products-table button[data-productid]');
 const deleteDialog = document.getElementById('delete-confirm-dialog');
 const deleteDialogProductName = document.getElementById('delete-confirm-product-name');
 const deleteDialogConfirmButton = document.getElementById('delete-confirm-button');
@@ -8,8 +8,8 @@ let pendingDelete = null;
 
 function openDeleteDialog(event) {
   const buttonElement = event.target;
-  const productItem = buttonElement.closest('.product-item');
-  const productName = productItem.querySelector('h2').textContent;
+  const productRow = buttonElement.closest('tr');
+  const productName = productRow.querySelector('th[scope=row]').textContent;
 
   pendingDelete = {
     buttonElement: buttonElement,
@@ -48,7 +48,7 @@ async function confirmDelete() {
     return;
   }
 
-  buttonElement.closest('li').remove();
+  buttonElement.closest('tr').remove();
   showToast('Product deleted!', 'success');
 }
 

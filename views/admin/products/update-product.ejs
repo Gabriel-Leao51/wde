@@ -1,5 +1,6 @@
 <%- include('../../shared/includes/head', { pageTitle: t('products.updateProductTitle') }) %>
 <link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/admin.css">
 <link rel="stylesheet" href="/styles/vendor/flatpickr.min.css">
 <link rel="stylesheet" href="/styles/vendor/quill.snow.css">
 <script src="/scripts/image-preview.js" defer></script>
@@ -10,8 +11,11 @@
 </head>
 <body>
   <%- include('../../shared/includes/header') %>
-  <main>
+  <div class="admin-shell">
+    <%- include('../includes/admin-sidebar', { active: 'products' }) %>
+    <main class="admin-form-page">
     <h1><%= t('products.updateProductHeading') %></h1>
     <%- include('includes/product-form', { submitPath: '/admin/products/' + product.id, product: product, imageRequired: false, departments: departments }) %>
-  </main>
+    </main>
+  </div>
 <%- include('../../shared/includes/footer') %>

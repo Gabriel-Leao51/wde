@@ -15,7 +15,8 @@
     "theme": "Tema",
     "themeSystem": "Sistema",
     "themeLight": "Claro",
-    "themeDark": "Escuro"
+    "themeDark": "Escuro",
+    "adminMenu": "Administração"
   },
   "auth": {
     "loginTitle": "Entrar",
@@ -104,7 +105,16 @@
     "searchLabel": "Buscar",
     "searchPlaceholder": "Buscar produtos...",
     "deleteConfirmMessage": "Tem certeza que deseja excluir",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "imageColumn": "Imagem",
+    "titleColumn": "Produto",
+    "departmentColumn": "Departamento",
+    "priceColumn": "Preço",
+    "actionsColumn": "Ações",
+    "adminTableCaption": "Produtos do catálogo",
+    "adminCountOne": "produto",
+    "adminCountMany": "produtos",
+    "noDepartment": "Nenhum"
   },
   "departments": {
     "Electronics": "Eletrônicos",

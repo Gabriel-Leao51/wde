@@ -1,0 +1,16 @@
+<nav id="admin-sidebar" aria-label="<%= t('nav.adminMenu') %>">
+  <ul>
+    <li>
+      <a href="/admin/products"<%- active === 'products' ? ' aria-current="page"' : '' %>>
+        <%- include('../../shared/includes/icon', { name: 'box' }) %>
+        <span><%= t('nav.manageProducts') %></span>
+      </a>
+    </li>
+    <li>
+      <a href="/admin/orders"<%- active === 'orders' ? ' aria-current="page"' : '' %>>
+        <%- include('../../shared/includes/icon', { name: 'receipt' }) %>
+        <span><%= t('nav.manageOrders') %></span>
+      </a>
+    </li>
+  </ul>
+</nav>

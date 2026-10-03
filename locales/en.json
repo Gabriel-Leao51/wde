@@ -15,7 +15,8 @@
     "theme": "Theme",
     "themeSystem": "System",
     "themeLight": "Light",
-    "themeDark": "Dark"
+    "themeDark": "Dark",
+    "adminMenu": "Admin"
   },
   "auth": {
     "loginTitle": "Login",
@@ -104,7 +105,16 @@
     "searchLabel": "Search",
     "searchPlaceholder": "Search products...",
     "deleteConfirmMessage": "Are you sure you want to delete",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "imageColumn": "Image",
+    "titleColumn": "Product",
+    "departmentColumn": "Department",
+    "priceColumn": "Price",
+    "actionsColumn": "Actions",
+    "adminTableCaption": "Products in the catalog",
+    "adminCountOne": "product",
+    "adminCountMany": "products",
+    "noDepartment": "None"
   },
   "departments": {
     "Electronics": "Electronics",

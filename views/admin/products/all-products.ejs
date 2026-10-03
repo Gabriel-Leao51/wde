@@ -1,32 +1,57 @@
 <%- include('../../shared/includes/head', { pageTitle: t('products.allProductsTitle') }) %>
 <link rel="stylesheet" href="/styles/products.css">
+<link rel="stylesheet" href="/styles/admin.css">
 <script src="/scripts/product-management.js" defer></script>
 </head>
 <body>
   <%- include('../../shared/includes/header') %>
-  <main>
-    <h1><%= t('products.productAdministrationTitle') %></h1>
-    <section>
-      <h2><%= t('products.manageProductsHeading') %></h2>
-      <p>
+  <div class="admin-shell">
+    <%- include('../includes/admin-sidebar', { active: 'products' }) %>
+    <main>
+      <div class="admin-page-header">
+        <div>
+          <h1><%= t('products.productAdministrationTitle') %></h1>
+          <p class="admin-page-meta"><%= products.length %> <%= products.length === 1 ? t('products.adminCountOne') : t('products.adminCountMany') %></p>
+        </div>
         <a href="/admin/products/new" class="btn"><%= t('products.addProduct') %></a>
-      </p>
-    </section>
-    <section>
-      <ul id="products-grid">
-        <% for (const product of products) { %>
-          <li>
-            <%- include('../../shared/includes/product-item', { product: product }) %>
-          </li>
-        <% } %>
-      </ul>
-    </section>
-    <dialog id="delete-confirm-dialog">
-      <p><%= t('products.deleteConfirmMessage') %> "<span id="delete-confirm-product-name"></span>"?</p>
-      <div class="dialog-actions">
-        <button type="button" id="delete-cancel-button" class="btn btn-alt"><%= t('products.cancel') %></button>
-        <button type="button" id="delete-confirm-button" class="btn"><%= t('products.delete') %></button>
       </div>
-    </dialog>
-  </main>
+      <div class="admin-table-wrap">
+        <table id="products-table">
+          <caption class="sr-only"><%= t('products.adminTableCaption') %></caption>
+          <thead>
+            <tr>
+              <th scope="col"><span class="sr-only"><%= t('products.imageColumn') %></span></th>
+              <th scope="col"><%= t('products.titleColumn') %></th>
+              <th scope="col"><%= t('products.departmentColumn') %></th>
+              <th scope="col" class="numeric"><%= t('products.priceColumn') %></th>
+              <th scope="col"><span class="sr-only"><%= t('products.actionsColumn') %></span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (const product of products) { %>
+              <tr>
+                <td class="product-thumb-cell"><img class="product-thumb" src="<%= product.imageUrl %>" alt="<%= product.title %>" /></td>
+                <th scope="row"><%= product.title %></th>
+                <td><%= product.department ? t('departments.' + product.department) : t('products.noDepartment') %></td>
+                <td class="numeric">$<%= product.price.toFixed(2) %></td>
+                <td class="row-actions">
+                  <div class="row-actions-inner">
+                    <a class="btn btn-alt" href="/admin/products/<%= product.id %>"><%= t('products.viewAndEdit') %></a>
+                  <button type="button" class="btn btn-alt" data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>"><%= t('products.delete') %></button>
+                  </div>
+                </td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+      <dialog id="delete-confirm-dialog">
+        <p><%= t('products.deleteConfirmMessage') %> "<span id="delete-confirm-product-name"></span>"?</p>
+        <div class="dialog-actions">
+          <button type="button" id="delete-cancel-button" class="btn btn-alt"><%= t('products.cancel') %></button>
+          <button type="button" id="delete-confirm-button" class="btn"><%= t('products.delete') %></button>
+        </div>
+      </dialog>
+    </main>
+  </div>
 <%- include('../../shared/includes/footer') %>

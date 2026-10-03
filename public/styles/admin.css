@@ -1,0 +1,177 @@
+/*
+ * Admin shell: a sidebar nav beside the page content. Below md the sidebar becomes a row of tabs
+ * above the content. Product and order tables share the table styles at the bottom.
+ */
+
+.admin-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4) var(--space-8);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-4) var(--container-gutter) var(--space-12);
+}
+
+.admin-shell > main {
+  width: auto;
+  max-width: none;
+  margin: 0;
+  min-width: 0;
+}
+
+.admin-shell > main.admin-form-page {
+  max-width: var(--container-narrow);
+}
+
+/* ---------- Sidebar ---------- */
+
+#admin-sidebar ul {
+  display: flex;
+  gap: var(--space-1);
+  overflow-x: auto;
+  padding-bottom: var(--space-1);
+  border-bottom: 1px solid var(--color-border);
+}
+
+#admin-sidebar a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--control-height);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+#admin-sidebar a:hover {
+  background-color: var(--color-surface-muted);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+#admin-sidebar a[aria-current='page'] {
+  background-color: var(--color-surface-muted);
+  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+}
+
+@media (min-width: 48rem) {
+  .admin-shell {
+    grid-template-columns: 14rem minmax(0, 1fr);
+    align-items: start;
+    padding-top: var(--space-8);
+  }
+
+  #admin-sidebar {
+    position: sticky;
+    top: 6rem;
+    padding-right: var(--space-4);
+    border-right: 1px solid var(--color-border);
+  }
+
+  #admin-sidebar ul {
+    flex-direction: column;
+    overflow: visible;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+/* ---------- Page header ---------- */
+
+.admin-page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.admin-page-header h1 {
+  margin: 0;
+}
+
+.admin-page-meta {
+  margin: var(--space-1) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* ---------- Products table ---------- */
+
+.admin-table-wrap {
+  position: relative; /* contains the absolutely positioned .sr-only labels so they can't widen the page */
+  overflow-x: auto;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+#products-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+#products-table th,
+#products-table td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--color-border);
+}
+
+#products-table thead th {
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+}
+
+#products-table tbody tr:last-child > * {
+  border-bottom: none;
+}
+
+#products-table tbody tr:hover {
+  background-color: var(--color-bg-subtle);
+}
+
+#products-table tbody th {
+  min-width: 12rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+#products-table .numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+#products-table .product-thumb-cell {
+  width: 1%;
+}
+
+.product-thumb {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-muted);
+}
+
+#products-table .row-actions-inner {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  white-space: nowrap;
+}
+
+#products-table .row-actions .btn {
+  min-height: 2.25rem;
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-sm);
+}
