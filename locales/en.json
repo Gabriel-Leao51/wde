@@ -154,7 +154,11 @@
     "totalColumn": "Total",
     "statusColumn": "Status",
     "actionsColumn": "Actions",
-    "downloadInvoice": "Download Invoice"
+    "downloadInvoice": "Download Invoice",
+    "orderNumber": "Order #",
+    "total": "Total",
+    "emptyHeading": "No orders yet",
+    "emptyHint": "When you place an order it will show up here."
   },
   "home": {
     "title": "WDE Shop",

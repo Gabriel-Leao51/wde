@@ -154,7 +154,11 @@
     "totalColumn": "Total",
     "statusColumn": "Status",
     "actionsColumn": "Ações",
-    "downloadInvoice": "Baixar Fatura"
+    "downloadInvoice": "Baixar Fatura",
+    "orderNumber": "Pedido #",
+    "total": "Total",
+    "emptyHeading": "Nenhum pedido ainda",
+    "emptyHint": "Quando você fizer um pedido, ele aparecerá aqui."
   },
   "home": {
     "title": "WDE Shop",

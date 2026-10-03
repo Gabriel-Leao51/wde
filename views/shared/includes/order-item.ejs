@@ -1,8 +1,11 @@
 <article class="order-item">
   <% const statusKey = 'orders.status' + order.status.charAt(0).toUpperCase() + order.status.slice(1); %>
   <header class="order-summary">
-    <h2><span class="order-item-price">$<%= order.productData.totalPrice.toFixed(2) %></span> - <%= order.formattedDate %></h2>
-    <p><span class="badge"><%= t(statusKey).toUpperCase() %></span></p>
+    <div class="order-heading">
+      <h2><%= t('orders.orderNumber') %><%= order.id.toString().slice(-6).toUpperCase() %></h2>
+      <p class="order-date"><%= order.formattedDate %></p>
+    </div>
+    <span class="badge badge-<%= order.status %>"><%= t(statusKey).toUpperCase() %></span>
   </header>
 
   <section class="order-details">
@@ -12,15 +15,26 @@
         <p><%= order.userData.address.street %> (<%= order.userData.address.postalCode %> <%= order.userData.address.city %>)</p>
       </address>
     <% } %>
-    <ul>
+    <ul class="order-lines">
       <% for (const item of order.productData.items) { %>
-        <li><%= item.product.title %> - $<%= item.totalPrice.toFixed(2) %> ($<%= item.product.price.toFixed(2) %> x <%= item.quantity %>)</li>
+        <li class="order-line">
+          <img class="order-line-thumb" src="<%= item.product.imageUrl %>" alt="<%= item.product.title %>">
+          <div class="order-line-info">
+            <a href="/products/<%= item.product.id %>"><%= item.product.title %></a>
+            <span class="order-line-each">$<%= item.product.price.toFixed(2) %> x <%= item.quantity %></span>
+          </div>
+          <span class="order-line-total">$<%= item.totalPrice.toFixed(2) %></span>
+        </li>
       <% } %>
     </ul>
+  </section>
+
+  <footer class="order-footer">
+    <p class="order-total"><%= t('orders.total') %> <span class="order-item-price">$<%= order.productData.totalPrice.toFixed(2) %></span></p>
     <% if (!locals.isAdmin) { %>
       <a class="btn btn-alt" href="/orders/<%= order.id %>/invoice.pdf"><%= t('orders.downloadInvoice') %></a>
     <% } %>
-  </section>
+  </footer>
 
   <% if (locals.isAdmin) { %>
     <section class="order-actions">

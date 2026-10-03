@@ -3,8 +3,16 @@
 </head>
 <body>
   <%- include('../../shared/includes/header') %>
-  <main>
+  <main id="orders-page">
     <h1><%= t('orders.allYourOrdersHeading') %></h1>
-    <%- include('../../shared/includes/order-list') %>
+    <% if (orders.length === 0) { %>
+      <section class="orders-empty">
+        <h2><%= t('orders.emptyHeading') %></h2>
+        <p><%= t('orders.emptyHint') %></p>
+        <a class="btn" href="/products"><%= t('cart.continueShopping') %></a>
+      </section>
+    <% } else { %>
+      <%- include('../../shared/includes/order-list') %>
+    <% } %>
   </main>
 <%- include('../../shared/includes/footer') %>
