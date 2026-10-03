@@ -1,57 +1,71 @@
 <%- include('../../shared/includes/head', { pageTitle: t('auth.signupTitle') }) %>
   <link rel="stylesheet" href="/styles/forms.css">
   <link rel="stylesheet" href="/styles/auth.css">
+  <script src="/scripts/auth-validation.js" defer></script>
 </head>
 <body>
   <%- include('../../shared/includes/header') %>
-  <main>
-    <h1><%= t('auth.signupHeading') %></h1>
-    <% if (inputData.errorMessage) { %>
-      <section class="alert">
-        <h2><%= t('auth.invalidInputHeading') %></h2>
-        <p><%= inputData.errorMessage %></p>
-      </section>
-    <% } %>
-    <form action="/signup" method="POST">
-      <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
-      <p>
-        <label for="email"><%= t('auth.emailLabel') %></label>
-        <input type="email" id="email" name="email" value="<%= inputData.email %>" required>
+  <main class="auth-page">
+    <section class="auth-card" aria-labelledby="auth-heading">
+      <h1 id="auth-heading"><%= t('auth.signupHeading') %></h1>
+      <% if (inputData.errorMessage) { %>
+        <section class="alert">
+          <h2><%= t('auth.invalidInputHeading') %></h2>
+          <p><%= inputData.errorMessage %></p>
+        </section>
+      <% } %>
+      <%- include('includes/validation-messages') %>
+      <form action="/signup" method="POST" data-validate>
+        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+        <div class="field">
+          <label for="email"><%= t('auth.emailLabel') %></label>
+          <input type="email" id="email" name="email" autocomplete="email" value="<%= inputData.email %>" required>
+          <p class="field-error" id="email-error" hidden></p>
+        </div>
+        <div class="field">
+          <label for="confirm-email"><%= t('auth.confirmEmailLabel') %></label>
+          <input type="email" id="confirm-email" name="confirm-email" autocomplete="email" value="<%= inputData.confirmEmail %>" data-match="email" required>
+          <p class="field-error" id="confirm-email-error" hidden></p>
+        </div>
+        <div class="field">
+          <label for="password"><%= t('auth.passwordLabel') %></label>
+          <input type="password" id="password" name="password" autocomplete="new-password" minlength="6" value="<%= inputData.password %>" required>
+          <p class="field-error" id="password-error" hidden></p>
+        </div>
+        <hr>
+        <div class="field">
+          <label for="fullname"><%= t('auth.fullnameLabel') %></label>
+          <input type="text" id="fullname" name="fullname" autocomplete="name" value="<%= inputData.fullname %>" required>
+          <p class="field-error" id="fullname-error" hidden></p>
+        </div>
+        <div class="field">
+          <label for="street"><%= t('auth.streetLabel') %></label>
+          <input type="text" id="street" name="street" autocomplete="street-address" value="<%= inputData.street %>" required>
+          <p class="field-error" id="street-error" hidden></p>
+        </div>
+        <div class="field">
+          <label for="postal"><%= t('auth.postalLabel') %></label>
+          <input
+            type="text"
+            id="postal"
+            name="postal"
+            autocomplete="postal-code"
+            minlength="5"
+            maxlength="5"
+            value="<%= inputData.postal %>"
+            required>
+          <p class="field-error" id="postal-error" hidden></p>
+        </div>
+        <div class="field">
+          <label for="city"><%= t('auth.cityLabel') %></label>
+          <input type="text" id="city" name="city" autocomplete="address-level2" value="<%= inputData.city %>" required>
+          <p class="field-error" id="city-error" hidden></p>
+        </div>
+        <button class="btn"><%= t('auth.createAccountButton') %></button>
+      </form>
+      <p class="auth-links">
+        <a id="switch-form" href="/login"><%= t('auth.loginInstead') %></a>
       </p>
-      <p>
-        <label for="confirm-email"><%= t('auth.confirmEmailLabel') %></label>
-        <input type="email" id="confirm-email" name="confirm-email" value="<%= inputData.confirmEmail %>" required>
-      </p>
-      <p>
-        <label for="password"><%= t('auth.passwordLabel') %></label>
-        <input type="password" id="password" name="password" minlength="6" value="<%= inputData.password %>" required>
-      </p>
-      <hr>
-      <p>
-        <label for="fullname"><%= t('auth.fullnameLabel') %></label>
-        <input type="text" id="fullname" name="fullname" value="<%= inputData.fullname %>" required>
-      </p>
-      <p>
-        <label for="street"><%= t('auth.streetLabel') %></label>
-        <input type="text" id="street" name="street" value="<%= inputData.street %>" required>
-      </p>
-      <p>
-        <label for="postal"><%= t('auth.postalLabel') %></label>
-        <input
-          type="text"
-          id="postal"
-          name="postal"
-          minlength="5"
-          maxlength="5"
-          value="<%= inputData.postal %>"
-          required>
-      </p>
-      <p>
-        <label for="city"><%= t('auth.cityLabel') %></label>
-        <input type="text" id="city" name="city" value="<%= inputData.city %>" required>
-      </p>
-      <button class="btn"><%= t('auth.createAccountButton') %></button>
-      <p id="switch-form"><a href="/login"><%= t('auth.loginInstead') %></a></p>
-    </form>
+    </section>
   </main>
 <%- include('../../shared/includes/footer') %>

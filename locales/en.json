@@ -50,7 +50,13 @@
     "otpCodeLabel": "Login Code",
     "otpVerifyButton": "Verify",
     "otpRequestNewCode": "Request a new code",
-    "otpInvalidCodeMessage": "That code is invalid or has expired. Please request a new one."
+    "otpInvalidCodeMessage": "That code is invalid or has expired. Please request a new one.",
+    "validationRequired": "This field is required.",
+    "validationEmail": "Enter a valid email address.",
+    "validationEmailMismatch": "The email addresses do not match.",
+    "validationPasswordLength": "Password must be at least 6 characters long.",
+    "validationPostalLength": "Postal code must be 5 characters long.",
+    "validationCode": "Enter the 6-digit code."
   },
   "products": {
     "allProductsTitle": "All Products",

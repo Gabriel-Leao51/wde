@@ -50,7 +50,13 @@
     "otpCodeLabel": "Código de Acesso",
     "otpVerifyButton": "Verificar",
     "otpRequestNewCode": "Solicitar um novo código",
-    "otpInvalidCodeMessage": "Este código é inválido ou expirou. Solicite um novo."
+    "otpInvalidCodeMessage": "Este código é inválido ou expirou. Solicite um novo.",
+    "validationRequired": "Este campo é obrigatório.",
+    "validationEmail": "Informe um e-mail válido.",
+    "validationEmailMismatch": "Os e-mails não coincidem.",
+    "validationPasswordLength": "A senha deve ter pelo menos 6 caracteres.",
+    "validationPostalLength": "O CEP deve ter 5 caracteres.",
+    "validationCode": "Digite o código de 6 dígitos."
   },
   "products": {
     "allProductsTitle": "Todos os Produtos",
