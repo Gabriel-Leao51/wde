@@ -7,8 +7,12 @@
   data-total="<%= order.productData.totalPrice %>"
   data-status="<%= order.status %>"
 >
-  <td><%= order.formattedDate %></td>
-  <td><a href="mailto:<%= order.userData.email %>"><%= order.userData.name %></a></td>
+  <th scope="row" class="order-ref">#<%= order.id.toString().slice(-6).toUpperCase() %></th>
+  <td class="order-date-cell"><%= order.formattedDate %></td>
+  <td class="order-customer">
+    <span class="order-customer-name"><%= order.userData.name %></span>
+    <a href="mailto:<%= order.userData.email %>"><%= order.userData.email %></a>
+  </td>
   <td>
     <ul class="order-row-items">
       <% for (const item of order.productData.items) { %>
@@ -16,13 +20,13 @@
       <% } %>
     </ul>
   </td>
-  <td>$<%= order.productData.totalPrice.toFixed(2) %></td>
-  <td><span class="badge"><%= t(statusKey).toUpperCase() %></span></td>
+  <td class="numeric">$<%= order.productData.totalPrice.toFixed(2) %></td>
+  <td><span class="badge badge-<%= order.status %>"><%= t(statusKey).toUpperCase() %></span></td>
   <td class="order-actions">
     <form>
       <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
       <input type="hidden" name="orderid" value="<%= order.id %>">
-      <select name="status">
+      <select name="status" aria-label="<%= t('orders.statusColumn') %>">
         <option value="pending" <% if (order.status === 'pending') { %>selected<% } %>><%= t('orders.statusPending') %></option>
         <option value="fulfilled" <% if (order.status === 'fulfilled') { %>selected<% } %>><%= t('orders.statusFulfilled') %></option>
         <option value="cancelled" <% if (order.status === 'cancelled') { %>selected<% } %>><%= t('orders.statusCancelled') %></option>

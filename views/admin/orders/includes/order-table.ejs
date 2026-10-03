@@ -1,17 +1,21 @@
-<table id="orders-table">
-  <thead>
-    <tr>
-      <th data-sort="date" data-sort-type="date"><%= t('orders.dateColumn') %></th>
-      <th data-sort="customer" data-sort-type="text"><%= t('orders.customerColumn') %></th>
-      <th><%= t('orders.itemsColumn') %></th>
-      <th data-sort="total" data-sort-type="number"><%= t('orders.totalColumn') %></th>
-      <th data-sort="status" data-sort-type="text"><%= t('orders.statusColumn') %></th>
-      <th><%= t('orders.actionsColumn') %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% for (const order of orders) { %>
-      <%- include('order-table-row', { order: order }) %>
-    <% } %>
-  </tbody>
-</table>
+<div class="admin-table-wrap">
+  <table id="orders-table">
+    <caption class="sr-only"><%= t('orders.adminTableCaption') %></caption>
+    <thead>
+      <tr>
+        <th scope="col"><%= t('orders.orderColumn') %></th>
+        <th scope="col" data-sort="date" data-sort-type="date" aria-sort="none"><%= t('orders.dateColumn') %></th>
+        <th scope="col" data-sort="customer" data-sort-type="text" aria-sort="none"><%= t('orders.customerColumn') %></th>
+        <th scope="col"><%= t('orders.itemsColumn') %></th>
+        <th scope="col" class="numeric" data-sort="total" data-sort-type="number" aria-sort="none"><%= t('orders.totalColumn') %></th>
+        <th scope="col" data-sort="status" data-sort-type="text" aria-sort="none"><%= t('orders.statusColumn') %></th>
+        <th scope="col"><%= t('orders.actionsColumn') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const order of orders) { %>
+        <%- include('order-table-row', { order: order }) %>
+      <% } %>
+    </tbody>
+  </table>
+</div>

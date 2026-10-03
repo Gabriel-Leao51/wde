@@ -39,9 +39,9 @@ if (ordersTable) {
       const ascending = sortByColumn(column, type);
 
       for (const otherHeader of sortableHeaders) {
-        otherHeader.classList.remove('sort-asc', 'sort-desc');
+        otherHeader.setAttribute('aria-sort', 'none');
       }
-      header.classList.add(ascending ? 'sort-asc' : 'sort-desc');
+      header.setAttribute('aria-sort', ascending ? 'ascending' : 'descending');
     });
   }
 }

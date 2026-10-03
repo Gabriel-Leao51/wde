@@ -9,8 +9,13 @@
   <div class="admin-shell">
     <%- include('../includes/admin-sidebar', { active: 'orders' }) %>
     <main>
-    <h1><%= t('orders.allOrdersTitle') %></h1>
-    <%- include('includes/order-table') %>
+      <div class="admin-page-header">
+        <div>
+          <h1><%= t('orders.allOrdersTitle') %></h1>
+          <p class="admin-page-meta"><%= orders.length %> <%= orders.length === 1 ? t('orders.adminCountOne') : t('orders.adminCountMany') %></p>
+        </div>
+      </div>
+      <%- include('includes/order-table') %>
     </main>
   </div>
 <%- include('../../shared/includes/footer') %>
