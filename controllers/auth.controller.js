@@ -5,6 +5,11 @@ const validation = require('../util/validation');
 const sessionFlash = require('../util/session-flash');
 const sendOtpEmail = require('../utils/otpEmail');
 
+// Where a user lands after signing in: admins go straight to the dashboard, shoppers to the store.
+function homeFor(user) {
+  return user.isAdmin ? '/admin/products' : '/';
+}
+
 function getSignup(req, res) {
   let sessionData = sessionFlash.getSessionData(req);
 
@@ -151,7 +156,7 @@ async function login(req, res, next) {
   }
 
   authUtil.createUserSession(req, existingUser, function () {
-    res.redirect('/');
+    res.redirect(homeFor(existingUser));
   });
 }
 
@@ -253,7 +258,7 @@ async function verifyOtp(req, res, next) {
   }
 
   authUtil.createUserSession(req, existingUser, function () {
-    res.redirect('/');
+    res.redirect(homeFor(existingUser));
   });
 }
 

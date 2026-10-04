@@ -11,10 +11,35 @@
       <div class="admin-page-header">
         <div>
           <h1><%= t('products.productAdministrationTitle') %></h1>
-          <p class="admin-page-meta"><%= products.length %> <%= products.length === 1 ? t('products.adminCountOne') : t('products.adminCountMany') %></p>
+          <p class="admin-page-meta" id="admin-product-count"><% if (query) { %><%= products.length %> <%= t('products.adminCountOf') %> <% } %><%= totalCount %> <%= totalCount === 1 ? t('products.adminCountOne') : t('products.adminCountMany') %></p>
         </div>
         <a href="/admin/products/new" class="btn"><%= t('products.addProduct') %></a>
       </div>
+      <%# Scoped to this page's product table; the customer-facing search lives in the store header. %>
+      <form id="admin-product-search" role="search" aria-label="<%= t('products.adminSearchLabel') %>" action="/admin/products" method="GET">
+        <div class="admin-search-field">
+          <%- include('../../shared/includes/icon', { name: 'search' }) %>
+          <label for="admin-product-query" class="sr-only"><%= t('products.adminSearchLabel') %></label>
+          <input
+            type="search"
+            id="admin-product-query"
+            name="q"
+            value="<%= query %>"
+            autocomplete="off"
+            placeholder="<%= t('products.adminSearchPlaceholder') %>"
+          >
+        </div>
+        <button class="btn"><%= t('products.adminSearchButton') %></button>
+        <% if (query) { %>
+          <a class="btn btn-alt" href="/admin/products"><%= t('products.adminSearchClear') %></a>
+        <% } %>
+      </form>
+      <% if (products.length === 0) { %>
+        <div id="admin-products-empty">
+          <h2><%= t('products.adminNoMatchHeading') %> &ldquo;<%= query %>&rdquo;</h2>
+          <p><%= t('products.adminNoMatchHint') %></p>
+        </div>
+      <% } else { %>
       <div class="admin-table-wrap">
         <table id="products-table">
           <caption class="sr-only"><%= t('products.adminTableCaption') %></caption>
@@ -45,6 +70,7 @@
           </tbody>
         </table>
       </div>
+      <% } %>
       <dialog id="delete-confirm-dialog" aria-labelledby="delete-confirm-heading">
         <h2 id="delete-confirm-heading"><%= t('products.deleteConfirmHeading') %></h2>
         <p><%= t('products.deleteConfirmMessage') %> "<span id="delete-confirm-product-name"></span>"?</p>

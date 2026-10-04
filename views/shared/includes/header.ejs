@@ -5,7 +5,7 @@
     <span></span>
   </button>
 
-  <div id="logo"><a href="/">WDE</a></div>
+  <div id="logo"><a href="<%= locals.isAdmin ? '/admin/products' : '/' %>">WDE</a></div>
 
   <% if (!locals.isAdmin) { %>
     <div id="product-search-container" role="search">

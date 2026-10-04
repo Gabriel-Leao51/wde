@@ -16,7 +16,8 @@
     "themeSystem": "Sistema",
     "themeLight": "Claro",
     "themeDark": "Escuro",
-    "adminMenu": "Administração"
+    "adminMenu": "Administração",
+    "viewStore": "Ver loja"
   },
   "auth": {
     "loginTitle": "Entrar",
@@ -124,7 +125,14 @@
     "adminTableCaption": "Produtos do catálogo",
     "adminCountOne": "produto",
     "adminCountMany": "produtos",
-    "noDepartment": "Nenhum"
+    "noDepartment": "Nenhum",
+    "adminSearchLabel": "Buscar produtos",
+    "adminSearchPlaceholder": "Buscar por nome ou departamento",
+    "adminSearchButton": "Buscar",
+    "adminSearchClear": "Limpar busca",
+    "adminCountOf": "de",
+    "adminNoMatchHeading": "Nenhum produto corresponde a",
+    "adminNoMatchHint": "Verifique a ortografia ou tente um departamento, como Games ou Escritório."
   },
   "departments": {
     "Electronics": "Eletrônicos",

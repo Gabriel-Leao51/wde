@@ -7,6 +7,8 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: var(--space-4) var(--space-8);
+  box-sizing: border-box;
+  width: 100%; /* the body is a flex column, where auto margins would shrink the shell to its content */
   max-width: var(--container-max);
   margin: 0 auto;
   padding: var(--space-8) var(--container-gutter) var(--space-12);
@@ -82,6 +84,66 @@
     padding-bottom: 0;
     border-bottom: none;
   }
+
+  /* The store preview is a different place from the admin pages, so it sits apart below them. */
+  #admin-sidebar .admin-sidebar-preview {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+/* ---------- Product search (scoped to the product table) ---------- */
+
+#admin-product-search {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.admin-search-field {
+  position: relative;
+  flex: 1 1 16rem;
+  max-width: 30rem;
+}
+
+.admin-search-field .icon {
+  position: absolute;
+  top: 50%;
+  left: var(--space-3);
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+#admin-product-query {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--control-height);
+  padding-left: var(--space-10);
+}
+
+#admin-products-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-8);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+#admin-products-empty h2 {
+  margin: 0;
+  font-size: var(--font-size-xl);
+  overflow-wrap: anywhere;
+}
+
+#admin-products-empty p {
+  margin: 0;
+  color: var(--color-text-muted);
 }
 
 /* ---------- Page header ---------- */

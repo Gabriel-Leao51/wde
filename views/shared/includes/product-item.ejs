@@ -4,12 +4,7 @@
     <h2><%= product.title %></h2>
     <p class="product-item-price">$<%= product.price.toFixed(2) %></p>
     <div class="product-item-actions">
-      <% if (locals.isAdmin) { %>
-        <a class="btn btn-alt" href="/admin/products/<%= product.id %>"><%= t('products.viewAndEdit') %></a>
-        <button class="btn btn-alt" data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>"><%= t('products.delete') %></button>
-      <% } else { %>
-        <a class="btn btn-alt" href="/products/<%= product.id %>"><%= t('products.viewDetails') %></a>
-      <% } %>
+      <a class="btn btn-alt" href="/products/<%= product.id %>"><%= t('products.viewDetails') %></a>
     </div>
   </div>
 </article>

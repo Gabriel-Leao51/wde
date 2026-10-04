@@ -3,10 +3,35 @@ const Order = require('../models/order.model');
 const DEPARTMENTS = require('../utils/departments');
 const sanitizeDescription = require('../utils/sanitizeDescription');
 
+// The admin list's own search: a case-insensitive match on the product's name (English or
+// Portuguese) or its department, by key or by the label shown in the current language.
+function matchesAdminSearch(product, query, t) {
+  const needle = query.toLowerCase();
+  const haystack = [product.title, product.translations?.pt?.title, product.department];
+  if (product.department) {
+    haystack.push(t('departments.' + product.department));
+  }
+  return haystack.some(function (text) {
+    return typeof text === 'string' && text.toLowerCase().includes(needle);
+  });
+}
+
 async function getProducts(req, res, next) {
+  const query = typeof req.query.q === 'string' ? req.query.q.trim() : '';
+
   try {
-    const products = await Product.findAll();
-    res.render('admin/products/all-products', { products: products });
+    const allProducts = await Product.findAll();
+    const products = query
+      ? allProducts.filter(function (product) {
+          return matchesAdminSearch(product, query, res.locals.t);
+        })
+      : allProducts;
+
+    res.render('admin/products/all-products', {
+      products: products,
+      totalCount: allProducts.length,
+      query: query,
+    });
   } catch (error) {
     next(error);
     return;

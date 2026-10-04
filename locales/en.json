@@ -16,7 +16,8 @@
     "themeSystem": "System",
     "themeLight": "Light",
     "themeDark": "Dark",
-    "adminMenu": "Admin"
+    "adminMenu": "Admin",
+    "viewStore": "View store"
   },
   "auth": {
     "loginTitle": "Login",
@@ -124,7 +125,14 @@
     "adminTableCaption": "Products in the catalog",
     "adminCountOne": "product",
     "adminCountMany": "products",
-    "noDepartment": "None"
+    "noDepartment": "None",
+    "adminSearchLabel": "Search products",
+    "adminSearchPlaceholder": "Search by name or department",
+    "adminSearchButton": "Search",
+    "adminSearchClear": "Clear search",
+    "adminCountOf": "of",
+    "adminNoMatchHeading": "No products match",
+    "adminNoMatchHint": "Check the spelling, or try a department such as Gaming or Office."
   },
   "departments": {
     "Electronics": "Electronics",
