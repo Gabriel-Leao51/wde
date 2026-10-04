@@ -5,11 +5,34 @@
   background-color: var(--color-surface);
   box-shadow: var(--shadow-lg);
   color: inherit;
-  max-width: 24rem;
+  width: calc(100% - var(--space-8));
+  max-width: 26rem;
+}
+
+#delete-confirm-dialog h2 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--font-size-xl);
+}
+
+#delete-confirm-dialog p {
+  margin: 0;
+  color: var(--color-text-muted);
+  overflow-wrap: anywhere;
+}
+
+#delete-confirm-dialog[open] {
+  animation: dialog-in var(--duration-base) ease;
 }
 
 #delete-confirm-dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
 }
 
 #delete-confirm-dialog .dialog-actions {

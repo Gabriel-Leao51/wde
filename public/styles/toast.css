@@ -33,3 +33,41 @@
 .toast-error {
   border-color: var(--color-danger-text);
 }
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  border-left-width: 4px;
+}
+
+.toast span {
+  flex: 1;
+}
+
+.toast-close {
+  flex: none;
+  min-width: 1.75rem;
+  min-height: 1.75rem;
+  margin: calc(var(--space-2) * -1) calc(var(--space-2) * -1) 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xl);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.toast-close:hover {
+  color: inherit;
+  background-color: var(--color-bg-subtle);
+}
+
+@media (max-width: 30rem) {
+  #toast-container {
+    left: var(--space-4);
+    max-width: none;
+  }
+}

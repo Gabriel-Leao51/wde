@@ -45,11 +45,12 @@
           </tbody>
         </table>
       </div>
-      <dialog id="delete-confirm-dialog">
+      <dialog id="delete-confirm-dialog" aria-labelledby="delete-confirm-heading">
+        <h2 id="delete-confirm-heading"><%= t('products.deleteConfirmHeading') %></h2>
         <p><%= t('products.deleteConfirmMessage') %> "<span id="delete-confirm-product-name"></span>"?</p>
         <div class="dialog-actions">
           <button type="button" id="delete-cancel-button" class="btn btn-alt"><%= t('products.cancel') %></button>
-          <button type="button" id="delete-confirm-button" class="btn"><%= t('products.delete') %></button>
+          <button type="button" id="delete-confirm-button" class="btn btn-danger"><%= t('products.delete') %></button>
         </div>
       </dialog>
     </main>

@@ -3,8 +3,14 @@
 <body>
   <%- include('includes/header') %>
   <main>
-    <h1><%= t('errors.serverErrorHeading') %></h1>
-    <p><%= t('errors.serverErrorBody') %></p>
-    <p><a class="btn" href="/"><%= t('errors.backToSafety') %></a></p>
+    <section class="error-page">
+      <p class="error-code" aria-hidden="true">500</p>
+      <h1><%= t('errors.serverErrorHeading') %></h1>
+      <p class="error-body"><%= t('errors.serverErrorBody') %></p>
+      <div class="error-actions">
+        <a class="btn" href="/"><%= t('errors.backToSafety') %></a>
+        <a class="btn btn-alt" href="/products"><%= t('errors.browseProducts') %></a>
+      </div>
+    </section>
   </main>
 <%- include('includes/footer') %>

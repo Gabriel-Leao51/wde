@@ -9,7 +9,19 @@ const toastContainer = document.getElementById('toast-container');
 window.showToast = function showToast(message, type) {
   const toast = document.createElement('div');
   toast.className = 'toast' + (type ? ' toast-' + type : '');
-  toast.textContent = message;
+  // Errors interrupt (alert); everything else waits its turn (status).
+  toast.setAttribute('role', type === 'error' ? 'alert' : 'status');
+
+  const text = document.createElement('span');
+  text.textContent = message;
+
+  const closeButton = document.createElement('button');
+  closeButton.type = 'button';
+  closeButton.className = 'toast-close';
+  closeButton.setAttribute('aria-label', toastContainer.dataset.dismissLabel || 'Dismiss');
+  closeButton.textContent = '×';
+
+  toast.append(text, closeButton);
   toastContainer.appendChild(toast);
 
   // Force a style flush so the transition below actually animates in,
@@ -17,7 +29,7 @@ window.showToast = function showToast(message, type) {
   void toast.offsetWidth;
   toast.classList.add('toast-visible');
 
-  setTimeout(function () {
+  function dismiss() {
     toast.classList.remove('toast-visible');
     // A second fixed timeout instead of listening for `transitionend`:
     // that event doesn't reliably fire when the tab isn't actively
@@ -26,5 +38,8 @@ window.showToast = function showToast(message, type) {
     setTimeout(function () {
       toast.remove();
     }, TOAST_FADE_MS);
-  }, TOAST_DURATION_MS);
+  }
+
+  closeButton.addEventListener('click', dismiss);
+  setTimeout(dismiss, TOAST_DURATION_MS);
 };

@@ -105,6 +105,7 @@
     "searchLabel": "Buscar",
     "searchPlaceholder": "Buscar produtos...",
     "deleteConfirmMessage": "Tem certeza que deseja excluir",
+    "deleteConfirmHeading": "Excluir produto?",
     "cancel": "Cancelar",
     "imageColumn": "Imagem",
     "titleColumn": "Produto",
@@ -198,6 +199,9 @@
     "intro": "As fotos dos produtos vêm do Unsplash e são usadas sob a Licença Unsplash. Obrigado aos fotógrafos.",
     "photoBy": "Foto de"
   },
+  "toast": {
+    "dismiss": "Fechar"
+  },
   "errors": {
     "errorPageTitle": "Ocorreu um erro",
     "notAuthenticatedHeading": "Não autenticado!",
@@ -208,6 +212,7 @@
     "notFoundBody": "Infelizmente não foi possível encontrar o recurso solicitado!",
     "serverErrorHeading": "Algo deu errado!",
     "serverErrorBody": "Infelizmente algo deu errado - por favor tente novamente mais tarde.",
-    "backToSafety": "Voltar para a segurança!"
+    "backToSafety": "Voltar para a segurança!",
+    "browseProducts": "Ver produtos"
   }
 }

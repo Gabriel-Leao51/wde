@@ -106,6 +106,7 @@
     "searchPlaceholder": "Search products...",
     "deleteConfirmMessage": "Are you sure you want to delete",
     "cancel": "Cancel",
+    "deleteConfirmHeading": "Delete product?",
     "imageColumn": "Image",
     "titleColumn": "Product",
     "departmentColumn": "Department",
@@ -198,6 +199,9 @@
     "intro": "Product photos come from Unsplash and are used under the Unsplash License. Thank you to the photographers.",
     "photoBy": "Photo by"
   },
+  "toast": {
+    "dismiss": "Dismiss"
+  },
   "errors": {
     "errorPageTitle": "An error occurred",
     "notAuthenticatedHeading": "Not authenticated!",
@@ -208,6 +212,7 @@
     "notFoundBody": "Unfortunately, we could not find the requested resource!",
     "serverErrorHeading": "Something went wrong!",
     "serverErrorBody": "Unfortunately, something went wrong - please try again later.",
-    "backToSafety": "Back to safety!"
+    "backToSafety": "Back to safety!",
+    "browseProducts": "Browse products"
   }
 }
