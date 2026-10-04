@@ -9,36 +9,38 @@
 <br>
 
 <p align="center">
-  <img alt="admin main page" src="github\admin-main-page.png" width="100%">
+  <img alt="home page" src="github/home.png" width="70%">
 </p>
 
 <p align="center">
-  <img alt="product form" src="github\product-form.png" width="100%">
+  <img alt="catalog" src="github/catalog.png" width="49%">
+  <img alt="product details" src="github/product-details.png" width="49%">
 </p>
 
 <p align="center">
-  <img alt="order management" src="github\order-management.png" width="100%">
+  <img alt="cart" src="github/cart.png" width="49%">
+  <img alt="orders" src="github/orders.png" width="49%">
 </p>
 
 <p align="center">
-  <img alt="main page" src="github\main-page.png" width="50%"><img alt="mobile nav" src="github\mobile-nav.png" width="50%">
+  <img alt="home page, dark theme" src="github/home-dark.png" width="70%">
 </p>
 
 <p align="center">
-  <img alt="cart" src="github\cart.png" width="50%"><img alt="stripe checkout" src="github\stripe.png" width="50%">
+  <img alt="admin products" src="github/admin-products.png" width="49%">
+  <img alt="admin orders" src="github/admin-orders.png" width="49%">
 </p>
 
 <p align="center">
-  <img alt="payment success" src="github\payment-success.png" width="50%"><img alt="orders" src="github\orders.png" width="50%">
-</p>
-
+  <img alt="phone home page" src="github/mobile-home.png" width="24%">
+  <img alt="phone menu" src="github/mobile-menu.png" width="24%">
 </p>
 
 ## 🚀 Technologies
 
 This project is built with:
 
-- EJS and CSS (vanilla, no frontend framework or bundler)
+- EJS and CSS (vanilla, no frontend framework or bundler): design tokens, a self-hosted Inter font, and light and dark themes (see [`docs/design-direction.md`](docs/design-direction.md))
 - JavaScript, Ajax and Node.js
 - MongoDB
 - Stripe (test-mode checkout)
@@ -53,13 +55,16 @@ WDE Shop is an e-commerce store with two access levels, available in English and
 Administrator:
 
 - Add, edit and delete products - including a rich text description editor (sanitized server-side against stored XSS), a launch-date picker, and drag-and-drop image upload
+- Search the product list by name or department
 - Manage orders in a sortable table (click any column to sort)
-- Desktop-optimized interface
+- Sidebar admin shell; the store itself is available as a preview
 
 Customer:
 
+- Start from a home page with department tiles and featured products
 - Browse the catalog with department filtering, name/price sorting, and a live search combobox
-- View product details and add products to the cart
+- View product details (breadcrumbs, related products) and add products to the cart
+- Switch between a light and a dark theme (follows the system, or choose from the header menu)
 - Pay through the Stripe API (test mode)
 - Track the status of past orders, download a PDF invoice for any of them
 - Log in with a password, or with a one-time code emailed via Mailpit (no password required)
@@ -94,7 +99,7 @@ Credentials already seeded:
 
 The seed script also creates a full sample catalog (24 products across 6 departments, including the "Red and Black Gaming Chair") and a pending order, so the application comes up ready to use and ready for automated testing.
 
-MongoDB is reachable at `127.0.0.1:27017` (loopback only) — used by the [`wde-test-automation`](https://github.com/Gabriel-Leao51/wde-test-automation) suite's security proof-of-concept for `BUG-SEC-005`, and handy for inspecting the database locally with any MongoDB client.
+MongoDB is reachable at `127.0.0.1:27017` (loopback only) — used by the [`wde-playwright-ts`](https://github.com/Gabriel-Leao51/wde-playwright-ts) suite's security proof-of-concept for `BUG-SEC-005` and its catalog checks, and handy for inspecting the database locally with any MongoDB client.
 
 Mailpit's web UI is reachable at [http://localhost:8025](http://localhost:8025) — every order confirmation and OTP login-code email sent by the app locally ends up there (no real SMTP provider or account needed).
 
@@ -106,7 +111,7 @@ docker compose down -v
 
 ## 🧪 Automated Testing
 
-This application is the target under test for a companion end-to-end test suite, [`wde-test-automation`](https://github.com/Gabriel-Leao51/wde-test-automation) (Playwright + pytest-bdd), covering functional, security, visual regression, and E2E scenarios across the full feature set described above.
+This application is the target under test for a companion end-to-end test suite, [`wde-playwright-ts`](https://github.com/Gabriel-Leao51/wde-playwright-ts) (Playwright + TypeScript), covering functional, security, visual regression, responsive and accessibility scenarios across the full feature set described above, on Chromium, Firefox, WebKit and two phone profiles. It also served as the safety net for the redesign. The earlier Python suite, [`wde-test-automation`](https://github.com/Gabriel-Leao51/wde-test-automation), is frozen.
 
 ## 📷 Photo credits
 
