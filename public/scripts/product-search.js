@@ -26,9 +26,11 @@
 
     for (const product of products) {
       const item = document.createElement('li');
-      item.setAttribute('role', 'option');
+      item.setAttribute('role', 'presentation');
 
+      // The option is the link itself: an option must not contain another interactive element.
       const link = document.createElement('a');
+      link.setAttribute('role', 'option');
       link.href = `/products/${product.id}`;
       link.textContent = `${product.title} - $${product.price.toFixed(2)}`;
 

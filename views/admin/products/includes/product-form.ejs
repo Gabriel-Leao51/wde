@@ -50,7 +50,21 @@
 
   <p>
     <label for="description-editor"><%= t('products.descriptionLabel') %></label>
-    <div id="description-editor"><%- product.description %></div>
+    <div
+      id="description-editor"
+      data-label="<%= t('products.descriptionLabel') %>"
+      data-toolbar-labels="<%= JSON.stringify({
+        bold: t('products.editorBold'),
+        italic: t('products.editorItalic'),
+        underline: t('products.editorUnderline'),
+        strike: t('products.editorStrike'),
+        'list:ordered': t('products.editorOrderedList'),
+        'list:bullet': t('products.editorBulletList'),
+        blockquote: t('products.editorQuote'),
+        link: t('products.editorLink'),
+        clean: t('products.editorClear'),
+      }) %>"
+    ><%- product.description %></div>
     <textarea id="description" name="description" hidden><%= product.description %></textarea>
   </p>
 
