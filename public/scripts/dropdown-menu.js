@@ -22,7 +22,8 @@ document.querySelectorAll('.dropdown').forEach(function (dropdown) {
     }
   });
 
-  document.addEventListener('click', function (event) {
+  // pointerdown, not click: iOS Safari fires no click for a tap on a non-interactive element.
+  document.addEventListener('pointerdown', function (event) {
     if (!dropdown.contains(event.target)) {
       closeMenu();
     }
@@ -30,6 +31,10 @@ document.querySelectorAll('.dropdown').forEach(function (dropdown) {
 
   dropdown.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
+      // An open menu takes this Escape, so the phone nav panel around it stays open (mobile.js).
+      if (!menu.hidden) {
+        event.preventDefault();
+      }
       closeMenu();
       trigger.focus();
     }

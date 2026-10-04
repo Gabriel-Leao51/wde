@@ -341,6 +341,48 @@ body {
   }
 }
 
+/* ---------- Touch screens ---------- */
+
+/*
+ * A finger needs bigger targets than a mouse pointer. Stand-alone text links (footer, breadcrumbs,
+ * the auth card's alternatives, Clear filters) grow to the 44px touch target; links inside a
+ * sentence or a table cell stay inline. The browser's own blue tap flash is off because :active
+ * and :focus-visible already show the press. Desktop (fine pointer) layouts are unchanged.
+ */
+@media (pointer: coarse) {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .footer-nav a,
+  .footer-legal a,
+  #breadcrumbs a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--touch-target);
+  }
+
+  #breadcrumbs ol {
+    align-items: center;
+  }
+
+  .auth-links a,
+  #catalog-filters .clear-filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--touch-target);
+  }
+
+  .auth-links {
+    gap: 0;
+  }
+
+  .footer-nav ul {
+    row-gap: 0;
+  }
+}
+
 /* Error pages (401/403/404/500): one centred card with a status code, message and two exits. */
 .error-page {
   max-width: 32rem;
