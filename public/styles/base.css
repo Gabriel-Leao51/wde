@@ -33,7 +33,8 @@ main {
   padding-block: var(--space-8) var(--space-12);
 }
 
-main > :last-child {
+/* A modal <dialog> centres itself with auto margins; zeroing one of them would pin it to an edge. */
+main > :last-child:not(dialog) {
   margin-bottom: 0;
 }
 
