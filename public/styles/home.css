@@ -6,6 +6,8 @@
 main.home {
   width: 100%;
   max-width: none;
+  /* The hero band sits flush under the header; only the bottom needs room before the footer. */
+  padding-block: 0 var(--space-16);
 }
 
 .home-inner {

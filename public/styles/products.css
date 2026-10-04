@@ -47,6 +47,14 @@ main:has(#catalog-layout) {
   max-width: var(--container-max);
 }
 
+/* The wide pages line up with the header and footer: full width inside the shared gutter. */
+main:has(#catalog-layout),
+#product-details {
+  box-sizing: border-box;
+  width: 100%;
+  padding-inline: var(--container-gutter);
+}
+
 #catalog-layout {
   display: grid;
   gap: var(--space-6);
@@ -227,7 +235,6 @@ main:has(#catalog-layout) {
 }
 
 #breadcrumbs {
-  margin-top: var(--space-6);
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
 }
@@ -337,6 +344,10 @@ main:has(#catalog-layout) {
   border-radius: var(--radius-lg);
 }
 
+#related-products #products-grid {
+  margin-bottom: 0;
+}
+
 #related-products {
-  margin: var(--space-8) 0;
+  margin: var(--space-8) 0 0;
 }

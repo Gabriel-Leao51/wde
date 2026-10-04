@@ -29,6 +29,12 @@ main {
   width: 90%;
   max-width: 50rem;
   margin: 0 auto;
+  /* The page's breathing room against the header above and the footer below. */
+  padding-block: var(--space-8) var(--space-12);
+}
+
+main > :last-child {
+  margin-bottom: 0;
 }
 
 ul,

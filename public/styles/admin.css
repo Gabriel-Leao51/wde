@@ -9,18 +9,23 @@
   gap: var(--space-4) var(--space-8);
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: var(--space-4) var(--container-gutter) var(--space-12);
+  padding: var(--space-8) var(--container-gutter) var(--space-12);
 }
 
 .admin-shell > main {
   width: auto;
   max-width: none;
   margin: 0;
+  padding: 0;
   min-width: 0;
 }
 
 .admin-shell > main.admin-form-page {
   max-width: var(--container-narrow);
+}
+
+.admin-form-page form > :last-child {
+  margin-bottom: 0;
 }
 
 /* ---------- Sidebar ---------- */

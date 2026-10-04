@@ -1,7 +1,6 @@
 .auth-page {
   display: flex;
   justify-content: center;
-  padding-block: var(--space-8);
 }
 
 .auth-card {
