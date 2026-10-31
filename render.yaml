@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: wde
+    runtime: docker
+    dockerfilePath: ./Dockerfile.render
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: TRUST_PROXY
+        value: "1"
+      # Set in the dashboard: the public URL, Stripe test key, SMTP details, seed passwords.
+      - key: APP_URL
+        sync: false
+      - key: STRIPE_KEY
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+      - key: SEED_ADMIN_PASSWORD
+        sync: false
+      - key: SEED_CUSTOMER_PASSWORD
+        sync: false

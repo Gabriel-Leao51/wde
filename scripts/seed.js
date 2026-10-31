@@ -15,14 +15,14 @@ const IMAGES_DIR = path.join(__dirname, "..", "product-data", "images");
 const USERS = [
   {
     email: "admin@test.com",
-    password: "tester",
+    password: process.env.SEED_ADMIN_PASSWORD || "tester",
     name: "Admin",
     address: { street: "Admin St 1", postalCode: "00000", city: "Admin City" },
     isAdmin: true,
   },
   {
     email: "user2@example.com",
-    password: "usertest",
+    password: process.env.SEED_CUSTOMER_PASSWORD || "usertest",
     name: "User B",
     address: { street: "Customer St 2", postalCode: "11111", city: "Customer City" },
     isAdmin: false,
