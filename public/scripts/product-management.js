@@ -37,8 +37,9 @@ async function confirmDelete() {
   const { buttonElement, productId, csrfToken } = pendingDelete;
   pendingDelete = null;
 
-  const response = await fetch('/admin/products/' + productId + '?_csrf=' + csrfToken, {
+  const response = await fetch('/admin/products/' + productId, {
     method: 'DELETE',
+    headers: { 'CSRF-Token': csrfToken },
   });
 
   deleteDialog.close();

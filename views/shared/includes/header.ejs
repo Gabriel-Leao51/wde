@@ -27,7 +27,7 @@
     <a id="cart-link" href="/cart">
       <%- include('icon', { name: 'cart' }) %>
       <span class="sr-only"><%= t('nav.cart') %></span>
-      <span class="cart-count"><%= locals.cart.totalQuantity %></span>
+      <span class="cart-count"><%= locals.cart ? locals.cart.totalQuantity : 0 %></span>
     </a>
   <% } %>
 

@@ -20,9 +20,9 @@ The `seed` service populates the database automatically on first run. To reset t
 
 Never paste credential values into code, commits, or chat. They're defined in the test suite's fixtures (`../wde_automation_typescript`, ported from the Python suite's `test_data/users.json`) — reference that, don't hardcode new ones here.
 
-## Known, intentionally-tracked bugs
+## Security fixes (2026-10-31)
 
-Several real bugs in this app are documented and covered by regression tests in the companion test repo (`docs/bugs/BUG-*.md`), e.g. broken admin authorization, missing security headers, a hardcoded session secret. Don't "fix" security/auth behavior here without checking that repo first — some of it is deliberately left in place as a demonstrated finding until the test repo's roadmap says otherwise.
+The bugs earlier tracked as deliberate findings are fixed, and the test repo's specs assert the secure behaviour (no more `test.fail()`): admin routes check `req.baseUrl` (BUG-AUTH-001/002); helmet and no `x-powered-by` (BUG-SEC-002); the CSRF token is a hidden field in the product form, with `middlewares/admin-multipart.js` parsing the multipart body before csurf (BUG-SEC-003); session cookie is HttpOnly, SameSite=Lax and `secure: 'auto'` (BUG-SEC-004); `NODE_ENV=production` in the Dockerfile plus a null-safe nav partial (BUG-INFO-001); the session secret comes from `SESSION_SECRET`, or a random per-process value when unset (BUG-SEC-005). Behind an HTTPS proxy set `TRUST_PROXY=1`.
 
 ## Redesign (Phase C of the test repo's roadmap)
 

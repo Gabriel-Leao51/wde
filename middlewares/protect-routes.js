@@ -3,11 +3,13 @@ function protectRoutes(req, res, next) {
     return res.redirect('/401');
   }
 
-  if (req.path.startsWith('/admin') && !res.locals.isAdmin) {
+  // baseUrl, not path: Express strips the mount prefix from req.path for
+  // middleware registered through app.use('/admin', ...).
+  if (req.baseUrl.startsWith('/admin') && !res.locals.isAdmin) {
     return res.redirect('/403');
   }
 
-  next();  
+  next();
 }
 
 module.exports = protectRoutes;
